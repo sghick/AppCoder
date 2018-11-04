@@ -9,6 +9,7 @@
 #import "ACRAppListController.h"
 #import "ACRAppModels.h"
 #import "ACRAppInfoController.h"
+#import "ACRAppEditController.h"
 #import "ACRAppDataBase.h"
 
 @interface ACRAppListController ()<
@@ -29,7 +30,7 @@ ACRAppInfoControllerDelegate
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"我的App";
+    self.navigationItem.title = @"MCode";
     
     [self.view addSubview:self.tableView];
     
@@ -92,20 +93,12 @@ ACRAppInfoControllerDelegate
         controller.delegate = self;
         [self.navigationController pushViewController:controller animated:YES];
     } else if (section == 1) {
-        ACRAppInfo *appInfo = self.appInfo[indexPath.row];
-        ACRAppInfoController *controller = [[ACRAppInfoController alloc] init];
-        controller.appInfo = appInfo;
-        controller.delegate = self;
+        ACRAppEditController *controller = [[ACRAppEditController alloc] init];
+        controller.appInfo = self.appInfo[indexPath.row];
         [self.navigationController pushViewController:controller animated:YES];
     }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
-        return UITableViewCellEditingStyleDelete;
-    }
-    return UITableViewCellEditingStyleNone;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -115,32 +108,52 @@ ACRAppInfoControllerDelegate
     return NO;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
-        return @"删除";
-    }
-    return nil;
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    __weak typeof(self) weakSelf = self;
+    // 删除
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:(UITableViewRowActionStyleDestructive) title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        [weakSelf p_askNeedsDeleteAppInfoInTableView:tableView indexPath:indexPath];
+    }];
+    deleteAction.backgroundColor = [UIColor cyanColor];
+    
+    // 编辑
+    UITableViewRowAction *editAction =[UITableViewRowAction rowActionWithStyle:(UITableViewRowActionStyleDestructive) title:@"编辑" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        [weakSelf p_updateAppInfoWithIndexPath:indexPath];
+    }];
+    editAction.backgroundColor = [UIColor magentaColor];
+    
+    return @[deleteAction, editAction];
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        if (indexPath.section == 1) {
-            ACRAppInfo *appInfo = self.appInfo[indexPath.row];
-            
-            NSMutableArray *array = [self.appInfo mutableCopy];
-            [array removeObjectAtIndex:indexPath.row];
-            self.appInfo = [array copy];
-            
-            if (self.appInfo.count) {
-                [tableView beginUpdates];
-                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                [tableView endUpdates];
-            } else {
-                [tableView reloadData];
-            }
-            
-            [ACRAppDataBase deleteAppInfoWithIdentifier:appInfo.app_identifier];
-        }
+#pragma mark - Privates
+
+// 询问是否确定要删除app信息
+- (void)p_askNeedsDeleteAppInfoInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    ACRAppInfo *appInfo = self.appInfo[indexPath.row];
+    
+    NSMutableArray *array = [self.appInfo mutableCopy];
+    [array removeObjectAtIndex:indexPath.row];
+    self.appInfo = [array copy];
+    
+    if (self.appInfo.count) {
+        [tableView beginUpdates];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [tableView endUpdates];
+    } else {
+        [tableView reloadData];
+    }
+    
+    [ACRAppDataBase deleteAppInfoWithIdentifier:appInfo.app_identifier];
+}
+
+- (void)p_updateAppInfoWithIndexPath:(NSIndexPath *)indexPath {
+    NSInteger section = indexPath.section;
+    if (section == 1) {
+        ACRAppInfo *appInfo = self.appInfo[indexPath.row];
+        ACRAppInfoController *controller = [[ACRAppInfoController alloc] init];
+        controller.appInfo = appInfo;
+        controller.delegate = self;
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 

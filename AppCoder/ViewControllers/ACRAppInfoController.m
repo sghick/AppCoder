@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"新增App";
+    self.navigationItem.title = self.appInfo?@"编辑App":@"新增App";
     
     [self createSubviews];
 }
@@ -99,7 +99,6 @@ static NSString * const error_domain_appinfo = @"error.domain.appinfo";
 
 - (void)setAppInfo:(ACRAppInfo *)appInfo {
     _appInfo = appInfo;
-    self.navigationItem.title = appInfo?@"编辑App":@"新增App";
     
     self.appNameInput.text = appInfo.name;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "ACRAppEditController.h"
+#import "ACRAppModels.h"
 
 @interface ACRAppEditController ()
 
@@ -16,23 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"App:xxx";
+    self.navigationItem.title = self.appInfo.name;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
