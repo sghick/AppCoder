@@ -1,0 +1,6 @@
+framework module SMRLogScreen {
+  umbrella header "SMRLogScreen-umbrella.h"
+
+  export *
+  module * { export * }
+}

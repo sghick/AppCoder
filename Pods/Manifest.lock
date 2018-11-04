@@ -1,0 +1,85 @@
+PODS:
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - PureLayout (3.1.2)
+  - SMRDB (1.0.0):
+    - FMDB
+    - YYModel
+  - SMRLifecycle (1.0.0)
+  - SMRLogScreen (1.0.0)
+  - SMRLogSystem (1.0.0)
+  - SMRModel (1.0.0):
+    - YYModel
+  - SMRRanker (1.0.0)
+  - YYModel (1.0.4)
+
+DEPENDENCIES:
+  - PureLayout
+  - "SMRDB (from `git@github.com:sghick/cmp-framework-SMRDB.git`, commit `f8ce5e8`)"
+  - "SMRLifecycle (from `git@github.com:sghick/cmp-library-SMRLifecycle.git`, commit `4dd23fa`)"
+  - "SMRLogScreen (from `git@github.com:sghick/cmp-framework-SMRLogScreen.git`, commit `22aca3a`)"
+  - "SMRLogSystem (from `git@github.com:sghick/cmp-framework-SMRLogSystem.git`, commit `b545d78`)"
+  - "SMRModel (from `git@github.com:sghick/cmp-library-SMRModel.git`, commit `db90262`)"
+  - "SMRRanker (from `git@github.com:sghick/cmp-library-SMRRanker.git`, commit `3033794`)"
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FMDB
+    - PureLayout
+    - YYModel
+
+EXTERNAL SOURCES:
+  SMRDB:
+    :commit: f8ce5e8
+    :git: "git@github.com:sghick/cmp-framework-SMRDB.git"
+  SMRLifecycle:
+    :commit: 4dd23fa
+    :git: "git@github.com:sghick/cmp-library-SMRLifecycle.git"
+  SMRLogScreen:
+    :commit: 22aca3a
+    :git: "git@github.com:sghick/cmp-framework-SMRLogScreen.git"
+  SMRLogSystem:
+    :commit: b545d78
+    :git: "git@github.com:sghick/cmp-framework-SMRLogSystem.git"
+  SMRModel:
+    :commit: db90262
+    :git: "git@github.com:sghick/cmp-library-SMRModel.git"
+  SMRRanker:
+    :commit: '3033794'
+    :git: "git@github.com:sghick/cmp-library-SMRRanker.git"
+
+CHECKOUT OPTIONS:
+  SMRDB:
+    :commit: f8ce5e8
+    :git: "git@github.com:sghick/cmp-framework-SMRDB.git"
+  SMRLifecycle:
+    :commit: 4dd23fa
+    :git: "git@github.com:sghick/cmp-library-SMRLifecycle.git"
+  SMRLogScreen:
+    :commit: 22aca3a
+    :git: "git@github.com:sghick/cmp-framework-SMRLogScreen.git"
+  SMRLogSystem:
+    :commit: b545d78
+    :git: "git@github.com:sghick/cmp-framework-SMRLogSystem.git"
+  SMRModel:
+    :commit: db90262
+    :git: "git@github.com:sghick/cmp-library-SMRModel.git"
+  SMRRanker:
+    :commit: '3033794'
+    :git: "git@github.com:sghick/cmp-library-SMRRanker.git"
+
+SPEC CHECKSUMS:
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  PureLayout: 4634d0b61e3b5021166e8ec7c18e9e0ca0720c8b
+  SMRDB: 2bc44f86c9c326dcb8988e393b711d5bdab7e089
+  SMRLifecycle: 449f705b01dd4f997d54a147f2f0112f00ea02a8
+  SMRLogScreen: 74b70fb3e33ba9ddeef2b05c18802a25601e1131
+  SMRLogSystem: 874b94b81ae6c307ab9c45ed5d5b1448259e6f6c
+  SMRModel: 260458cde1a41702b77fa230fa3a43f4289570b4
+  SMRRanker: 734b2b739050cb4427427df8cf5c6a135a9b0670
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+
+PODFILE CHECKSUM: 13cf1e2b3bf9e10d933356291acea85504727632
+
+COCOAPODS: 1.5.3

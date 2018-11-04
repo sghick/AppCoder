@@ -1,0 +1,6 @@
+framework module Pods_AppCoder {
+  umbrella header "Pods-AppCoder-umbrella.h"
+
+  export *
+  module * { export * }
+}

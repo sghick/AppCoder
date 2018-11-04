@@ -1,0 +1,6 @@
+framework module SMRLifecycle {
+  umbrella header "SMRLifecycle-umbrella.h"
+
+  export *
+  module * { export * }
+}

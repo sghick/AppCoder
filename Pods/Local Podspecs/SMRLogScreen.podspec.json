@@ -1,0 +1,21 @@
+{
+  "name": "SMRLogScreen",
+  "version": "1.0.0",
+  "summary": "the log screen display for oc debug",
+  "authors": {
+    "tinswin": "https://github.com/sghick"
+  },
+  "homepage": "https://github.com/sghick/cmp-framework-SMRLogScreen",
+  "platforms": {
+    "ios": "8.0",
+    "watchos": "2.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "git@github.com:sghick/cmp-framework-SMRLogScreen.git"
+  },
+  "source_files": [
+    "SMRLogScreen/*.{h,m}",
+    "SMRLogScreen/sources/*.{png,gif}"
+  ]
+}

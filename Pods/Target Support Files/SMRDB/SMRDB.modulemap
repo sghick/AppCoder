@@ -1,0 +1,6 @@
+framework module SMRDB {
+  umbrella header "SMRDB-umbrella.h"
+
+  export *
+  module * { export * }
+}
