@@ -20,7 +20,7 @@ ACRAppInfoControllerDelegate
 
 @property (strong, nonatomic) UITableView *tableView;
 
-@property (strong, nonatomic) NSArray<ACRAppInfo *> *appInfo;
+@property (strong, nonatomic) NSArray<ACRAppInfo *> *appInfoList;
 
 @end
 
@@ -41,7 +41,7 @@ ACRAppInfoControllerDelegate
 #pragma mark - Datas
 
 - (void)queryDataFromDB {
-    self.appInfo = [ACRAppDataBase selectAllAppInfos];
+    self.appInfoList = [ACRAppDataBase selectAllAppInfos];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -59,7 +59,7 @@ ACRAppInfoControllerDelegate
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"identifierOfAppInfo"];
         }
-        ACRAppInfo *appInfo = self.appInfo[indexPath.row];
+        ACRAppInfo *appInfo = self.appInfoList[indexPath.row];
         cell.textLabel.text = appInfo.name;
         cell.detailTextLabel.text = appInfo.app_identifier;
         return cell;
@@ -71,7 +71,7 @@ ACRAppInfoControllerDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSInteger secCount = 1;
-    if (self.appInfo.count > 0) {
+    if (self.appInfoList.count > 0) {
         secCount++;
     }
     return secCount;
@@ -81,7 +81,7 @@ ACRAppInfoControllerDelegate
     if (section == 0) {
         return 1;
     } else if (section == 1) {
-        return self.appInfo.count;
+        return self.appInfoList.count;
     }
     return 0;
 }
@@ -94,7 +94,7 @@ ACRAppInfoControllerDelegate
         [self.navigationController pushViewController:controller animated:YES];
     } else if (section == 1) {
         ACRAppEditController *controller = [[ACRAppEditController alloc] init];
-        controller.appInfo = self.appInfo[indexPath.row];
+        controller.appInfo = self.appInfoList[indexPath.row];
         [self.navigationController pushViewController:controller animated:YES];
     }
     
@@ -129,13 +129,13 @@ ACRAppInfoControllerDelegate
 
 // 询问是否确定要删除app信息
 - (void)p_askNeedsDeleteAppInfoInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-    ACRAppInfo *appInfo = self.appInfo[indexPath.row];
+    ACRAppInfo *appInfo = self.appInfoList[indexPath.row];
     
-    NSMutableArray *array = [self.appInfo mutableCopy];
+    NSMutableArray *array = [self.appInfoList mutableCopy];
     [array removeObjectAtIndex:indexPath.row];
-    self.appInfo = [array copy];
+    self.appInfoList = [array copy];
     
-    if (self.appInfo.count) {
+    if (self.appInfoList.count) {
         [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [tableView endUpdates];
@@ -149,7 +149,7 @@ ACRAppInfoControllerDelegate
 - (void)p_updateAppInfoWithIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = indexPath.section;
     if (section == 1) {
-        ACRAppInfo *appInfo = self.appInfo[indexPath.row];
+        ACRAppInfo *appInfo = self.appInfoList[indexPath.row];
         ACRAppInfoController *controller = [[ACRAppInfoController alloc] init];
         controller.appInfo = appInfo;
         controller.delegate = self;
@@ -160,13 +160,13 @@ ACRAppInfoControllerDelegate
 #pragma mark - ACRAppInfoControllerDelegate
 
 - (void)appInfoController:(ACRAppInfoController *)controller didRecvicedAppInfo:(ACRAppInfo *)appInfo {
-    if (![self.appInfo containsObject:appInfo]) {
-        self.appInfo = [@[appInfo] arrayByAddingObjectsFromArray:self.appInfo];
+    if (![self.appInfoList containsObject:appInfo]) {
+        self.appInfoList = [@[appInfo] arrayByAddingObjectsFromArray:self.appInfoList];
     }
     [self.tableView reloadData];
     
     [ACRAppDataBase deleteAllAppInfos];
-    [ACRAppDataBase insertOrReplaceAppInfos:self.appInfo];
+    [ACRAppDataBase insertOrReplaceAppInfos:self.appInfoList];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

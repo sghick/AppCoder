@@ -28,7 +28,7 @@
 
 @end
 
-@implementation ACRAppStruct
+@implementation ACRAppDelegate
 
 @end
 

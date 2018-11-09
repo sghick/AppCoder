@@ -21,7 +21,7 @@
 
 @interface ACRAppMethod : NSObject
 
-@property (copy  , nonatomic) NSString *identifier;
+@property (copy  , nonatomic) NSString *method_dentifier;
 @property (copy  , nonatomic) NSString *name;
 @property (copy  , nonatomic) NSString *content;
 
@@ -29,7 +29,7 @@
 
 @interface ACRAppClass : NSObject
 
-@property (copy  , nonatomic) NSString *identifier;
+@property (copy  , nonatomic) NSString *class_identifier;
 @property (copy  , nonatomic) NSString *name;
 @property (copy  , nonatomic) NSArray<ACRAppMethod *> *method_list;
 
@@ -39,16 +39,15 @@
 
 @property (copy  , nonatomic) NSString *page_identifier;
 @property (copy  , nonatomic) NSString *page_name;
+@property (assign, nonatomic) BOOL isRootPage;
 
 @property (copy  , nonatomic) NSArray<ACRAppPage *> *pages;
 
 @end
 
-@interface ACRAppStruct : NSObject
+@interface ACRAppDelegate : NSObject
 
-@property (copy  , nonatomic) NSString *app_identifier;
-@property (copy  , nonatomic) NSString *root_page_id;
-@property (copy  , nonatomic) NSArray<ACRAppPage *> *pages;
+@property (copy  , nonatomic) NSString *delegate_identifier;
 
 @end
 
