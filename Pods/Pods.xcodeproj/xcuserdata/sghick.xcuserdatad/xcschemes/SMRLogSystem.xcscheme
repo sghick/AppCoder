@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9F76164BD98A55E6F84F218E6D921087"
+               BlueprintIdentifier = "A8FE24CDC1FFA6CF2BB64196DA2A11CE"
                BlueprintName = "SMRLogSystem"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "SMRLogSystem.framework">

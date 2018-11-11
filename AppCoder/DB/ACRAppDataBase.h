@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class ACRAppInfo;
+@class ACRAppPage;
 @interface ACRAppDataBase : NSObject
 
 #pragma mark - ACRAppInfo
@@ -17,5 +18,12 @@
 + (NSArray<ACRAppInfo *> *)selectAllAppInfos;
 + (BOOL)deleteAppInfoWithIdentifier:(NSString *)identifier;
 + (BOOL)deleteAllAppInfos;
+
+#pragma mark - ACRAppPage
+
++ (void)insertOrReplaceAppPages:(NSArray<ACRAppPage *> *)appPages appIdentifier:(NSString *)appIdentifier root:(BOOL)root;
++ (NSArray<ACRAppPage *> *)selectAppPagesWithAppIdentifier:(NSString *)appIdentifier root:(BOOL)root;
++ (BOOL)deleteAppPageWithIdentifier:(NSString *)identifier;
++ (BOOL)deleteAppPagesWithAppIdentifier:(NSString *)appIdentifier root:(BOOL)root;
 
 @end

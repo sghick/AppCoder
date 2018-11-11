@@ -11,6 +11,11 @@
 /**
  App类编辑页
  */
+@class ACRAppInfo;
+@class ACRAppPage;
 @interface ACRClassEditController : UIViewController
+
+@property (strong, nonatomic) ACRAppInfo *appInfo;
+@property (strong, nonatomic) ACRAppPage *appPage;
 
 @end

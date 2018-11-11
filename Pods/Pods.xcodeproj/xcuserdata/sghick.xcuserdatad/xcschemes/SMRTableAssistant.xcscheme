@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EF1512BF1B5F8C1BB0743A4EEEB073BD"
-               BlueprintName = "SMRDB"
+               BlueprintIdentifier = "6BBF3DD64153AF964403DB456DA6B1AE"
+               BlueprintName = "SMRTableAssistant"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "SMRDB.framework">
+               BuildableName = "SMRTableAssistant.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

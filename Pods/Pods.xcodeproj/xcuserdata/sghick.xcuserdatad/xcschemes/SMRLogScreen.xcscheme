@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6A3E98CD6539E552A09ED8E9D386D1A1"
+               BlueprintIdentifier = "97CA3010F38DFFBAA5CDE996347FAD1D"
                BlueprintName = "SMRLogScreen"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "SMRLogScreen.framework">

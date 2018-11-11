@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8C836D2923B3996A7E3C1A0996D962CF"
+               BlueprintIdentifier = "DAB261015B9F9DE1C94D1E27F6CDBF4E"
                BlueprintName = "SMRModel"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "SMRModel.framework">

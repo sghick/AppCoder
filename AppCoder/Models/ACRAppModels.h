@@ -38,16 +38,23 @@
 @interface ACRAppPage : NSObject
 
 @property (copy  , nonatomic) NSString *page_identifier;
-@property (copy  , nonatomic) NSString *page_name;
-@property (assign, nonatomic) BOOL isRootPage;
+@property (copy  , nonatomic) NSString *name;
 
 @property (copy  , nonatomic) NSArray<ACRAppPage *> *pages;
+
+// 拓展
+@property (copy  , nonatomic) NSString *app_identifier;
+@property (assign, nonatomic) BOOL root_page;
 
 @end
 
 @interface ACRAppDelegate : NSObject
 
 @property (copy  , nonatomic) NSString *delegate_identifier;
+@property (copy  , nonatomic) NSString *name;
+
+// 拓展
+@property (copy  , nonatomic) NSString *app_identifier;
 
 @end
 

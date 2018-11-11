@@ -151,6 +151,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SMRLogSystem/SMRLogSystem.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SMRModel/SMRModel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SMRRanker/SMRRanker.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SMRTableAssistant/SMRTableAssistant.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -162,6 +163,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SMRLogSystem/SMRLogSystem.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SMRModel/SMRModel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SMRRanker/SMRRanker.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SMRTableAssistant/SMRTableAssistant.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

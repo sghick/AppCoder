@@ -12,16 +12,18 @@ PODS:
   - SMRModel (1.0.0):
     - YYModel
   - SMRRanker (1.0.0)
+  - SMRTableAssistant (1.0.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - PureLayout
+  - PureLayout (= 3.1.2)
   - "SMRDB (from `git@github.com:sghick/cmp-framework-SMRDB.git`, commit `f8ce5e8`)"
   - "SMRLifecycle (from `git@github.com:sghick/cmp-library-SMRLifecycle.git`, commit `4dd23fa`)"
   - "SMRLogScreen (from `git@github.com:sghick/cmp-framework-SMRLogScreen.git`, commit `22aca3a`)"
   - "SMRLogSystem (from `git@github.com:sghick/cmp-framework-SMRLogSystem.git`, commit `b545d78`)"
   - "SMRModel (from `git@github.com:sghick/cmp-library-SMRModel.git`, commit `db90262`)"
   - "SMRRanker (from `git@github.com:sghick/cmp-library-SMRRanker.git`, commit `3033794`)"
+  - "SMRTableAssistant (from `git@github.com:sghick/cmp-library-SMRTableAssistant.git`, commit `b2a23bc`)"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -48,6 +50,9 @@ EXTERNAL SOURCES:
   SMRRanker:
     :commit: '3033794'
     :git: "git@github.com:sghick/cmp-library-SMRRanker.git"
+  SMRTableAssistant:
+    :commit: b2a23bc
+    :git: "git@github.com:sghick/cmp-library-SMRTableAssistant.git"
 
 CHECKOUT OPTIONS:
   SMRDB:
@@ -68,6 +73,9 @@ CHECKOUT OPTIONS:
   SMRRanker:
     :commit: '3033794'
     :git: "git@github.com:sghick/cmp-library-SMRRanker.git"
+  SMRTableAssistant:
+    :commit: b2a23bc
+    :git: "git@github.com:sghick/cmp-library-SMRTableAssistant.git"
 
 SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
@@ -78,8 +86,9 @@ SPEC CHECKSUMS:
   SMRLogSystem: 874b94b81ae6c307ab9c45ed5d5b1448259e6f6c
   SMRModel: 260458cde1a41702b77fa230fa3a43f4289570b4
   SMRRanker: 734b2b739050cb4427427df8cf5c6a135a9b0670
+  SMRTableAssistant: 986a10e276733cc1eb9ac8942a67bf5c37ed56f5
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 13cf1e2b3bf9e10d933356291acea85504727632
+PODFILE CHECKSUM: 5eccb6e3c8cd1ab85f5425bd3edfc1f8b15fe551
 
 COCOAPODS: 1.5.3

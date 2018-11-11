@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C730286C8DE5C70A311055CA65211A13"
+               BlueprintIdentifier = "3933DA2375D876F4FC4D73CD9B8D5915"
                BlueprintName = "SMRRanker"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "SMRRanker.framework">

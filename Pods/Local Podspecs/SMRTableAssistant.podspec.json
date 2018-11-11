@@ -1,0 +1,30 @@
+{
+  "name": "SMRTableAssistant",
+  "version": "1.0.0",
+  "summary": "tasks for rank",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "sghick": "sghick@gmail.com"
+  },
+  "homepage": "https://github.com/sghick/cmp-library-SMRTableAssistant",
+  "source": {
+    "git": "https://github.com/sghick/cmp-library-SMRTableAssistant",
+    "tag": "1.0.0"
+  },
+  "requires_arc": true,
+  "source_files": "SMRTableAssistant/*.{h,m}",
+  "public_header_files": "SMRTableAssistant/*.{h}",
+  "frameworks": [
+    "Foundation",
+    "CoreFoundation"
+  ],
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}

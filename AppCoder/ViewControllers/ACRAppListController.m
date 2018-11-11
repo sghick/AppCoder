@@ -11,10 +11,23 @@
 #import "ACRAppInfoController.h"
 #import "ACRAppEditController.h"
 #import "ACRAppDataBase.h"
+#import "SMRTableAssistant.h"
+
+
+typedef NS_ENUM(NSInteger, kSectionType) {
+    kSectionTypeAdd,
+    kSectionTypeApp,
+};
+
+typedef NS_ENUM(NSInteger, kRowType) {
+    kRowTypeAdd,
+    kRowTypeApp,
+};
 
 @interface ACRAppListController ()<
 UITableViewDelegate,
 UITableViewDataSource,
+UITableViewSectionsDelegate,
 ACRAppInfoControllerDelegate
 >
 
@@ -35,7 +48,7 @@ ACRAppInfoControllerDelegate
     [self.view addSubview:self.tableView];
     
     [self queryDataFromDB];
-    [self.tableView reloadData];
+    [self.tableView smr_reloadData];
 }
 
 #pragma mark - Datas
@@ -44,25 +57,43 @@ ACRAppInfoControllerDelegate
     self.appInfoList = [ACRAppDataBase selectAllAppInfos];
 }
 
+#pragma mark - UITableViewSectionsDelegate
+
+- (SMRSections *)sectionsInTableView:(UITableView *)tableView {
+    SMRSections *sections = [[SMRSections alloc] init];
+    [sections addSectionKey:kSectionTypeAdd rowKey:kRowTypeAdd];
+    [sections addSectionKey:kSectionTypeApp rowKey:kRowTypeApp rowSamesCount:self.appInfoList.count];
+    return sections;
+}
+
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"identifierOfAddApp"];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"identifierOfAddApp"];
+    SMRRow *row = [tableView rowWithIndexPath:indexPath];
+    switch (row.sectionKey) {
+        case kSectionTypeAdd: {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"identifierOfAddApp"];
+            if (!cell) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"identifierOfAddApp"];
+            }
+            cell.textLabel.text = @"添加APP ++++++ ";
+            return cell;
         }
-        cell.textLabel.text = @"添加APP ++++++ ";
-        return cell;
-    } else if (indexPath.section == 1) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"identifierOfAppInfo"];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"identifierOfAppInfo"];
+            break;
+        case kSectionTypeApp: {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"identifierOfAppInfo"];
+            if (!cell) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"identifierOfAppInfo"];
+            }
+            ACRAppInfo *appInfo = self.appInfoList[indexPath.row];
+            cell.textLabel.text = appInfo.name;
+            cell.detailTextLabel.text = appInfo.app_identifier;
+            return cell;
         }
-        ACRAppInfo *appInfo = self.appInfoList[indexPath.row];
-        cell.textLabel.text = appInfo.name;
-        cell.detailTextLabel.text = appInfo.app_identifier;
-        return cell;
+            break;
+            
+        default:
+            break;
     }
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"identifierOfDefault"];
@@ -70,40 +101,50 @@ ACRAppInfoControllerDelegate
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSInteger secCount = 1;
-    if (self.appInfoList.count > 0) {
-        secCount++;
-    }
-    return secCount;
+    return tableView.sections.sectionSamesCountOfAll;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    } else if (section == 1) {
-        return self.appInfoList.count;
-    }
-    return 0;
+    SMRSection *sec = [tableView sectionWithIndexPathSection:section];
+    return sec.rowSamesCountOfAll;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger section = indexPath.section;
-    if (section == 0) {
-        ACRAppInfoController *controller = [[ACRAppInfoController alloc] init];
-        controller.delegate = self;
-        [self.navigationController pushViewController:controller animated:YES];
-    } else if (section == 1) {
-        ACRAppEditController *controller = [[ACRAppEditController alloc] init];
-        controller.appInfo = self.appInfoList[indexPath.row];
-        [self.navigationController pushViewController:controller animated:YES];
+    SMRRow *row = [tableView rowWithIndexPath:indexPath];
+    switch (row.sectionKey) {
+        case kSectionTypeAdd: {
+            ACRAppInfoController *controller = [[ACRAppInfoController alloc] init];
+            controller.delegate = self;
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
+        case kSectionTypeApp: {
+            ACRAppEditController *controller = [[ACRAppEditController alloc] init];
+            controller.appInfo = self.appInfoList[indexPath.row];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
+            
+        default:
+            break;
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
-        return YES;
+    SMRRow *row = [tableView rowWithIndexPath:indexPath];
+    switch (row.sectionKey) {
+        case kSectionTypeAdd: {
+            return NO;
+        }
+            break;
+        case kSectionTypeApp: {
+            return YES;
+        }
+            break;
+        default:
+            break;
     }
     return NO;
 }
@@ -129,26 +170,28 @@ ACRAppInfoControllerDelegate
 
 // 询问是否确定要删除app信息
 - (void)p_askNeedsDeleteAppInfoInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-    ACRAppInfo *appInfo = self.appInfoList[indexPath.row];
+    SMRRow *row = [tableView rowWithIndexPath:indexPath];
     
-    NSMutableArray *array = [self.appInfoList mutableCopy];
-    [array removeObjectAtIndex:indexPath.row];
-    self.appInfoList = [array copy];
-    
-    if (self.appInfoList.count) {
-        [tableView beginUpdates];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        [tableView endUpdates];
-    } else {
-        [tableView reloadData];
+    if (row.rowKey == kRowTypeApp) {
+        ACRAppInfo *appInfo = self.appInfoList[indexPath.row];
+        NSMutableArray *array = [self.appInfoList mutableCopy];
+        [array removeObjectAtIndex:indexPath.row];
+        self.appInfoList = [array copy];
+        
+        if (self.appInfoList.count) {
+            [tableView beginUpdates];
+            [tableView smr_deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [tableView endUpdates];
+        } else {
+            [tableView smr_reloadData];
+        }
+        [ACRAppDataBase deleteAppInfoWithIdentifier:appInfo.app_identifier];
     }
-    
-    [ACRAppDataBase deleteAppInfoWithIdentifier:appInfo.app_identifier];
 }
 
 - (void)p_updateAppInfoWithIndexPath:(NSIndexPath *)indexPath {
-    NSInteger section = indexPath.section;
-    if (section == 1) {
+    SMRRow *row = [self.tableView rowWithIndexPath:indexPath];
+    if (row.rowKey == kRowTypeApp) {
         ACRAppInfo *appInfo = self.appInfoList[indexPath.row];
         ACRAppInfoController *controller = [[ACRAppInfoController alloc] init];
         controller.appInfo = appInfo;
@@ -163,7 +206,7 @@ ACRAppInfoControllerDelegate
     if (![self.appInfoList containsObject:appInfo]) {
         self.appInfoList = [@[appInfo] arrayByAddingObjectsFromArray:self.appInfoList];
     }
-    [self.tableView reloadData];
+    [self.tableView smr_reloadData];
     
     [ACRAppDataBase deleteAllAppInfos];
     [ACRAppDataBase insertOrReplaceAppInfos:self.appInfoList];
@@ -178,6 +221,7 @@ ACRAppInfoControllerDelegate
         _tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.sectionsDelegate = self;
     }
     return _tableView;
 }
