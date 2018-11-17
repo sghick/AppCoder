@@ -298,7 +298,7 @@ ACRPageInfoControllerDelegate
 - (void)appPageInfoController:(ACRPageInfoController *)controller didRecvicedAppPage:(ACRAppPage *)appPage {
     if (controller.isRoot) {
         if (![self.rootPages containsObject:appPage]) {
-            self.rootPages = [@[appPage] arrayByAddingObjectsFromArray:self.rootPages];
+            self.rootPages = [self.rootPages?:@[] arrayByAddingObject:appPage];
         }
         [self.tableView smr_reloadData];
         
@@ -308,7 +308,7 @@ ACRPageInfoControllerDelegate
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         if (![self.appPages containsObject:appPage]) {
-            self.appPages = [@[appPage] arrayByAddingObjectsFromArray:self.appPages];
+            self.appPages =  [self.appPages?:@[] arrayByAddingObject:appPage];;
         }
         [self.tableView smr_reloadData];
         
