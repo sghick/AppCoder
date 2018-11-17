@@ -13,5 +13,53 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppCoder/cmp-list/ViewControllers/ACRListController.m"
+            timestampString = "564172472.246762"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "-addBtnAction:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ACRListController addBtnAction:]"
+                  moduleName = "AppCoder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sghick/tinswin/github-apps/app-AppCoder/AppCoder/cmp-list/ViewControllers/ACRListController.m"
+                  timestampString = "564172472.285368"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ACRListController addBtnAction:]"
+                  moduleName = "AppCoder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sghick/tinswin/github-apps/app-AppCoder/AppCoder/cmp-list/ViewControllers/ACRListController.m"
+                  timestampString = "564172472.287025"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "360">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

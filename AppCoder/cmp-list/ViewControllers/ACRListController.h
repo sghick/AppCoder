@@ -8,6 +8,9 @@
 
 #import "ACRBaseController.h"
 
+@class ACRAppInfo;
 @interface ACRListController : ACRBaseController
+
+@property (strong, nonatomic) ACRAppInfo *appInfo;
 
 @end

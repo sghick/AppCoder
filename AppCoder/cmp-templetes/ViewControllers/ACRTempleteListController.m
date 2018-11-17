@@ -41,22 +41,22 @@
     appMeta.code = @"this is a code";
     appMeta.inputs = @[ppt1];
     
-//    ACRMetaProperty *clsppt = [[ACRMetaProperty alloc] init];
-//    clsppt.name = @"类名";
-//    clsppt.value = @"AppDelegate";
-//
-//    ACRTempleteMeta *structMeta = [[ACRTempleteMeta alloc] init];
-//    structMeta.identifier = [NSUUID UUID].UUIDString;
-//    structMeta.name = @"AppDelegate";
-//    structMeta.meta_group = @"AppDelegate模版";
-//    structMeta.rem = @"AppDelegate";
-//    structMeta.code = @"this is a delegate code";
-//    structMeta.inputs = @[clsppt];
-//
-//    appMeta.subTempletes = @[structMeta];
+    ACRMetaProperty *clsppt = [[ACRMetaProperty alloc] init];
+    clsppt.title = @"类名";
+    clsppt.des = @"AppDelegate";
+
+    ACRTempleteMeta *structMeta = [[ACRTempleteMeta alloc] init];
+    structMeta.identifier = [NSUUID UUID].UUIDString;
+    structMeta.name = @"AppDelegate";
+    structMeta.meta_group = @"AppDelegate模版";
+    structMeta.rem = @"AppDelegate";
+    structMeta.code = @"this is a delegate code";
+    structMeta.inputs = @[clsppt];
+
+    appMeta.subTempletes = @[structMeta.identifier];
     
     [ACRAppDataBase deleteAllMetas];
-    [ACRAppDataBase insertOrReplaceMetas:@[appMeta]];
+    [ACRAppDataBase insertOrReplaceMetas:@[appMeta, structMeta]];
     
     NSLog(@"更新模版成功");
 }

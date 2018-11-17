@@ -38,7 +38,7 @@ ACRInputControllerDelegate>
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) ACRAddBtn *addBtn;
 @property (strong, nonatomic) ACRSideMenu *sideMenu;
-@property (strong, nonatomic) NSArray<ACRTempleteMeta *> *rootMetas;
+@property (strong, nonatomic) NSArray<ACRTempleteMeta *> *metaList;
 
 @end
 
@@ -86,7 +86,7 @@ ACRInputControllerDelegate>
     switch (row.rowKey) {
         case kRowTypeList: {
             ACRAppInfo *info = self.infoList[row.rowSamesIndex];
-            
+            [self pushToNextListControllerWithAppInfo:info];
         }
             break;
             
@@ -123,18 +123,32 @@ ACRInputControllerDelegate>
 
 - (void)sideMenuView:(ACRSideMenu *)menu didTouchedItem:(UIView *)item atIndex:(NSInteger)index {
     [menu hide];
-    ACRTempleteMeta *meta = self.rootMetas[index];
+    ACRTempleteMeta *meta = self.metaList[index];
     [self pushToInputAddControllerWithMeat:meta];
 }
 
 #pragma mark - Actions
 
 - (void)addBtnAction:(UIButton *)sender {
-    NSArray<ACRTempleteMeta *> *rootMetas = [ACRAppDataBase selectMetasWithGroup:@"root"];
-    self.rootMetas = rootMetas;
+    if (self.appInfo) {
+        // others
+        ACRTempleteMeta *lastMeta = [ACRAppDataBase selectMetaWithIdentifier:self.appInfo.meta_identifier];
+        NSMutableArray *subMetas = [NSMutableArray array];
+        for (NSString *subIds in lastMeta.subTempletes) {
+            ACRTempleteMeta *meta = [ACRAppDataBase selectMetaWithIdentifier:subIds];
+            if (meta) {
+                [subMetas addObject:meta];
+            }
+        }
+        self.metaList = [subMetas copy];
+    } else {
+        // root
+        NSArray<ACRTempleteMeta *> *rootMetas = [ACRAppDataBase selectMetasWithGroup:@"root"];
+        self.metaList = rootMetas;
+    }
     
     NSMutableArray *titles = [NSMutableArray array];
-    for (ACRTempleteMeta *obj in rootMetas) {
+    for (ACRTempleteMeta *obj in self.metaList) {
         [titles addObject:obj.name];
     }
     NSArray *items = [ACRSideMenu menuItemsWithTitles:titles];
@@ -170,6 +184,13 @@ ACRInputControllerDelegate>
     inputVC.delegate = self;
     inputVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:inputVC animated:YES];
+}
+
+- (void)pushToNextListControllerWithAppInfo:(ACRAppInfo *)appInfo {
+    ACRListController *listVC = [[ACRListController alloc] init];
+    listVC.appInfo = appInfo;
+    listVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:listVC animated:YES];
 }
 
 #pragma mark - Getters
