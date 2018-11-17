@@ -79,4 +79,11 @@
     [self yy_modelInitWithCoder:aDecoder];
     return self;
 }
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    return [self yy_modelCopy];
+}
+
 @end

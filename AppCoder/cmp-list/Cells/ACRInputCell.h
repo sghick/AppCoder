@@ -11,6 +11,7 @@
 @class ACRMetaProperty;
 @interface ACRInputCell : UITableViewCell
 
+/// value值发生变化时,input.value值会被刷新
 @property (strong, nonatomic) ACRMetaProperty *input;
 
 @end

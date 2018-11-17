@@ -8,17 +8,22 @@
 
 #import "ACRBaseController.h"
 
+@class ACRAppInfo;
 @class ACRInputController;
 @protocol ACRInputControllerDelegate <NSObject>
 
-- (void)inputController:(ACRInputController *)controller didSaveBtnTouchedWithInfo:(id)info;
+- (void)inputController:(ACRInputController *)controller didSaveBtnTouchedWithInfo:(ACRAppInfo *)info;
 
 @end
 
 @class ACRTempleteMeta;
 @interface ACRInputController : ACRBaseController
 
-@property (strong, nonatomic) ACRTempleteMeta *mata;
+@property (strong, nonatomic, readonly) ACRTempleteMeta *meta;
+@property (strong, nonatomic, readonly) ACRAppInfo *info;
 @property (weak  , nonatomic) id<ACRInputControllerDelegate> delegate;
+
+- (void)setContentForAddWithMeta:(ACRTempleteMeta *)meta;
+- (void)setContentForEditWithMeta:(ACRTempleteMeta *)meta info:(ACRAppInfo *)info;
 
 @end

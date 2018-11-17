@@ -8,7 +8,7 @@ target "AppCoder" do
 
     # cmp-library
     pod 'SMRLifecycle', :git => 'git@github.com:sghick/cmp-library-SMRLifecycle.git', :commit => '4dd23fa'
-    pod 'SMRModel', :git => 'git@github.com:sghick/cmp-library-SMRModel.git', :commit => 'db90262'
+    pod 'SMRModel', :git => 'git@github.com:sghick/cmp-library-SMRModel.git', :commit => 'a66648b'
     pod 'SMRRanker', :git => 'git@github.com:sghick/cmp-library-SMRRanker.git', :commit => '3033794'
     pod 'SMRTableAssistant', :git => 'git@github.com:sghick/cmp-library-SMRTableAssistant.git', :commit => 'b2a23bc'
     

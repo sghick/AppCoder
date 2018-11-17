@@ -34,7 +34,7 @@ UITableViewSectionsDelegate,
 ACRSideMenuDelegate,
 ACRInputControllerDelegate>
 
-@property (strong, nonatomic) NSArray *infoList;
+@property (strong, nonatomic) NSArray<ACRAppInfo *> *infoList;
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) ACRAddBtn *addBtn;
 @property (strong, nonatomic) ACRSideMenu *sideMenu;
@@ -67,7 +67,9 @@ ACRInputControllerDelegate>
     switch (row.rowKey) {
         case kRowTypeList: {
             ACRListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfListCell];
-            id info = self.infoList[row.rowSamesIndex];
+            ACRAppInfo *info = self.infoList[row.rowSamesIndex];
+            cell.textLabel.text = info.title;
+            cell.detailTextLabel.text = info.des;
             return cell;
         }
             break;
@@ -77,6 +79,21 @@ ACRInputControllerDelegate>
     }
     
     return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SMRRow *row = [tableView rowWithIndexPath:indexPath];
+    switch (row.rowKey) {
+        case kRowTypeList: {
+            ACRAppInfo *info = self.infoList[row.rowSamesIndex];
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -107,7 +124,7 @@ ACRInputControllerDelegate>
 - (void)sideMenuView:(ACRSideMenu *)menu didTouchedItem:(UIView *)item atIndex:(NSInteger)index {
     [menu hide];
     ACRTempleteMeta *meta = self.rootMetas[index];
-    [self pusthToInputControllerWithMeat:meta];
+    [self pushToInputAddControllerWithMeat:meta];
 }
 
 #pragma mark - Actions
@@ -128,15 +145,28 @@ ACRInputControllerDelegate>
 
 #pragma mark - ACRInputControllerDelegate
 
-- (void)inputController:(ACRInputController *)controller didSaveBtnTouchedWithInfo:(id)info {
+- (void)inputController:(ACRInputController *)controller didSaveBtnTouchedWithInfo:(ACRAppInfo *)info {
     [self.navigationController popViewControllerAnimated:YES];
+    NSMutableArray *arr = [NSMutableArray arrayWithArray:self.infoList];
+    [arr addObject:info];
+    self.infoList = [arr copy];
+    
+    [self.tableView smr_reloadData];
 }
 
 #pragma mark - JumpLogical
 
-- (void)pusthToInputControllerWithMeat:(ACRTempleteMeta *)meta {
+- (void)pushToInputAddControllerWithMeat:(ACRTempleteMeta *)meta {
     ACRInputController *inputVC = [[ACRInputController alloc] init];
-    inputVC.mata = meta;
+    [inputVC setContentForAddWithMeta:meta];
+    inputVC.delegate = self;
+    inputVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:inputVC animated:YES];
+}
+
+- (void)pushToInputEditControllerWithMeat:(ACRTempleteMeta *)meta appInfo:(ACRAppInfo *)appInfo {
+    ACRInputController *inputVC = [[ACRInputController alloc] init];
+    [inputVC setContentForEditWithMeta:meta info:appInfo];
     inputVC.delegate = self;
     inputVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:inputVC animated:YES];

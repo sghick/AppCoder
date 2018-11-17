@@ -21,7 +21,7 @@ DEPENDENCIES:
   - "SMRLifecycle (from `git@github.com:sghick/cmp-library-SMRLifecycle.git`, commit `4dd23fa`)"
   - "SMRLogScreen (from `git@github.com:sghick/cmp-framework-SMRLogScreen.git`, commit `22aca3a`)"
   - "SMRLogSystem (from `git@github.com:sghick/cmp-framework-SMRLogSystem.git`, commit `b545d78`)"
-  - "SMRModel (from `git@github.com:sghick/cmp-library-SMRModel.git`, commit `db90262`)"
+  - "SMRModel (from `git@github.com:sghick/cmp-library-SMRModel.git`, commit `a66648b`)"
   - "SMRRanker (from `git@github.com:sghick/cmp-library-SMRRanker.git`, commit `3033794`)"
   - "SMRTableAssistant (from `git@github.com:sghick/cmp-library-SMRTableAssistant.git`, commit `b2a23bc`)"
 
@@ -45,7 +45,7 @@ EXTERNAL SOURCES:
     :commit: b545d78
     :git: "git@github.com:sghick/cmp-framework-SMRLogSystem.git"
   SMRModel:
-    :commit: db90262
+    :commit: a66648b
     :git: "git@github.com:sghick/cmp-library-SMRModel.git"
   SMRRanker:
     :commit: '3033794'
@@ -68,7 +68,7 @@ CHECKOUT OPTIONS:
     :commit: b545d78
     :git: "git@github.com:sghick/cmp-framework-SMRLogSystem.git"
   SMRModel:
-    :commit: db90262
+    :commit: a66648b
     :git: "git@github.com:sghick/cmp-library-SMRModel.git"
   SMRRanker:
     :commit: '3033794'
@@ -89,6 +89,6 @@ SPEC CHECKSUMS:
   SMRTableAssistant: 986a10e276733cc1eb9ac8942a67bf5c37ed56f5
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 5eccb6e3c8cd1ab85f5425bd3edfc1f8b15fe551
+PODFILE CHECKSUM: 2fe2ac20d8ba0e8d53b55b820872616118396e4d
 
 COCOAPODS: 1.5.3

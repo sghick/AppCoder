@@ -31,7 +31,7 @@ UITableViewDataSource,
 UITableViewSectionsDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) NSArray<ACRMetaProperty *> *inputList;
+@property (strong, nonatomic) NSArray<ACRMetaProperty *> *inputs;
 
 @end
 
@@ -41,12 +41,25 @@ UITableViewSectionsDelegate>
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self createSubviews];
-    
-    [self.tableView smr_reloadData];
 }
 
 - (void)createSubviews {
     [self.view addSubview:self.tableView];
+}
+
+#pragma mark - Publics
+
+- (void)setContentForAddWithMeta:(ACRTempleteMeta *)meta {
+    _meta = meta;
+    _inputs = [[NSArray alloc] initWithArray:meta.inputs copyItems:YES];
+    [self.tableView smr_reloadData];
+}
+
+- (void)setContentForEditWithMeta:(ACRTempleteMeta *)meta info:(ACRAppInfo *)info {
+    _meta = meta;
+    _info = info;
+    _inputs = [[NSArray alloc] initWithArray:info.inputs copyItems:YES];
+    [self.tableView smr_reloadData];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -56,7 +69,7 @@ UITableViewSectionsDelegate>
     switch (row.rowKey) {
         case kRowTypeList: {
             ACRInputCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfInputCell];
-            ACRMetaProperty *input = self.inputList[row.rowSamesIndex];
+            ACRMetaProperty *input = self.inputs[row.rowSamesIndex];
             cell.input = input;
             return cell;
         }
@@ -101,12 +114,16 @@ UITableViewSectionsDelegate>
     return sec.rowSamesCountOfAll;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
+}
+
 #pragma mark - UITableViewSectionsDelegate
 
 - (SMRSections *)sectionsInTableView:(UITableView *)tableView {
     SMRSections *sections = [[SMRSections alloc] init];
     
-    [sections addSectionKey:kSectionTypeList rowKey:kRowTypeList rowSamesCount:self.inputList.count];
+    [sections addSectionKey:kSectionTypeList rowKey:kRowTypeList rowSamesCount:self.inputs.count];
     [sections addSectionKey:kSectionTypeSave rowKey:kRowTypeSave];
     
     return sections;
@@ -115,10 +132,25 @@ UITableViewSectionsDelegate>
 #pragma mark - Actions
 
 - (void)saveAction {
+    [self.view endEditing:YES];
     
-    id info = nil;
+    // 寻找title的property,使用第1个作为title
+    ACRMetaProperty *titleP = self.inputs.firstObject;
+    // 寻找des的property,使用第2个作为des
+    ACRMetaProperty *desP = nil;
+    if (self.inputs.count >= 2) {
+        desP = self.inputs[1];
+    }
+    
+    if (!_info) {
+        _info = [[ACRAppInfo alloc] init];
+        _info.identifier = [NSUUID UUID].UUIDString;
+        _info.title = titleP.value;
+        _info.des = desP.value;
+    }
+    _info.inputs = self.inputs;
     if ([self.delegate respondsToSelector:@selector(inputController:didSaveBtnTouchedWithInfo:)]) {
-        [self.delegate inputController:self didSaveBtnTouchedWithInfo:info];
+        [self.delegate inputController:self didSaveBtnTouchedWithInfo:self.info];
     }
 }
 

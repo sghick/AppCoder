@@ -10,10 +10,11 @@
 #import "SMRModelParserDelegate.h"
 #import "SMRModelAPIParamsDelegate.h"
 
-@interface SMRModel : NSObject <
+@interface NSObject (SMRModel) <
 SMRModelParserDelegate,
 SMRModelAPIParamsDelegate,
-NSCoding>
+NSCoding,
+NSCopying>
 
 // ============================================================ //
 //                  json 转 model/数组<model>

@@ -29,12 +29,13 @@
 
 - (void)addAnDefaultAppTemplete {
     ACRMetaProperty *ppt1 = [[ACRMetaProperty alloc] init];
-    ppt1.name = @"APP名";
-    ppt1.value = @"APP名称";
+    ppt1.title = @"APP名称";
+    ppt1.symbols = @"AppName";
+    ppt1.des = @"APP名称";
     
     ACRTempleteMeta *appMeta = [[ACRTempleteMeta alloc] init];
     appMeta.identifier = [NSUUID UUID].UUIDString;
-    appMeta.name = @"空的APP模板";
+    appMeta.name = @"空白App";
     appMeta.meta_group = @"root";
     appMeta.rem = @"APP";
     appMeta.code = @"this is a code";

@@ -14,9 +14,11 @@
 
 @interface ACRMetaProperty : NSObject
 
-@property (copy  , nonatomic) NSString *name;
-@property (copy  , nonatomic) NSString *value;
-@property (copy  , nonatomic) NSString *type;
+@property (copy  , nonatomic) NSString *title; ///< 标题
+@property (copy  , nonatomic) NSString *type; // 类型
+@property (copy  , nonatomic) NSString *value; // 内容
+@property (copy  , nonatomic) NSString *des; ///< 描述
+@property (copy  , nonatomic) NSString *symbols; ///< 标记
 
 @end
 
@@ -30,6 +32,16 @@
 @property (copy  , nonatomic) NSArray<ACRMetaProperty *> *inputs; ///< 输入元素
 @property (copy  , nonatomic) NSArray<NSString *> *subTempletes; ///< 子模板的id
 
+
+@end
+
+@interface ACRAppInfo : NSObject
+
+@property (copy  , nonatomic) NSString *identifier; ///< 唯一标识
+@property (copy  , nonatomic) NSString *title; ///< 标题
+@property (copy  , nonatomic) NSString *des; ///< 描述
+@property (copy  , nonatomic) NSArray<ACRMetaProperty *> *inputs; ///< 输入元素
+@property (strong, nonatomic) NSString *meta_identifier;
 
 @end
 
