@@ -8,22 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class ACRAppInfo;
-@class ACRAppPage;
+@class ACRTempleteMeta;
 @interface ACRAppDataBase : NSObject
 
-#pragma mark - ACRAppInfo
+#pragma mark - ACRTempleteMeta
 
-+ (void)insertOrReplaceAppInfos:(NSArray<ACRAppInfo *> *)appInfos;
-+ (NSArray<ACRAppInfo *> *)selectAllAppInfos;
-+ (BOOL)deleteAppInfoWithIdentifier:(NSString *)identifier;
-+ (BOOL)deleteAllAppInfos;
-
-#pragma mark - ACRAppPage
-
-+ (void)insertOrReplaceAppPages:(NSArray<ACRAppPage *> *)appPages appIdentifier:(NSString *)appIdentifier root:(BOOL)root;
-+ (NSArray<ACRAppPage *> *)selectAppPagesWithAppIdentifier:(NSString *)appIdentifier root:(BOOL)root;
-+ (BOOL)deleteAppPageWithIdentifier:(NSString *)identifier;
-+ (BOOL)deleteAppPagesWithAppIdentifier:(NSString *)appIdentifier root:(BOOL)root;
++ (void)insertOrReplaceMetas:(NSArray<ACRTempleteMeta *> *)metas;
++ (NSArray<ACRTempleteMeta *> *)selectMetasWithGroup:(NSString *)group;
++ (ACRTempleteMeta *)selectMetaWithIdentifier:(NSString *)identifier;
++ (BOOL)deleteMetaWithIdentifier:(NSString *)identifier;
++ (BOOL)deleteAllMetas;
 
 @end

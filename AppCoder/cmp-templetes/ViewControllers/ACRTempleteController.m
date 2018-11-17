@@ -1,23 +1,22 @@
 //
-//  ACRMethodEditController.m
+//  ACRTempleteController.m
 //  AppCoder
 //
-//  Created by 丁治文 on 2018/10/31.
+//  Created by 丁治文 on 2018/11/17.
 //  Copyright © 2018年 sumrise.com. All rights reserved.
 //
 
-#import "ACRMethodEditController.h"
+#import "ACRTempleteController.h"
 
-@interface ACRMethodEditController ()
+@interface ACRTempleteController ()
 
 @end
 
-@implementation ACRMethodEditController
+@implementation ACRTempleteController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"Method:xxx";
 }
 
 - (void)didReceiveMemoryWarning {

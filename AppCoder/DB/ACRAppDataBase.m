@@ -12,55 +12,34 @@
 
 @implementation ACRAppDataBase
 
-#pragma mark - ACRAppInfo
+#pragma mark - ACRTempleteMeta
 
-+ (void)insertOrReplaceAppInfos:(NSArray<ACRAppInfo *> *)appInfos {
-    [ACRAppInfo insertOrReplace:appInfos];
++ (void)insertOrReplaceMetas:(NSArray<ACRTempleteMeta *> *)metas {
+    [ACRTempleteMeta insertOrReplace:metas];
 }
-+ (NSArray<ACRAppInfo *> *)selectAllAppInfos {
-    return [ACRAppInfo selectAll];
-}
-+ (BOOL)deleteAppInfoWithIdentifier:(NSString *)identifier {
-    if (!identifier) {
-        return NO;
-    }
-    NSString *where = @"WHERE app_identifier=(?)";
-    return [ACRAppInfo deleteWhere:where paramsArray:@[identifier]];
-}
-+ (BOOL)deleteAllAppInfos {
-    return [ACRAppInfo deleteAll];
-}
-
-#pragma mark - ACRAppPage
-
-+ (void)insertOrReplaceAppPages:(NSArray<ACRAppPage *> *)appPages appIdentifier:(NSString *)appIdentifier root:(BOOL)root {
-    if (!appIdentifier) {
-        return;
-    }
-    NSDictionary *genParam = @{@"app_identifier":appIdentifier,
-                               @"root_page":@(root)};
-    [ACRAppPage insertOrReplace:appPages generalParam:genParam];
-}
-+ (NSArray<ACRAppPage *> *)selectAppPagesWithAppIdentifier:(NSString *)appIdentifier root:(BOOL)root {
-    if (!appIdentifier) {
++ (NSArray<ACRTempleteMeta *> *)selectMetasWithGroup:(NSString *)group {
+    if (!group) {
         return nil;
     }
-    NSString *where = @"WHERE app_identifier=(?) AND root_page=(?)";
-    return [ACRAppPage selectWhere:where paramsArray:@[appIdentifier, @(root)]];
+    NSString *where = @"WHERE meta_group=(?)";
+    return [ACRTempleteMeta selectWhere:where paramsArray:@[group]];
 }
-+ (BOOL)deleteAppPageWithIdentifier:(NSString *)identifier {
++ (ACRTempleteMeta *)selectMetaWithIdentifier:(NSString *)identifier {
+    if (!identifier) {
+        return nil;
+    }
+    NSString *where = @"WHERE identifier=(?)";
+    return [ACRTempleteMeta selectFirstObjectWhere:where paramsArray:@[identifier]];
+}
++ (BOOL)deleteMetaWithIdentifier:(NSString *)identifier {
     if (!identifier) {
         return NO;
     }
-    NSString *where = @"WHERE page_identifier=(?)";
-    return [ACRAppPage deleteWhere:where paramsArray:@[identifier]];
+    NSString *where = @"WHERE identifier=(?)";
+    return [ACRTempleteMeta deleteWhere:where paramsArray:@[identifier]];
 }
-+ (BOOL)deleteAppPagesWithAppIdentifier:(NSString *)appIdentifier root:(BOOL)root {
-    if (!appIdentifier) {
-        return NO;
-    }
-    NSString *where = @"WHERE app_identifier=(?) AND root_page=(?)";
-    return [ACRAppPage deleteWhere:where paramsArray:@[appIdentifier, @(root)]];
++ (BOOL)deleteAllMetas {
+    return [ACRTempleteMeta deleteAll];
 }
 
 @end

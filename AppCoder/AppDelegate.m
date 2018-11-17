@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "ACRRootViewController.h"
-#import "ACRAppListController.h"
 #import "SMRDB.h"
+#import "ACRRootViewController.h"
+#import "ACRTargetList.h"
+#import "ACRTargetTempletes.h"
 
 @interface AppDelegate ()
 
@@ -24,9 +25,11 @@
     
     [[SMRFMDBManager sharedInstance] connectDatabaseWithName:@"appinfo"];
     
-    ACRAppListController *appList = [[ACRAppListController alloc] init];
-    UINavigationController *appListNav = [[UINavigationController alloc] initWithRootViewController:appList];
-    self.window.rootViewController = appListNav;
+    ACRRootViewController *root = [[ACRRootViewController alloc] init];
+    UIViewController *list = [ACRTargetList mainController];
+    UIViewController *templete = [ACRTargetTempletes mainController];
+    root.viewControllers = @[list, templete];
+    self.window.rootViewController = root;
     
     [self.window makeKeyAndVisible];
     return YES;

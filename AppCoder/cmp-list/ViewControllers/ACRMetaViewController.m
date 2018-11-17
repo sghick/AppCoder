@@ -1,23 +1,22 @@
 //
-//  ACRViewScanController.m
+//  ACRMetaViewController.m
 //  AppCoder
 //
-//  Created by 丁治文 on 2018/10/31.
+//  Created by 丁治文 on 2018/11/17.
 //  Copyright © 2018年 sumrise.com. All rights reserved.
 //
 
-#import "ACRViewScanController.h"
+#import "ACRMetaViewController.h"
 
-@interface ACRViewScanController ()
+@interface ACRMetaViewController ()
 
 @end
 
-@implementation ACRViewScanController
+@implementation ACRMetaViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"视图预览";
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,14 +10,20 @@
 		ECDDCD0B4928B720C3035438 /* Pods_AppCoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992AC97ED941BAFEB5937415 /* Pods_AppCoder.framework */; };
 		FE7575E6218A953500C47DFC /* ACRAppModels.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7575E5218A953500C47DFC /* ACRAppModels.m */; };
 		FE7575EA218BE61800C47DFC /* ACRAppDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7575E9218BE61800C47DFC /* ACRAppDataBase.m */; };
-		FE75764A2198233F00C47DFC /* ACRAppInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7576392198233F00C47DFC /* ACRAppInfoController.m */; };
-		FE75764B2198233F00C47DFC /* ACRAppListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE75763B2198233F00C47DFC /* ACRAppListController.m */; };
-		FE75764C2198233F00C47DFC /* ACRCodeScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE75763E2198233F00C47DFC /* ACRCodeScanController.m */; };
-		FE75764D2198233F00C47DFC /* ACRViewScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7576402198233F00C47DFC /* ACRViewScanController.m */; };
-		FE75764E2198233F00C47DFC /* ACRAppEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7576432198233F00C47DFC /* ACRAppEditController.m */; };
-		FE7576502198233F00C47DFC /* ACRMethodEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7576472198233F00C47DFC /* ACRMethodEditController.m */; };
-		FE7576512198233F00C47DFC /* ACRPageInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7576492198233F00C47DFC /* ACRPageInfoController.m */; };
-		FE7576542198237400C47DFC /* ACRClassEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7576522198237300C47DFC /* ACRClassEditController.m */; };
+		FE757660219FCD0800C47DFC /* ACRMetaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE75765F219FCD0800C47DFC /* ACRMetaViewController.m */; };
+		FE757663219FCD2C00C47DFC /* ACRInputController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE757662219FCD2C00C47DFC /* ACRInputController.m */; };
+		FE757666219FCD5300C47DFC /* ACRListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE757665219FCD5300C47DFC /* ACRListController.m */; };
+		FE75766B219FCE1900C47DFC /* ACRListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE75766A219FCE1900C47DFC /* ACRListCell.m */; };
+		FE75766E219FCE2A00C47DFC /* ACRInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE75766D219FCE2A00C47DFC /* ACRInputCell.m */; };
+		FE757676219FCED300C47DFC /* ACRTempleteController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE757675219FCED300C47DFC /* ACRTempleteController.m */; };
+		FE75767C219FCEFC00C47DFC /* ACRTempleteListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE75767B219FCEFC00C47DFC /* ACRTempleteListController.m */; };
+		FE75767F219FCF3100C47DFC /* ACRTargetList.m in Sources */ = {isa = PBXBuildFile; fileRef = FE75767E219FCF3100C47DFC /* ACRTargetList.m */; };
+		FE757682219FCF4700C47DFC /* ACRTargetTempletes.m in Sources */ = {isa = PBXBuildFile; fileRef = FE757681219FCF4700C47DFC /* ACRTargetTempletes.m */; };
+		FE757685219FD16100C47DFC /* ACRBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE757684219FD16100C47DFC /* ACRBaseController.m */; };
+		FE757689219FFADE00C47DFC /* ACRAddBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = FE757688219FFADE00C47DFC /* ACRAddBtn.m */; };
+		FE75768C21A0023100C47DFC /* ACRSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = FE75768B21A0023100C47DFC /* ACRSideMenu.m */; };
+		FE75769021A002DC00C47DFC /* menu_bg_trangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE75768E21A002DC00C47DFC /* menu_bg_trangle@2x.png */; };
+		FE75769121A002DC00C47DFC /* menu_bg_trangle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE75768F21A002DC00C47DFC /* menu_bg_trangle@3x.png */; };
 		FE9EF7DA2189453E00425CC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EF7D92189453E00425CC5 /* AppDelegate.m */; };
 		FE9EF7E02189453E00425CC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE9EF7DE2189453E00425CC5 /* Main.storyboard */; };
 		FE9EF7E22189454C00425CC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE9EF7E12189454C00425CC5 /* Assets.xcassets */; };
@@ -45,22 +51,32 @@
 		FE7575E5218A953500C47DFC /* ACRAppModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRAppModels.m; sourceTree = "<group>"; };
 		FE7575E8218BE61800C47DFC /* ACRAppDataBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRAppDataBase.h; sourceTree = "<group>"; };
 		FE7575E9218BE61800C47DFC /* ACRAppDataBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRAppDataBase.m; sourceTree = "<group>"; };
-		FE7576382198233F00C47DFC /* ACRAppInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRAppInfoController.h; sourceTree = "<group>"; };
-		FE7576392198233F00C47DFC /* ACRAppInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRAppInfoController.m; sourceTree = "<group>"; };
-		FE75763A2198233F00C47DFC /* ACRAppListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRAppListController.h; sourceTree = "<group>"; };
-		FE75763B2198233F00C47DFC /* ACRAppListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRAppListController.m; sourceTree = "<group>"; };
-		FE75763D2198233F00C47DFC /* ACRCodeScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRCodeScanController.h; sourceTree = "<group>"; };
-		FE75763E2198233F00C47DFC /* ACRCodeScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRCodeScanController.m; sourceTree = "<group>"; };
-		FE75763F2198233F00C47DFC /* ACRViewScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRViewScanController.h; sourceTree = "<group>"; };
-		FE7576402198233F00C47DFC /* ACRViewScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRViewScanController.m; sourceTree = "<group>"; };
-		FE7576422198233F00C47DFC /* ACRAppEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRAppEditController.h; sourceTree = "<group>"; };
-		FE7576432198233F00C47DFC /* ACRAppEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRAppEditController.m; sourceTree = "<group>"; };
-		FE7576462198233F00C47DFC /* ACRMethodEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRMethodEditController.h; sourceTree = "<group>"; };
-		FE7576472198233F00C47DFC /* ACRMethodEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRMethodEditController.m; sourceTree = "<group>"; };
-		FE7576482198233F00C47DFC /* ACRPageInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRPageInfoController.h; sourceTree = "<group>"; };
-		FE7576492198233F00C47DFC /* ACRPageInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRPageInfoController.m; sourceTree = "<group>"; };
-		FE7576522198237300C47DFC /* ACRClassEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRClassEditController.m; sourceTree = "<group>"; };
-		FE7576532198237400C47DFC /* ACRClassEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRClassEditController.h; sourceTree = "<group>"; };
+		FE75765E219FCD0800C47DFC /* ACRMetaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRMetaViewController.h; sourceTree = "<group>"; };
+		FE75765F219FCD0800C47DFC /* ACRMetaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRMetaViewController.m; sourceTree = "<group>"; };
+		FE757661219FCD2C00C47DFC /* ACRInputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRInputController.h; sourceTree = "<group>"; };
+		FE757662219FCD2C00C47DFC /* ACRInputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRInputController.m; sourceTree = "<group>"; };
+		FE757664219FCD5300C47DFC /* ACRListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRListController.h; sourceTree = "<group>"; };
+		FE757665219FCD5300C47DFC /* ACRListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRListController.m; sourceTree = "<group>"; };
+		FE757669219FCE1900C47DFC /* ACRListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRListCell.h; sourceTree = "<group>"; };
+		FE75766A219FCE1900C47DFC /* ACRListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRListCell.m; sourceTree = "<group>"; };
+		FE75766C219FCE2A00C47DFC /* ACRInputCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRInputCell.h; sourceTree = "<group>"; };
+		FE75766D219FCE2A00C47DFC /* ACRInputCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRInputCell.m; sourceTree = "<group>"; };
+		FE757674219FCED300C47DFC /* ACRTempleteController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRTempleteController.h; sourceTree = "<group>"; };
+		FE757675219FCED300C47DFC /* ACRTempleteController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRTempleteController.m; sourceTree = "<group>"; };
+		FE75767A219FCEFC00C47DFC /* ACRTempleteListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRTempleteListController.h; sourceTree = "<group>"; };
+		FE75767B219FCEFC00C47DFC /* ACRTempleteListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRTempleteListController.m; sourceTree = "<group>"; };
+		FE75767D219FCF3100C47DFC /* ACRTargetList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRTargetList.h; sourceTree = "<group>"; };
+		FE75767E219FCF3100C47DFC /* ACRTargetList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRTargetList.m; sourceTree = "<group>"; };
+		FE757680219FCF4700C47DFC /* ACRTargetTempletes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRTargetTempletes.h; sourceTree = "<group>"; };
+		FE757681219FCF4700C47DFC /* ACRTargetTempletes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRTargetTempletes.m; sourceTree = "<group>"; };
+		FE757683219FD16100C47DFC /* ACRBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRBaseController.h; sourceTree = "<group>"; };
+		FE757684219FD16100C47DFC /* ACRBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRBaseController.m; sourceTree = "<group>"; };
+		FE757687219FFADE00C47DFC /* ACRAddBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRAddBtn.h; sourceTree = "<group>"; };
+		FE757688219FFADE00C47DFC /* ACRAddBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRAddBtn.m; sourceTree = "<group>"; };
+		FE75768A21A0023100C47DFC /* ACRSideMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRSideMenu.h; sourceTree = "<group>"; };
+		FE75768B21A0023100C47DFC /* ACRSideMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRSideMenu.m; sourceTree = "<group>"; };
+		FE75768E21A002DC00C47DFC /* menu_bg_trangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_bg_trangle@2x.png"; sourceTree = "<group>"; };
+		FE75768F21A002DC00C47DFC /* menu_bg_trangle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_bg_trangle@3x.png"; sourceTree = "<group>"; };
 		FE9EF7D52189453D00425CC5 /* AppCoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppCoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE9EF7D82189453D00425CC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE9EF7D92189453E00425CC5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -130,48 +146,77 @@
 			path = DB;
 			sourceTree = "<group>";
 		};
-		FE7576362198233F00C47DFC /* AppClass */ = {
+		FE757667219FCDBA00C47DFC /* cmp-list */ = {
 			isa = PBXGroup;
 			children = (
-				FE7576532198237400C47DFC /* ACRClassEditController.h */,
-				FE7576522198237300C47DFC /* ACRClassEditController.m */,
-				FE7576462198233F00C47DFC /* ACRMethodEditController.h */,
-				FE7576472198233F00C47DFC /* ACRMethodEditController.m */,
+				FE75767D219FCF3100C47DFC /* ACRTargetList.h */,
+				FE75767E219FCF3100C47DFC /* ACRTargetList.m */,
+				FE9EF7FC21897ED500425CC5 /* ViewControllers */,
+				FE757668219FCDC700C47DFC /* Cells */,
+				FE757686219FFAC100C47DFC /* Views */,
 			);
-			path = AppClass;
+			path = "cmp-list";
 			sourceTree = "<group>";
 		};
-		FE7576372198233F00C47DFC /* AppInfo */ = {
+		FE757668219FCDC700C47DFC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				FE7576382198233F00C47DFC /* ACRAppInfoController.h */,
-				FE7576392198233F00C47DFC /* ACRAppInfoController.m */,
-				FE75763A2198233F00C47DFC /* ACRAppListController.h */,
-				FE75763B2198233F00C47DFC /* ACRAppListController.m */,
+				FE757669219FCE1900C47DFC /* ACRListCell.h */,
+				FE75766A219FCE1900C47DFC /* ACRListCell.m */,
+				FE75766C219FCE2A00C47DFC /* ACRInputCell.h */,
+				FE75766D219FCE2A00C47DFC /* ACRInputCell.m */,
 			);
-			path = AppInfo;
+			path = Cells;
 			sourceTree = "<group>";
 		};
-		FE75763C2198233F00C47DFC /* AppScan */ = {
+		FE75766F219FCE3900C47DFC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				FE75763D2198233F00C47DFC /* ACRCodeScanController.h */,
-				FE75763E2198233F00C47DFC /* ACRCodeScanController.m */,
-				FE75763F2198233F00C47DFC /* ACRViewScanController.h */,
-				FE7576402198233F00C47DFC /* ACRViewScanController.m */,
 			);
-			path = AppScan;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		FE7576412198233F00C47DFC /* AppPages */ = {
+		FE757670219FCE6D00C47DFC /* cmp-templetes */ = {
 			isa = PBXGroup;
 			children = (
-				FE7576422198233F00C47DFC /* ACRAppEditController.h */,
-				FE7576432198233F00C47DFC /* ACRAppEditController.m */,
-				FE7576482198233F00C47DFC /* ACRPageInfoController.h */,
-				FE7576492198233F00C47DFC /* ACRPageInfoController.m */,
+				FE757680219FCF4700C47DFC /* ACRTargetTempletes.h */,
+				FE757681219FCF4700C47DFC /* ACRTargetTempletes.m */,
+				FE757671219FCE9D00C47DFC /* ViewControllers */,
+				FE75766F219FCE3900C47DFC /* Sources */,
 			);
-			path = AppPages;
+			path = "cmp-templetes";
+			sourceTree = "<group>";
+		};
+		FE757671219FCE9D00C47DFC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FE75767A219FCEFC00C47DFC /* ACRTempleteListController.h */,
+				FE75767B219FCEFC00C47DFC /* ACRTempleteListController.m */,
+				FE757674219FCED300C47DFC /* ACRTempleteController.h */,
+				FE757675219FCED300C47DFC /* ACRTempleteController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FE757686219FFAC100C47DFC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FE757687219FFADE00C47DFC /* ACRAddBtn.h */,
+				FE757688219FFADE00C47DFC /* ACRAddBtn.m */,
+				FE75768A21A0023100C47DFC /* ACRSideMenu.h */,
+				FE75768B21A0023100C47DFC /* ACRSideMenu.m */,
+				FE75768D21A002DC00C47DFC /* sources */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FE75768D21A002DC00C47DFC /* sources */ = {
+			isa = PBXGroup;
+			children = (
+				FE75768E21A002DC00C47DFC /* menu_bg_trangle@2x.png */,
+				FE75768F21A002DC00C47DFC /* menu_bg_trangle@3x.png */,
+			);
+			path = sources;
 			sourceTree = "<group>";
 		};
 		FE9EF7CC2189453D00425CC5 = {
@@ -201,9 +246,12 @@
 				FE9EF7D92189453E00425CC5 /* AppDelegate.m */,
 				FE9EF7FD21897F1D00425CC5 /* ACRRootViewController.h */,
 				FE9EF7FE21897F1D00425CC5 /* ACRRootViewController.m */,
+				FE757683219FD16100C47DFC /* ACRBaseController.h */,
+				FE757684219FD16100C47DFC /* ACRBaseController.m */,
 				FE7575E7218BE60A00C47DFC /* DB */,
 				FE7575E3218A944C00C47DFC /* Models */,
-				FE9EF7FC21897ED500425CC5 /* ViewControllers */,
+				FE757667219FCDBA00C47DFC /* cmp-list */,
+				FE757670219FCE6D00C47DFC /* cmp-templetes */,
 				FE9EF7DE2189453E00425CC5 /* Main.storyboard */,
 				FE9EF7E12189454C00425CC5 /* Assets.xcassets */,
 				FE9EF7E32189454C00425CC5 /* LaunchScreen.storyboard */,
@@ -225,10 +273,12 @@
 		FE9EF7FC21897ED500425CC5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FE7576372198233F00C47DFC /* AppInfo */,
-				FE7576412198233F00C47DFC /* AppPages */,
-				FE7576362198233F00C47DFC /* AppClass */,
-				FE75763C2198233F00C47DFC /* AppScan */,
+				FE757664219FCD5300C47DFC /* ACRListController.h */,
+				FE757665219FCD5300C47DFC /* ACRListController.m */,
+				FE757661219FCD2C00C47DFC /* ACRInputController.h */,
+				FE757662219FCD2C00C47DFC /* ACRInputController.m */,
+				FE75765E219FCD0800C47DFC /* ACRMetaViewController.h */,
+				FE75765F219FCD0800C47DFC /* ACRMetaViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -316,9 +366,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE75769021A002DC00C47DFC /* menu_bg_trangle@2x.png in Resources */,
 				FE9EF7E52189454C00425CC5 /* LaunchScreen.storyboard in Resources */,
 				FE9EF7E22189454C00425CC5 /* Assets.xcassets in Resources */,
 				FE9EF7E02189453E00425CC5 /* Main.storyboard in Resources */,
+				FE75769121A002DC00C47DFC /* menu_bg_trangle@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,17 +446,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE9EF7E82189454C00425CC5 /* main.m in Sources */,
+				FE75766E219FCE2A00C47DFC /* ACRInputCell.m in Sources */,
+				FE757676219FCED300C47DFC /* ACRTempleteController.m in Sources */,
+				FE757663219FCD2C00C47DFC /* ACRInputController.m in Sources */,
+				FE75766B219FCE1900C47DFC /* ACRListCell.m in Sources */,
 				FE9EF7DA2189453E00425CC5 /* AppDelegate.m in Sources */,
-				FE75764A2198233F00C47DFC /* ACRAppInfoController.m in Sources */,
 				FE7575E6218A953500C47DFC /* ACRAppModels.m in Sources */,
-				FE75764C2198233F00C47DFC /* ACRCodeScanController.m in Sources */,
-				FE75764B2198233F00C47DFC /* ACRAppListController.m in Sources */,
-				FE7576512198233F00C47DFC /* ACRPageInfoController.m in Sources */,
-				FE75764E2198233F00C47DFC /* ACRAppEditController.m in Sources */,
+				FE757666219FCD5300C47DFC /* ACRListController.m in Sources */,
+				FE757685219FD16100C47DFC /* ACRBaseController.m in Sources */,
+				FE757689219FFADE00C47DFC /* ACRAddBtn.m in Sources */,
+				FE75767F219FCF3100C47DFC /* ACRTargetList.m in Sources */,
+				FE75768C21A0023100C47DFC /* ACRSideMenu.m in Sources */,
+				FE75767C219FCEFC00C47DFC /* ACRTempleteListController.m in Sources */,
+				FE757660219FCD0800C47DFC /* ACRMetaViewController.m in Sources */,
+				FE757682219FCF4700C47DFC /* ACRTargetTempletes.m in Sources */,
 				FE9EF7FF21897F1D00425CC5 /* ACRRootViewController.m in Sources */,
-				FE7576502198233F00C47DFC /* ACRMethodEditController.m in Sources */,
-				FE7576542198237400C47DFC /* ACRClassEditController.m in Sources */,
-				FE75764D2198233F00C47DFC /* ACRViewScanController.m in Sources */,
 				FE7575EA218BE61800C47DFC /* ACRAppDataBase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

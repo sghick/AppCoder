@@ -12,23 +12,11 @@
 
 @end
 
-@implementation ACRAppInfo
+@implementation ACRMetaProperty 
 
 @end
 
-@implementation ACRAppMethod 
-
-@end
-
-@implementation ACRAppClass
-
-@end
-
-@implementation ACRAppPage
-
-@end
-
-@implementation ACRAppDelegate
+@implementation ACRTempleteMeta
 
 @end
 
