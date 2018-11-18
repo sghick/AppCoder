@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		ECDDCD0B4928B720C3035438 /* Pods_AppCoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992AC97ED941BAFEB5937415 /* Pods_AppCoder.framework */; };
+		FE52311421A15DCE00FF04EA /* ACRMetaPropertyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE52311321A15DCE00FF04EA /* ACRMetaPropertyCell.m */; };
+		FE52311721A163F000FF04EA /* ACRMetaInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE52311621A163F000FF04EA /* ACRMetaInfoCell.m */; };
 		FE7575E6218A953500C47DFC /* ACRAppModels.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7575E5218A953500C47DFC /* ACRAppModels.m */; };
 		FE7575EA218BE61800C47DFC /* ACRAppDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7575E9218BE61800C47DFC /* ACRAppDataBase.m */; };
 		FE757660219FCD0800C47DFC /* ACRMetaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE75765F219FCD0800C47DFC /* ACRMetaViewController.m */; };
@@ -47,6 +49,10 @@
 		46300ACB91FF96A0AE7FB747 /* Pods-AppCoder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppCoder.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppCoder/Pods-AppCoder.release.xcconfig"; sourceTree = "<group>"; };
 		986CDC668DC09F4EFB06CC6B /* Pods-AppCoder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppCoder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppCoder/Pods-AppCoder.debug.xcconfig"; sourceTree = "<group>"; };
 		992AC97ED941BAFEB5937415 /* Pods_AppCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE52311221A15DCE00FF04EA /* ACRMetaPropertyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRMetaPropertyCell.h; sourceTree = "<group>"; };
+		FE52311321A15DCE00FF04EA /* ACRMetaPropertyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRMetaPropertyCell.m; sourceTree = "<group>"; };
+		FE52311521A163F000FF04EA /* ACRMetaInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRMetaInfoCell.h; sourceTree = "<group>"; };
+		FE52311621A163F000FF04EA /* ACRMetaInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRMetaInfoCell.m; sourceTree = "<group>"; };
 		FE7575E4218A953500C47DFC /* ACRAppModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRAppModels.h; sourceTree = "<group>"; };
 		FE7575E5218A953500C47DFC /* ACRAppModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRAppModels.m; sourceTree = "<group>"; };
 		FE7575E8218BE61800C47DFC /* ACRAppDataBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRAppDataBase.h; sourceTree = "<group>"; };
@@ -128,6 +134,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FE52311121A15A0B00FF04EA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FE52311521A163F000FF04EA /* ACRMetaInfoCell.h */,
+				FE52311621A163F000FF04EA /* ACRMetaInfoCell.m */,
+				FE52311221A15DCE00FF04EA /* ACRMetaPropertyCell.h */,
+				FE52311321A15DCE00FF04EA /* ACRMetaPropertyCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		FE7575E3218A944C00C47DFC /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +199,7 @@
 				FE757680219FCF4700C47DFC /* ACRTargetTempletes.h */,
 				FE757681219FCF4700C47DFC /* ACRTargetTempletes.m */,
 				FE757671219FCE9D00C47DFC /* ViewControllers */,
+				FE52311121A15A0B00FF04EA /* Cells */,
 				FE75766F219FCE3900C47DFC /* Sources */,
 			);
 			path = "cmp-templetes";
@@ -449,6 +467,7 @@
 				FE75766E219FCE2A00C47DFC /* ACRInputCell.m in Sources */,
 				FE757676219FCED300C47DFC /* ACRTempleteController.m in Sources */,
 				FE757663219FCD2C00C47DFC /* ACRInputController.m in Sources */,
+				FE52311721A163F000FF04EA /* ACRMetaInfoCell.m in Sources */,
 				FE75766B219FCE1900C47DFC /* ACRListCell.m in Sources */,
 				FE9EF7DA2189453E00425CC5 /* AppDelegate.m in Sources */,
 				FE7575E6218A953500C47DFC /* ACRAppModels.m in Sources */,
@@ -459,6 +478,7 @@
 				FE75768C21A0023100C47DFC /* ACRSideMenu.m in Sources */,
 				FE75767C219FCEFC00C47DFC /* ACRTempleteListController.m in Sources */,
 				FE757660219FCD0800C47DFC /* ACRMetaViewController.m in Sources */,
+				FE52311421A15DCE00FF04EA /* ACRMetaPropertyCell.m in Sources */,
 				FE757682219FCF4700C47DFC /* ACRTargetTempletes.m in Sources */,
 				FE9EF7FF21897F1D00425CC5 /* ACRRootViewController.m in Sources */,
 				FE7575EA218BE61800C47DFC /* ACRAppDataBase.m in Sources */,

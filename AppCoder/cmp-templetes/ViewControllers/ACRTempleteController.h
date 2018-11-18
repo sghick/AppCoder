@@ -8,6 +8,20 @@
 
 #import "ACRBaseController.h"
 
+@class ACRTempleteMeta;
+@class ACRTempleteController;
+@protocol ACRTempleteControllerDelegate <NSObject>
+
+- (void)tempController:(ACRTempleteController *)controller didSaveBtnTouchedWithMeta:(ACRTempleteMeta *)meta;
+
+@end
+
 @interface ACRTempleteController : ACRBaseController
+
+@property (strong, nonatomic, readonly) ACRTempleteMeta *meta;
+@property (weak  , nonatomic) id<ACRTempleteControllerDelegate> delegate;
+
+- (void)setContentForAdd;
+- (void)setContentForEditWithMeta:(ACRTempleteMeta *)meta;
 
 @end

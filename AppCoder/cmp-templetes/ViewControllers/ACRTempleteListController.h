@@ -8,6 +8,9 @@
 
 #import "ACRBaseController.h"
 
+@class ACRTempleteMeta;
 @interface ACRTempleteListController : ACRBaseController
+
+@property (strong, nonatomic) ACRTempleteMeta *super_meta;
 
 @end

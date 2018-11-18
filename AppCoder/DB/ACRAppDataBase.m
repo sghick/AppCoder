@@ -21,6 +21,10 @@
     NSString *where = @"WHERE is_root=1";
     return [ACRTempleteMeta selectWhere:where];
 }
++ (NSArray<ACRTempleteMeta *> *)selectNotRootMetas {
+    NSString *where = @"WHERE is_root<>1";
+    return [ACRTempleteMeta selectWhere:where];
+}
 + (NSArray<ACRTempleteMeta *> *)selectMetasWithSuperIdentifier:(NSString *)superIdentifier {
     if (!superIdentifier) {
         return nil;

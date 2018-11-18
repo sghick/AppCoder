@@ -12,6 +12,10 @@
 
 @end
 
+@implementation ACRMetaInfo
+
+@end
+
 @implementation ACRMetaProperty 
 
 @end

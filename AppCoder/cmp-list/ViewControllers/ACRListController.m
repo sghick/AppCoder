@@ -38,7 +38,7 @@ ACRInputControllerDelegate>
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) ACRAddBtn *addBtn;
 @property (strong, nonatomic) ACRSideMenu *sideMenu;
-@property (strong, nonatomic) NSArray<ACRTempleteMeta *> *metaList;
+@property (strong, nonatomic) NSArray<ACRTempleteMeta *> *sideMenuSource;// side menu source
 
 @end
 
@@ -136,7 +136,7 @@ ACRInputControllerDelegate>
 
 - (void)sideMenuView:(ACRSideMenu *)menu didTouchedItem:(UIView *)item atIndex:(NSInteger)index {
     [menu hide];
-    ACRTempleteMeta *meta = self.metaList[index];
+    ACRTempleteMeta *meta = self.sideMenuSource[index];
     [self pushToInputAddControllerWithMeat:meta];
 }
 
@@ -146,16 +146,16 @@ ACRInputControllerDelegate>
     if (self.super_appInfo) {
         // others
         NSArray<ACRTempleteMeta *> *lastMeta = [ACRAppDataBase selectMetasWithSuperIdentifier:self.super_appInfo.meta_identifier];
-        self.metaList = lastMeta;
+        self.sideMenuSource = lastMeta;
     } else {
         // root
         NSArray<ACRTempleteMeta *> *rootMetas = [ACRAppDataBase selectRootMetas];
-        self.metaList = rootMetas;
+        self.sideMenuSource = rootMetas;
     }
     
     NSMutableArray *titles = [NSMutableArray array];
-    for (ACRTempleteMeta *obj in self.metaList) {
-        [titles addObject:obj.name];
+    for (ACRTempleteMeta *obj in self.sideMenuSource) {
+        [titles addObject:obj.title];
     }
     NSArray *items = [ACRSideMenu menuItemsWithTitles:titles];
     CGPoint origin = CGPointMake(sender.frame.origin.x - 200 - 10, sender.frame.origin.y);
@@ -172,7 +172,9 @@ ACRInputControllerDelegate>
     info.super_identifier = self.super_appInfo.identifier;
     
     NSMutableArray *arr = [NSMutableArray arrayWithArray:self.infoList];
-    [arr addObject:info];
+    if (![arr containsObject:info]) {
+        [arr addObject:info];
+    }
     self.infoList = [arr copy];
     if (self.super_appInfo) {
         // sub
