@@ -26,11 +26,12 @@
 
 @property (copy  , nonatomic) NSString *identifier; ///< 模版唯一标识
 @property (copy  , nonatomic) NSString *name; ///< 模版名称
+@property (assign, nonatomic) BOOL is_root; ///< 根模版
 @property (copy  , nonatomic) NSString *meta_group; ///< 分组
 @property (copy  , nonatomic) NSString *rem; ///< 注释
 @property (copy  , nonatomic) NSString *code; ///< 代码
 @property (copy  , nonatomic) NSArray<ACRMetaProperty *> *inputs; ///< 输入元素
-@property (copy  , nonatomic) NSArray<NSString *> *subTempletes; ///< 子模板的id
+@property (copy  , nonatomic) NSArray<NSString *> *sub_templetes; ///< 子模板的id
 
 
 @end
@@ -38,6 +39,8 @@
 @interface ACRAppInfo : NSObject
 
 @property (copy  , nonatomic) NSString *identifier; ///< 唯一标识
+@property (assign, nonatomic) BOOL is_root; ///< 根信息
+@property (copy  , nonatomic) NSString *super_identifier; ///< 唯一标识
 @property (copy  , nonatomic) NSString *title; ///< 标题
 @property (copy  , nonatomic) NSString *des; ///< 描述
 @property (copy  , nonatomic) NSArray<ACRMetaProperty *> *inputs; ///< 输入元素

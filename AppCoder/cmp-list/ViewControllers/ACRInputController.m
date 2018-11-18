@@ -148,6 +148,7 @@ UITableViewSectionsDelegate>
         _info.title = titleP.value;
         _info.des = desP.value;
     }
+    _info.is_root = self.meta.is_root;
     _info.meta_identifier = self.meta.identifier;
     _info.inputs = self.inputs;
     if ([self.delegate respondsToSelector:@selector(inputController:didSaveBtnTouchedWithInfo:)]) {

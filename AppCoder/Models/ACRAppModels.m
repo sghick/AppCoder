@@ -26,4 +26,8 @@
 
 @implementation ACRAppInfo
 
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"inputs": ACRMetaProperty.class};
+}
+
 @end

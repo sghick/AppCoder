@@ -36,6 +36,7 @@
     ACRTempleteMeta *appMeta = [[ACRTempleteMeta alloc] init];
     appMeta.identifier = [NSUUID UUID].UUIDString;
     appMeta.name = @"空白App";
+    appMeta.is_root = YES;
     appMeta.meta_group = @"root";
     appMeta.rem = @"APP";
     appMeta.code = @"this is a code";
@@ -53,7 +54,7 @@
     structMeta.code = @"this is a delegate code";
     structMeta.inputs = @[clsppt];
 
-    appMeta.subTempletes = @[structMeta.identifier];
+    appMeta.sub_templetes = @[structMeta.identifier];
     
     [ACRAppDataBase deleteAllMetas];
     [ACRAppDataBase insertOrReplaceMetas:@[appMeta, structMeta]];

@@ -48,6 +48,9 @@ ACRInputControllerDelegate>
     [super viewDidLoad];
     
     [self createSubviews];
+    [self queryDataFromDB];
+    
+    [self.tableView smr_reloadData];
 }
 
 - (void)createSubviews {
@@ -58,6 +61,16 @@ ACRInputControllerDelegate>
                                    [UIScreen mainScreen].bounds.size.height - [ACRAddBtn generalSize].height - 160,
                                    [ACRAddBtn generalSize].width,
                                    [ACRAddBtn generalSize].height);
+}
+
+- (void)queryDataFromDB {
+    if (self.super_appInfo) {
+        // sub
+        self.infoList = [ACRAppDataBase selectAppInfosWithSuperIdentifier:self.super_appInfo.identifier];
+    } else {
+        // root
+        self.infoList = [ACRAppDataBase selectRootAppInfos];
+    }
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -130,11 +143,11 @@ ACRInputControllerDelegate>
 #pragma mark - Actions
 
 - (void)addBtnAction:(UIButton *)sender {
-    if (self.appInfo) {
+    if (self.super_appInfo) {
         // others
-        ACRTempleteMeta *lastMeta = [ACRAppDataBase selectMetaWithIdentifier:self.appInfo.meta_identifier];
+        ACRTempleteMeta *lastMeta = [ACRAppDataBase selectMetaWithIdentifier:self.super_appInfo.meta_identifier];
         NSMutableArray *subMetas = [NSMutableArray array];
-        for (NSString *subIds in lastMeta.subTempletes) {
+        for (NSString *subIds in lastMeta.sub_templetes) {
             ACRTempleteMeta *meta = [ACRAppDataBase selectMetaWithIdentifier:subIds];
             if (meta) {
                 [subMetas addObject:meta];
@@ -161,9 +174,22 @@ ACRInputControllerDelegate>
 
 - (void)inputController:(ACRInputController *)controller didSaveBtnTouchedWithInfo:(ACRAppInfo *)info {
     [self.navigationController popViewControllerAnimated:YES];
+    
+    // 指定super
+    info.super_identifier = self.super_appInfo.identifier;
+    
     NSMutableArray *arr = [NSMutableArray arrayWithArray:self.infoList];
     [arr addObject:info];
     self.infoList = [arr copy];
+    if (self.super_appInfo) {
+        // sub
+        [ACRAppDataBase deleteAppInfosWithSuperIdentifier:self.super_appInfo.identifier];
+        [ACRAppDataBase insertOrReplaceAppInfos:self.infoList];
+    } else {
+        // root
+        [ACRAppDataBase deleteRootAppInfos];
+        [ACRAppDataBase insertOrReplaceAppInfos:self.infoList];
+    }
     
     [self.tableView smr_reloadData];
 }
@@ -188,7 +214,7 @@ ACRInputControllerDelegate>
 
 - (void)pushToNextListControllerWithAppInfo:(ACRAppInfo *)appInfo {
     ACRListController *listVC = [[ACRListController alloc] init];
-    listVC.appInfo = appInfo;
+    listVC.super_appInfo = appInfo;
     listVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:listVC animated:YES];
 }

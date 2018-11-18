@@ -11,6 +11,6 @@
 @class ACRAppInfo;
 @interface ACRListController : ACRBaseController
 
-@property (strong, nonatomic) ACRAppInfo *appInfo;
+@property (strong, nonatomic) ACRAppInfo *super_appInfo;
 
 @end

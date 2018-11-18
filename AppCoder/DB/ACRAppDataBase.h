@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class ACRTempleteMeta;
+@class ACRAppInfo;
 @interface ACRAppDataBase : NSObject
 
 #pragma mark - ACRTempleteMeta
@@ -18,5 +19,14 @@
 + (ACRTempleteMeta *)selectMetaWithIdentifier:(NSString *)identifier;
 + (BOOL)deleteMetaWithIdentifier:(NSString *)identifier;
 + (BOOL)deleteAllMetas;
+
+#pragma mark - ACRAppInfo
+
++ (void)insertOrReplaceAppInfos:(NSArray<ACRAppInfo *> *)appInfos;
++ (NSArray<ACRAppInfo *> *)selectRootAppInfos;
++ (NSArray<ACRAppInfo *> *)selectAppInfosWithSuperIdentifier:(NSString *)superIdentifier;
++ (BOOL)deleteAppInfoWithIdentifier:(NSString *)identifier;
++ (BOOL)deleteRootAppInfos;
++ (BOOL)deleteAppInfosWithSuperIdentifier:(NSString *)superIdentifier;
 
 @end
