@@ -17,27 +17,36 @@
 + (void)insertOrReplaceMetas:(NSArray<ACRTempleteMeta *> *)metas {
     [ACRTempleteMeta insertOrReplace:metas];
 }
-+ (NSArray<ACRTempleteMeta *> *)selectMetasWithGroup:(NSString *)group {
-    if (!group) {
-        return nil;
-    }
-    NSString *where = @"WHERE meta_group=(?)";
-    return [ACRTempleteMeta selectWhere:where paramsArray:@[group]];
++ (NSArray<ACRTempleteMeta *> *)selectRootMetas {
+    NSString *where = @"WHERE is_root=1";
+    return [ACRTempleteMeta selectWhere:where];
 }
-+ (ACRTempleteMeta *)selectMetaWithIdentifier:(NSString *)identifier {
-    if (!identifier) {
++ (NSArray<ACRTempleteMeta *> *)selectMetasWithSuperIdentifier:(NSString *)superIdentifier {
+    if (!superIdentifier) {
         return nil;
     }
-    NSString *where = @"WHERE identifier=(?)";
-    return [ACRTempleteMeta selectFirstObjectWhere:where paramsArray:@[identifier]];
+    NSString *where = @"WHERE super_identifier=(?)";
+    return [ACRTempleteMeta selectWhere:where paramsArray:@[superIdentifier]];
 }
 + (BOOL)deleteMetaWithIdentifier:(NSString *)identifier {
     if (!identifier) {
-        return NO;
+        return nil;
     }
     NSString *where = @"WHERE identifier=(?)";
     return [ACRTempleteMeta deleteWhere:where paramsArray:@[identifier]];
 }
++ (BOOL)deleteRootMetas {
+    NSString *where = @"WHERE is_root=1";
+    return [ACRTempleteMeta deleteWhere:where];
+}
++ (BOOL)deleteMetasWithSuperIdentifier:(NSString *)superIdentifier {
+    if (!superIdentifier) {
+        return nil;
+    }
+    NSString *where = @"WHERE super_identifier=(?)";
+    return [ACRTempleteMeta deleteWhere:where paramsArray:@[superIdentifier]];
+}
+
 + (BOOL)deleteAllMetas {
     return [ACRTempleteMeta deleteAll];
 }

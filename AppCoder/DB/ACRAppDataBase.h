@@ -15,9 +15,12 @@
 #pragma mark - ACRTempleteMeta
 
 + (void)insertOrReplaceMetas:(NSArray<ACRTempleteMeta *> *)metas;
-+ (NSArray<ACRTempleteMeta *> *)selectMetasWithGroup:(NSString *)group;
-+ (ACRTempleteMeta *)selectMetaWithIdentifier:(NSString *)identifier;
++ (NSArray<ACRTempleteMeta *> *)selectRootMetas;
++ (NSArray<ACRTempleteMeta *> *)selectMetasWithSuperIdentifier:(NSString *)superIdentifier;
 + (BOOL)deleteMetaWithIdentifier:(NSString *)identifier;
++ (BOOL)deleteRootMetas;
++ (BOOL)deleteMetasWithSuperIdentifier:(NSString *)superIdentifier;
+
 + (BOOL)deleteAllMetas;
 
 #pragma mark - ACRAppInfo

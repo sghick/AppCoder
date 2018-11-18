@@ -48,13 +48,12 @@
 
     ACRTempleteMeta *structMeta = [[ACRTempleteMeta alloc] init];
     structMeta.identifier = [NSUUID UUID].UUIDString;
+    structMeta.super_identifier = appMeta.identifier;
     structMeta.name = @"AppDelegate";
     structMeta.meta_group = @"AppDelegate模版";
     structMeta.rem = @"AppDelegate";
     structMeta.code = @"this is a delegate code";
     structMeta.inputs = @[clsppt];
-
-    appMeta.sub_templetes = @[structMeta.identifier];
     
     [ACRAppDataBase deleteAllMetas];
     [ACRAppDataBase insertOrReplaceMetas:@[appMeta, structMeta]];

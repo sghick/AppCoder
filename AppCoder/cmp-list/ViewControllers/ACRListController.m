@@ -145,18 +145,11 @@ ACRInputControllerDelegate>
 - (void)addBtnAction:(UIButton *)sender {
     if (self.super_appInfo) {
         // others
-        ACRTempleteMeta *lastMeta = [ACRAppDataBase selectMetaWithIdentifier:self.super_appInfo.meta_identifier];
-        NSMutableArray *subMetas = [NSMutableArray array];
-        for (NSString *subIds in lastMeta.sub_templetes) {
-            ACRTempleteMeta *meta = [ACRAppDataBase selectMetaWithIdentifier:subIds];
-            if (meta) {
-                [subMetas addObject:meta];
-            }
-        }
-        self.metaList = [subMetas copy];
+        NSArray<ACRTempleteMeta *> *lastMeta = [ACRAppDataBase selectMetasWithSuperIdentifier:self.super_appInfo.meta_identifier];
+        self.metaList = lastMeta;
     } else {
         // root
-        NSArray<ACRTempleteMeta *> *rootMetas = [ACRAppDataBase selectMetasWithGroup:@"root"];
+        NSArray<ACRTempleteMeta *> *rootMetas = [ACRAppDataBase selectRootMetas];
         self.metaList = rootMetas;
     }
     
