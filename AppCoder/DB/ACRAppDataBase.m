@@ -90,4 +90,9 @@
     return [ACRAppInfo deleteWhere:where paramsArray:@[superIdentifier]];
 }
 
+
++ (BOOL)deleteAllAppInfos {
+    return [ACRAppInfo deleteAll];
+}
+
 @end

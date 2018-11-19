@@ -33,4 +33,6 @@
 + (BOOL)deleteRootAppInfos;
 + (BOOL)deleteAppInfosWithSuperIdentifier:(NSString *)superIdentifier;
 
++ (BOOL)deleteAllAppInfos;
+
 @end

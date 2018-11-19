@@ -10,6 +10,8 @@
 		ECDDCD0B4928B720C3035438 /* Pods_AppCoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992AC97ED941BAFEB5937415 /* Pods_AppCoder.framework */; };
 		FE52311421A15DCE00FF04EA /* ACRMetaPropertyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE52311321A15DCE00FF04EA /* ACRMetaPropertyCell.m */; };
 		FE52311721A163F000FF04EA /* ACRMetaInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE52311621A163F000FF04EA /* ACRMetaInfoCell.m */; };
+		FE52311B21A237E300FF04EA /* ACRTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE52311A21A237E300FF04EA /* ACRTestController.m */; };
+		FE52311E21A237FB00FF04EA /* ACRTargetTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FE52311D21A237FB00FF04EA /* ACRTargetTest.m */; };
 		FE7575E6218A953500C47DFC /* ACRAppModels.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7575E5218A953500C47DFC /* ACRAppModels.m */; };
 		FE7575EA218BE61800C47DFC /* ACRAppDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7575E9218BE61800C47DFC /* ACRAppDataBase.m */; };
 		FE757660219FCD0800C47DFC /* ACRMetaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE75765F219FCD0800C47DFC /* ACRMetaViewController.m */; };
@@ -53,6 +55,10 @@
 		FE52311321A15DCE00FF04EA /* ACRMetaPropertyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRMetaPropertyCell.m; sourceTree = "<group>"; };
 		FE52311521A163F000FF04EA /* ACRMetaInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRMetaInfoCell.h; sourceTree = "<group>"; };
 		FE52311621A163F000FF04EA /* ACRMetaInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRMetaInfoCell.m; sourceTree = "<group>"; };
+		FE52311921A237E300FF04EA /* ACRTestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRTestController.h; sourceTree = "<group>"; };
+		FE52311A21A237E300FF04EA /* ACRTestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRTestController.m; sourceTree = "<group>"; };
+		FE52311C21A237FB00FF04EA /* ACRTargetTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRTargetTest.h; sourceTree = "<group>"; };
+		FE52311D21A237FB00FF04EA /* ACRTargetTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRTargetTest.m; sourceTree = "<group>"; };
 		FE7575E4218A953500C47DFC /* ACRAppModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRAppModels.h; sourceTree = "<group>"; };
 		FE7575E5218A953500C47DFC /* ACRAppModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRAppModels.m; sourceTree = "<group>"; };
 		FE7575E8218BE61800C47DFC /* ACRAppDataBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRAppDataBase.h; sourceTree = "<group>"; };
@@ -143,6 +149,17 @@
 				FE52311321A15DCE00FF04EA /* ACRMetaPropertyCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		FE52311821A237CB00FF04EA /* cmp-test */ = {
+			isa = PBXGroup;
+			children = (
+				FE52311C21A237FB00FF04EA /* ACRTargetTest.h */,
+				FE52311D21A237FB00FF04EA /* ACRTargetTest.m */,
+				FE52311921A237E300FF04EA /* ACRTestController.h */,
+				FE52311A21A237E300FF04EA /* ACRTestController.m */,
+			);
+			path = "cmp-test";
 			sourceTree = "<group>";
 		};
 		FE7575E3218A944C00C47DFC /* Models */ = {
@@ -270,6 +287,7 @@
 				FE7575E3218A944C00C47DFC /* Models */,
 				FE757667219FCDBA00C47DFC /* cmp-list */,
 				FE757670219FCE6D00C47DFC /* cmp-templetes */,
+				FE52311821A237CB00FF04EA /* cmp-test */,
 				FE9EF7DE2189453E00425CC5 /* Main.storyboard */,
 				FE9EF7E12189454C00425CC5 /* Assets.xcassets */,
 				FE9EF7E32189454C00425CC5 /* LaunchScreen.storyboard */,
@@ -467,7 +485,9 @@
 				FE75766E219FCE2A00C47DFC /* ACRInputCell.m in Sources */,
 				FE757676219FCED300C47DFC /* ACRTempleteController.m in Sources */,
 				FE757663219FCD2C00C47DFC /* ACRInputController.m in Sources */,
+				FE52311B21A237E300FF04EA /* ACRTestController.m in Sources */,
 				FE52311721A163F000FF04EA /* ACRMetaInfoCell.m in Sources */,
+				FE52311E21A237FB00FF04EA /* ACRTargetTest.m in Sources */,
 				FE75766B219FCE1900C47DFC /* ACRListCell.m in Sources */,
 				FE9EF7DA2189453E00425CC5 /* AppDelegate.m in Sources */,
 				FE7575E6218A953500C47DFC /* ACRAppModels.m in Sources */,

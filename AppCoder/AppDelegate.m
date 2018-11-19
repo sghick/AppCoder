@@ -11,6 +11,7 @@
 #import "ACRRootViewController.h"
 #import "ACRTargetList.h"
 #import "ACRTargetTempletes.h"
+#import "ACRTargetTest.h"
 
 @interface AppDelegate ()
 
@@ -28,7 +29,8 @@
     ACRRootViewController *root = [[ACRRootViewController alloc] init];
     UIViewController *list = [ACRTargetList mainController];
     UIViewController *templete = [ACRTargetTempletes mainController];
-    root.viewControllers = @[list, templete];
+    UIViewController *test = [ACRTargetTest mainController];
+    root.viewControllers = @[list, templete, test];
     self.window.rootViewController = root;
     
     [self.window makeKeyAndVisible];
