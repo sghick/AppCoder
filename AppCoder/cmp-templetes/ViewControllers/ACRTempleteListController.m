@@ -75,7 +75,7 @@ ACRTempleteControllerDelegate>
     } else {
         // root
         self.metaRoot = [ACRAppDataBase selectRootMetas];
-        self.metaList = [ACRAppDataBase selectNotRootMetas];
+//        self.metaList = [ACRAppDataBase selectNotRootMetas];
     }
 }
 
@@ -190,10 +190,10 @@ ACRTempleteControllerDelegate>
     [arr addObjectsFromArray:self.metaList];
     if (![arr containsObject:meta]) {
         [arr addObject:meta];
+        [ACRAppDataBase insertOrReplaceMetas:@[meta]];
+    } else {
+        [ACRAppDataBase updateMetaWithIdentifier:meta];
     }
-    
-    [ACRAppDataBase deleteMetaWithIdentifier:meta.identifier];
-    [ACRAppDataBase insertOrReplaceMetas:@[meta]];
     
     [self queryDataFromDB];
     [self.tableView smr_reloadData];

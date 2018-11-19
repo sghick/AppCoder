@@ -32,6 +32,13 @@
     NSString *where = @"WHERE super_identifier=(?)";
     return [ACRTempleteMeta selectWhere:where paramsArray:@[superIdentifier]];
 }
++ (BOOL)updateMetaWithIdentifier:(ACRTempleteMeta *)meta {
+    if (!meta || !meta.identifier) {
+        return NO;
+    }
+    NSString *where = @"WHERE identifier=(?)";
+    return [ACRTempleteMeta updateSetWhere:where params:@[meta.identifier]];
+}
 + (BOOL)deleteMetaWithIdentifier:(NSString *)identifier {
     if (!identifier) {
         return nil;
@@ -70,6 +77,13 @@
     }
     NSString *where = @"WHERE super_identifier=(?)";
     return [ACRAppInfo selectWhere:where paramsArray:@[superIdentifier]];
+}
++ (BOOL)updateAppInfoWithIdentifier:(ACRAppInfo *)appInfo {
+    if (!appInfo || !appInfo.identifier) {
+        return NO;
+    }
+    NSString *where = @"WHERE identifier=(?)";
+    return [ACRAppInfo updateSetWhere:where params:@[appInfo.identifier]];
 }
 + (BOOL)deleteAppInfoWithIdentifier:(NSString *)identifier {
     if (!identifier) {

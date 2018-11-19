@@ -137,6 +137,11 @@ ACRTempleteControllerDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SMRRow *row = [tableView rowWithIndexPath:indexPath];
     switch (row.rowKey) {
+        case kRowTypeSubMetas: {
+            ACRTempleteMeta *meta = self.subMetaList[row.rowSamesIndex];
+            [self pushToEditSubMetasControllerWithMeta:meta];
+        }
+            break;
         case kRowTypeSave: {
             [self saveAction];
         }
@@ -261,6 +266,13 @@ ACRTempleteControllerDelegate>
 - (void)pushToAddSubMetasController {
     ACRTempleteController *nextVC = [[ACRTempleteController alloc] init];
     [nextVC setContentForAdd];
+    nextVC.delegate = self;
+    [self.navigationController pushViewController:nextVC animated:YES];
+}
+
+- (void)pushToEditSubMetasControllerWithMeta:(ACRTempleteMeta *)meta {
+    ACRTempleteController *nextVC = [[ACRTempleteController alloc] init];
+    [nextVC setContentForEditWithMeta:meta];
     nextVC.delegate = self;
     [self.navigationController pushViewController:nextVC animated:YES];
 }

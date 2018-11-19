@@ -18,6 +18,7 @@
 + (NSArray<ACRTempleteMeta *> *)selectRootMetas;
 + (NSArray<ACRTempleteMeta *> *)selectNotRootMetas;
 + (NSArray<ACRTempleteMeta *> *)selectMetasWithSuperIdentifier:(NSString *)superIdentifier;
++ (BOOL)updateMetaWithIdentifier:(ACRTempleteMeta *)meta;
 + (BOOL)deleteMetaWithIdentifier:(NSString *)identifier;
 + (BOOL)deleteRootMetas;
 + (BOOL)deleteMetasWithSuperIdentifier:(NSString *)superIdentifier;
@@ -29,6 +30,7 @@
 + (void)insertOrReplaceAppInfos:(NSArray<ACRAppInfo *> *)appInfos;
 + (NSArray<ACRAppInfo *> *)selectRootAppInfos;
 + (NSArray<ACRAppInfo *> *)selectAppInfosWithSuperIdentifier:(NSString *)superIdentifier;
++ (BOOL)updateAppInfoWithIdentifier:(ACRAppInfo *)appInfo;
 + (BOOL)deleteAppInfoWithIdentifier:(NSString *)identifier;
 + (BOOL)deleteRootAppInfos;
 + (BOOL)deleteAppInfosWithSuperIdentifier:(NSString *)superIdentifier;
