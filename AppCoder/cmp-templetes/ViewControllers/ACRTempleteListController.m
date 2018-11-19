@@ -54,8 +54,12 @@ ACRTempleteControllerDelegate>
     self.navigationItem.title = @"模板管理";
     
     [self createSubviews];
-    [self queryDataFromDB];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
+    [self queryDataFromDB];
     [self.tableView smr_reloadData];
 }
 
@@ -138,13 +142,30 @@ ACRTempleteControllerDelegate>
     return sec.rowSamesCountOfAll;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    SMRSection *sec = [tableView sectionWithIndexPathSection:section];
+    switch (sec.sectionKey) {
+        case kSectionTypeRoot:{
+            return @"根模板";
+        }
+            break;
+        case kSectionTypeList:{
+            return @"普通模板";
+        }
+            break;
+        default:
+            break;
+    }
+    return @"";
+}
+
 #pragma mark - UITableViewSectionsDelegate
 
 - (SMRSections *)sectionsInTableView:(UITableView *)tableView {
     SMRSections *sections = [[SMRSections alloc] init];
     
-    [sections addSectionKey:kSectionTypeList rowKey:kRowTypeRoot rowSamesCount:self.metaRoot.count];
-    [sections addSectionKey:kSectionTypeRoot rowKey:kRowTypeList rowSamesCount:self.metaList.count];
+    [sections addSectionKey:kSectionTypeRoot rowKey:kRowTypeRoot rowSamesCount:self.metaRoot.count];
+    [sections addSectionKey:kSectionTypeList rowKey:kRowTypeList rowSamesCount:self.metaList.count];
     
     return sections;
 }
@@ -164,7 +185,7 @@ ACRTempleteControllerDelegate>
         }
             break;
         case 1: {
-            // 增加子模版
+            // 增加普通模板
             [self pushToSubMetaAddController];
         }
         break;
@@ -177,7 +198,7 @@ ACRTempleteControllerDelegate>
 #pragma mark - Actions
 
 - (void)addBtnAction:(UIButton *)sender {
-    NSArray *titles = @[@"增加根模版", @"增加子模版"];
+    NSArray *titles = @[@"增加根模版", @"增加普通模板"];
     NSArray *items = [ACRSideMenu menuItemsWithTitles:titles];
     CGPoint origin = CGPointMake(sender.frame.origin.x - 200 - 10, sender.frame.origin.y);
     [self.sideMenu loadMenuWithItems:items menuWidth:200 origin:origin];

@@ -180,6 +180,31 @@ ACRSubmetaSelectControllerDelegate>
     return sec.rowSamesCountOfAll;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    SMRSection *sec = [tableView sectionWithIndexPathSection:section];
+    switch (sec.sectionKey) {
+            case kSectionTypeSuperMeta:{
+                return @"所属";
+            }
+                break;
+            case kSectionTypeMetaInfo:{
+                return @"模板信息";
+            }
+                break;
+            case kSectionTypeProterties:{
+                return @"属性输入";
+            }
+                break;
+            case kSectionTypeSubMetas:{
+                return @"子模板";
+            }
+                break;
+        default:
+            break;
+    }
+    return @"";
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.view endEditing:YES];
 }
@@ -227,15 +252,16 @@ ACRSubmetaSelectControllerDelegate>
     if (meta.super_identifier) {
         meta = [meta copy];
         meta.identifier = [NSUUID UUID].UUIDString;
+        NSLog(@"复制了一份:%@", meta);
+        // 先在数据库新增一份数据
+        [ACRAppDataBase insertOrReplaceMetas:@[meta]];
     }
+    // 设置root为NO
+    meta.is_root = NO;
     // 指定super
     meta.super_identifier = self.meta.identifier;
     // 更新数据库
-    if ([self.subMetaList containsObject:meta]) {
-        [ACRAppDataBase updateMetaWithIdentifier:meta];
-    } else {
-        [ACRAppDataBase insertOrReplaceMetas:@[meta]];
-    }
+    [ACRAppDataBase updateMetaWithIdentifier:meta];
     
     _subMetaList = [ACRAppDataBase selectMetasWithSuperIdentifier:self.meta.identifier];
     [self.tableView smr_reloadData];
