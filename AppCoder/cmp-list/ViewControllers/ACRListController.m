@@ -46,6 +46,11 @@ ACRInputControllerDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.super_appInfo) {
+        self.navigationItem.title = self.super_appInfo.title;
+    } else {
+        self.navigationItem.title = @"项目列表";
+    }
     
     [self createSubviews];
     [self queryDataFromDB];
@@ -171,21 +176,14 @@ ACRInputControllerDelegate>
     // 指定super
     info.super_identifier = self.super_appInfo.identifier;
     
-    NSMutableArray *arr = [NSMutableArray arrayWithArray:self.infoList];
-    if (![arr containsObject:info]) {
-        [arr addObject:info];
-    }
-    self.infoList = [arr copy];
-    if (self.super_appInfo) {
-        // sub
-        [ACRAppDataBase deleteAppInfosWithSuperIdentifier:self.super_appInfo.identifier];
-        [ACRAppDataBase insertOrReplaceAppInfos:self.infoList];
+    // 更新数据库
+    if ([self.infoList containsObject:info]) {
+        [ACRAppDataBase updateAppInfoWithIdentifier:info];
     } else {
-        // root
-        [ACRAppDataBase deleteRootAppInfos];
-        [ACRAppDataBase insertOrReplaceAppInfos:self.infoList];
+        [ACRAppDataBase insertOrReplaceAppInfos:@[info]];
     }
     
+    [self queryDataFromDB];
     [self.tableView smr_reloadData];
 }
 

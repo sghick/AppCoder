@@ -53,6 +53,8 @@ UITableViewSectionsDelegate>
     _meta = meta;
     _inputs = [[NSArray alloc] initWithArray:meta.inputs copyItems:YES];
     [self.tableView smr_reloadData];
+    
+    self.navigationItem.title = [NSString stringWithFormat:@"新建:%@", meta.title];
 }
 
 - (void)setContentForEditWithMeta:(ACRTempleteMeta *)meta info:(ACRAppInfo *)info {
@@ -60,6 +62,8 @@ UITableViewSectionsDelegate>
     _info = info;
     _inputs = [[NSArray alloc] initWithArray:info.inputs copyItems:YES];
     [self.tableView smr_reloadData];
+    
+    self.navigationItem.title = info.title;
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate

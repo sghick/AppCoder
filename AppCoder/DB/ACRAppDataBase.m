@@ -32,12 +32,19 @@
     NSString *where = @"WHERE super_identifier=(?)";
     return [ACRTempleteMeta selectWhere:where paramsArray:@[superIdentifier]];
 }
++ (ACRTempleteMeta *)selectMetaWithIdentifier:(NSString *)identifier {
+    if (!identifier) {
+        return nil;
+    }
+    NSString *where = @"WHERE identifier=(?)";
+    return [ACRTempleteMeta selectFirstObjectWhere:where paramsArray:@[identifier]];
+}
 + (BOOL)updateMetaWithIdentifier:(ACRTempleteMeta *)meta {
     if (!meta || !meta.identifier) {
         return NO;
     }
-    NSString *where = @"WHERE identifier=(?)";
-    return [ACRTempleteMeta updateSetWhere:where params:@[meta.identifier]];
+    NSString *where = [NSString stringWithFormat:@"WHERE identifier='%@'", meta.identifier];
+    return [ACRTempleteMeta update:meta where:where];
 }
 + (BOOL)deleteMetaWithIdentifier:(NSString *)identifier {
     if (!identifier) {
@@ -82,8 +89,8 @@
     if (!appInfo || !appInfo.identifier) {
         return NO;
     }
-    NSString *where = @"WHERE identifier=(?)";
-    return [ACRAppInfo updateSetWhere:where params:@[appInfo.identifier]];
+    NSString *where = [NSString stringWithFormat:@"WHERE identifier=%@", appInfo.identifier];
+    return [ACRAppInfo update:appInfo where:where];
 }
 + (BOOL)deleteAppInfoWithIdentifier:(NSString *)identifier {
     if (!identifier) {

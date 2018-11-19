@@ -17,12 +17,16 @@
 #import "ACRAppModels.h"
 #import "ACRAppDataBase.h"
 
+#import "ACRSubmetaSelectController.h"
+
+static NSString * const identifierOfSupermetaCell = @"identifierOfSupermetaCell";
 static NSString * const identifierOfMetaInfoCell = @"identifierOfMetaInfoCell";
 static NSString * const identifierOfProtertyCell = @"identifierOfProtertyCell";
 static NSString * const identifierOfSubmetaCell = @"identifierOfSubmetaCell";
 static NSString * const identifierOfSaveCell = @"identifierOfSaveCell";
 
 typedef NS_ENUM(NSInteger, kSectionType) {
+    kSectionTypeSuperMeta,
     kSectionTypeMetaInfo,
     kSectionTypeProterties,
     kSectionTypeSubMetas,
@@ -30,6 +34,7 @@ typedef NS_ENUM(NSInteger, kSectionType) {
 };
 
 typedef NS_ENUM(NSInteger, kRowType) {
+    kRowTypeSuperMeta,
     kRowTypeMetaInfo,
     kRowTypeProterties,
     kRowTypeSubMetas,
@@ -41,7 +46,8 @@ UITableViewDelegate,
 UITableViewDataSource,
 UITableViewSectionsDelegate,
 ACRSideMenuDelegate,
-ACRTempleteControllerDelegate>
+ACRTempleteControllerDelegate,
+ACRSubmetaSelectControllerDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) ACRAddBtn *addBtn;
@@ -76,6 +82,8 @@ ACRTempleteControllerDelegate>
 - (void)setContentForAdd {
     
     [self.tableView smr_reloadData];
+    
+    self.navigationItem.title = @"新建模板";
 }
 
 - (void)setContentForEditWithMeta:(ACRTempleteMeta *)meta {
@@ -88,6 +96,8 @@ ACRTempleteControllerDelegate>
     }
     
     [self.tableView smr_reloadData];
+    
+    self.navigationItem.title = meta.title;
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -95,6 +105,14 @@ ACRTempleteControllerDelegate>
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     SMRRow *row = [tableView rowWithIndexPath:indexPath];
     switch (row.rowKey) {
+        case kRowTypeSuperMeta: {
+            ACRListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfSupermetaCell];
+            ACRTempleteMeta *meta = [ACRAppDataBase selectMetaWithIdentifier:self.meta.super_identifier];
+            cell.textLabel.text = meta.title;
+            cell.detailTextLabel.text = meta.des;
+            return cell;
+        }
+            break;
         case kRowTypeMetaInfo: {
             ACRMetaInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfMetaInfoCell];
             ACRMetaInfo *info = self.metaInfoList[row.rowSamesIndex];
@@ -171,6 +189,7 @@ ACRTempleteControllerDelegate>
 - (SMRSections *)sectionsInTableView:(UITableView *)tableView {
     SMRSections *sections = [[SMRSections alloc] init];
     
+    [sections addSectionKey:kSectionTypeSuperMeta rowKey:kRowTypeSuperMeta rowSamesCount:self.meta.super_identifier?1:0];
     [sections addSectionKey:kSectionTypeMetaInfo rowKey:kRowTypeMetaInfo rowSamesCount:self.metaInfoList.count];
     [sections addSectionKey:kSectionTypeProterties rowKey:kRowTypeProterties rowSamesCount:self.inputs.count];
     [sections addSectionKey:kSectionTypeSubMetas rowKey:kRowTypeSubMetas rowSamesCount:self.subMetaList.count];
@@ -187,16 +206,38 @@ ACRTempleteControllerDelegate>
     
     // 指定super
     meta.super_identifier = self.meta.identifier;
-    
-    NSMutableArray *arr = [NSMutableArray arrayWithArray:self.subMetaList];
-    if (![arr containsObject:meta]) {
-        [arr addObject:meta];
+    // 更新数据库
+    if ([self.subMetaList containsObject:meta]) {
+        [ACRAppDataBase updateMetaWithIdentifier:meta];
+    } else {
+        [ACRAppDataBase insertOrReplaceMetas:@[meta]];
     }
-    self.subMetaList = [arr copy];
-    // sub
-    [ACRAppDataBase deleteMetaWithIdentifier:meta.identifier];
-    [ACRAppDataBase insertOrReplaceMetas:@[meta]];
     
+    _subMetaList = [ACRAppDataBase selectMetasWithSuperIdentifier:self.meta.identifier];
+    [self.tableView smr_reloadData];
+}
+
+
+#pragma mark - ACRSubmetaSelectControllerDelegate
+
+- (void)submetaSelectController:(ACRSubmetaSelectController *)controller didSelectedMeta:(ACRTempleteMeta *)meta {
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    // 是否有主的
+    if (meta.super_identifier) {
+        meta = [meta copy];
+        meta.identifier = [NSUUID UUID].UUIDString;
+    }
+    // 指定super
+    meta.super_identifier = self.meta.identifier;
+    // 更新数据库
+    if ([self.subMetaList containsObject:meta]) {
+        [ACRAppDataBase updateMetaWithIdentifier:meta];
+    } else {
+        [ACRAppDataBase insertOrReplaceMetas:@[meta]];
+    }
+    
+    _subMetaList = [ACRAppDataBase selectMetasWithSuperIdentifier:self.meta.identifier];
     [self.tableView smr_reloadData];
 }
 
@@ -219,7 +260,7 @@ ACRTempleteControllerDelegate>
             break;
         case 1: {
             // 增加子模板
-            
+            [self pushToSelectSubmetaController];
         }
             break;
         case 2: {
@@ -277,6 +318,12 @@ ACRTempleteControllerDelegate>
     [self.navigationController pushViewController:nextVC animated:YES];
 }
 
+- (void)pushToSelectSubmetaController {
+    ACRSubmetaSelectController *nextVC = [[ACRSubmetaSelectController alloc] init];
+    nextVC.delegate = self;
+    [self.navigationController pushViewController:nextVC animated:YES];
+}
+
 #pragma mark - Getters
 
 - (UITableView *)tableView {
@@ -286,6 +333,7 @@ ACRTempleteControllerDelegate>
         _tableView.dataSource = self;
         _tableView.sectionsDelegate = self;
         
+        [_tableView registerClass:[ACRListCell class] forCellReuseIdentifier:identifierOfSupermetaCell];
         [_tableView registerClass:[ACRMetaInfoCell class] forCellReuseIdentifier:identifierOfMetaInfoCell];
         [_tableView registerClass:[ACRMetaPropertyCell class] forCellReuseIdentifier:identifierOfProtertyCell];
         [_tableView registerClass:[ACRListCell class] forCellReuseIdentifier:identifierOfSubmetaCell];
@@ -327,6 +375,7 @@ ACRTempleteControllerDelegate>
     is_root.property_name = @"is_root";
     is_root.title = @"根模版";
     is_root.type = @"BOOL";
+    is_root.value = [NSString stringWithFormat:@"%@", @(self.default_is_root)];
     // 模版名称
     ACRMetaInfo *title = [[ACRMetaInfo alloc] init];
     title.property_name = @"title";

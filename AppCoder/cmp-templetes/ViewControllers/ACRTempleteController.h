@@ -21,6 +21,8 @@
 @property (strong, nonatomic, readonly) ACRTempleteMeta *meta;
 @property (weak  , nonatomic) id<ACRTempleteControllerDelegate> delegate;
 
+@property (assign, nonatomic) BOOL default_is_root;///< 设置默认info.is_root属性
+
 - (void)setContentForAdd;
 - (void)setContentForEditWithMeta:(ACRTempleteMeta *)meta;
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BDFE648F21A2648F007941B0 /* ACRSubmetaSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFE648E21A2648F007941B0 /* ACRSubmetaSelectController.m */; };
 		ECDDCD0B4928B720C3035438 /* Pods_AppCoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992AC97ED941BAFEB5937415 /* Pods_AppCoder.framework */; };
 		FE52311421A15DCE00FF04EA /* ACRMetaPropertyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE52311321A15DCE00FF04EA /* ACRMetaPropertyCell.m */; };
 		FE52311721A163F000FF04EA /* ACRMetaInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE52311621A163F000FF04EA /* ACRMetaInfoCell.m */; };
@@ -51,6 +52,8 @@
 		46300ACB91FF96A0AE7FB747 /* Pods-AppCoder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppCoder.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppCoder/Pods-AppCoder.release.xcconfig"; sourceTree = "<group>"; };
 		986CDC668DC09F4EFB06CC6B /* Pods-AppCoder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppCoder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppCoder/Pods-AppCoder.debug.xcconfig"; sourceTree = "<group>"; };
 		992AC97ED941BAFEB5937415 /* Pods_AppCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDFE648D21A2648F007941B0 /* ACRSubmetaSelectController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRSubmetaSelectController.h; sourceTree = "<group>"; };
+		BDFE648E21A2648F007941B0 /* ACRSubmetaSelectController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRSubmetaSelectController.m; sourceTree = "<group>"; };
 		FE52311221A15DCE00FF04EA /* ACRMetaPropertyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRMetaPropertyCell.h; sourceTree = "<group>"; };
 		FE52311321A15DCE00FF04EA /* ACRMetaPropertyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRMetaPropertyCell.m; sourceTree = "<group>"; };
 		FE52311521A163F000FF04EA /* ACRMetaInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACRMetaInfoCell.h; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 				FE75767B219FCEFC00C47DFC /* ACRTempleteListController.m */,
 				FE757674219FCED300C47DFC /* ACRTempleteController.h */,
 				FE757675219FCED300C47DFC /* ACRTempleteController.m */,
+				BDFE648D21A2648F007941B0 /* ACRSubmetaSelectController.h */,
+				BDFE648E21A2648F007941B0 /* ACRSubmetaSelectController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDFE648F21A2648F007941B0 /* ACRSubmetaSelectController.m in Sources */,
 				FE9EF7E82189454C00425CC5 /* main.m in Sources */,
 				FE75766E219FCE2A00C47DFC /* ACRInputCell.m in Sources */,
 				FE757676219FCED300C47DFC /* ACRTempleteController.m in Sources */,

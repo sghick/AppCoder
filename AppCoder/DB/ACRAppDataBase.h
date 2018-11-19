@@ -18,6 +18,7 @@
 + (NSArray<ACRTempleteMeta *> *)selectRootMetas;
 + (NSArray<ACRTempleteMeta *> *)selectNotRootMetas;
 + (NSArray<ACRTempleteMeta *> *)selectMetasWithSuperIdentifier:(NSString *)superIdentifier;
++ (ACRTempleteMeta *)selectMetaWithIdentifier:(NSString *)identifier;
 + (BOOL)updateMetaWithIdentifier:(ACRTempleteMeta *)meta;
 + (BOOL)deleteMetaWithIdentifier:(NSString *)identifier;
 + (BOOL)deleteRootMetas;

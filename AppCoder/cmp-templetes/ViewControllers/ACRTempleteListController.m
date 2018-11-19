@@ -51,6 +51,7 @@ ACRTempleteControllerDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"模板管理";
     
     [self createSubviews];
     [self queryDataFromDB];
@@ -75,7 +76,7 @@ ACRTempleteControllerDelegate>
     } else {
         // root
         self.metaRoot = [ACRAppDataBase selectRootMetas];
-//        self.metaList = [ACRAppDataBase selectNotRootMetas];
+        self.metaList = [ACRAppDataBase selectNotRootMetas];
     }
 }
 
@@ -158,10 +159,15 @@ ACRTempleteControllerDelegate>
     [menu hide];
     switch (index) {
         case 0: {
-            // 增加模版
-            [self pushToMetaAddController];
+            // 增加根模版
+            [self pushToRootMetaAddController];
         }
             break;
+        case 1: {
+            // 增加子模版
+            [self pushToSubMetaAddController];
+        }
+        break;
             
         default:
             break;
@@ -171,7 +177,7 @@ ACRTempleteControllerDelegate>
 #pragma mark - Actions
 
 - (void)addBtnAction:(UIButton *)sender {
-    NSArray *titles = @[@"增加模版"];
+    NSArray *titles = @[@"增加根模版", @"增加子模版"];
     NSArray *items = [ACRSideMenu menuItemsWithTitles:titles];
     CGPoint origin = CGPointMake(sender.frame.origin.x - 200 - 10, sender.frame.origin.y);
     [self.sideMenu loadMenuWithItems:items menuWidth:200 origin:origin];
@@ -186,13 +192,11 @@ ACRTempleteControllerDelegate>
     // 指定super
     meta.super_identifier = self.super_meta.identifier;
     
-    NSMutableArray *arr = [NSMutableArray arrayWithArray:self.metaRoot];
-    [arr addObjectsFromArray:self.metaList];
-    if (![arr containsObject:meta]) {
-        [arr addObject:meta];
-        [ACRAppDataBase insertOrReplaceMetas:@[meta]];
-    } else {
+    // 更新数据库
+    if ([self.metaRoot containsObject:meta] || [self.metaList containsObject:meta]) {
         [ACRAppDataBase updateMetaWithIdentifier:meta];
+    } else {
+        [ACRAppDataBase insertOrReplaceMetas:@[meta]];
     }
     
     [self queryDataFromDB];
@@ -201,7 +205,16 @@ ACRTempleteControllerDelegate>
 
 #pragma mark - JumpLogical
 
-- (void)pushToMetaAddController {
+- (void)pushToRootMetaAddController {
+    ACRTempleteController *metaVC = [[ACRTempleteController alloc] init];
+    metaVC.default_is_root = YES;
+    [metaVC setContentForAdd];
+    metaVC.delegate = self;
+    metaVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:metaVC animated:YES];
+}
+
+- (void)pushToSubMetaAddController {
     ACRTempleteController *metaVC = [[ACRTempleteController alloc] init];
     [metaVC setContentForAdd];
     metaVC.delegate = self;

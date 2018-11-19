@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		042D824DCE086A1EEE43D176EFFE4C92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */; };
 		07BB1C0993015A30474D548CEF5E00D9 /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 85FA9328440E6B71BD33ED267D2C7924 /* YYModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07D92C7402BEFE46FA46B7D881FA932B /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0914E622AADC3A9B11329AEAB58A1806 /* CoreFoundation.framework */; };
 		089E10724A43FF8176754A367E0798EA /* SMRDBMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E7DE8C01B632659F348D3DA9BCB89F /* SMRDBMapper.m */; };
 		0A23B7C16B26A9FF4640CCD519EC9A96 /* SMRLogScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A576DB069A3E02CBCBB93E35AC8A8A /* SMRLogScreen.m */; };
-		1563C2F752A182AF5308169E6A5BE58A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */; };
+		1249323FA2073300DDDA3ACE700B73DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */; };
 		1814E1000CD093E2AC065B2DE19F3A9C /* Pods-AppCoder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EC0567492457AE91452D6E2DA106F9 /* Pods-AppCoder-dummy.m */; };
 		18C2BAF64DC81D6FBA3E6DB301AACF87 /* SMRDBInsertOption.h in Headers */ = {isa = PBXBuildFile; fileRef = CB0EDFE56A78C9089E0F71469949CC1E /* SMRDBInsertOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1979CE7E382E8F747A98622F2DEE4859 /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FA738006B6842B456F33B7C3DE0C2DB5 /* NSObject+YYModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19854B74C86B6599118BFFBE69D8A731 /* SMRYYModelParser.h in Headers */ = {isa = PBXBuildFile; fileRef = C83A84EB110D27BACF361BD08CA3FC9C /* SMRYYModelParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19AAD617D375D66CFA1640931119474C /* SMRModelParserDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D67BC5C3C35A7AFE1C77E7D018D462C3 /* SMRModelParserDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C37276A51ABE9A6F95ED26427382309 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */; };
+		1D18D25957C02F2D4AFBE7A7761E39BA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024CC043AB017081A958E580FAD82531 /* CoreFoundation.framework */; };
 		1DDA145D06278BD8DD8B8E60DA0DB158 /* NSObject+SMRDB.m in Sources */ = {isa = PBXBuildFile; fileRef = E427702486460686F46EB2252EE37464 /* NSObject+SMRDB.m */; };
 		1FD1A6A9D141884E2340289A9504D2AE /* SMRDBSqlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 569E2CD6AE1512209678FF00C84C46CF /* SMRDBSqlOption.m */; };
 		22554065FA07F1BFE5308A685394CB12 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6A7DC4127910A3DCC75E02ABB081D0 /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,13 +32,14 @@
 		33B2FCE4B982D4CE3495ED853EDAD925 /* SMRLifecycleLogDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AF607EC0FDA4C9CD1CEBF2FCC457FD13 /* SMRLifecycleLogDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		33C894972A30F37F25863CD5921EB561 /* SMRDBSelectOption.h in Headers */ = {isa = PBXBuildFile; fileRef = E94D4DE6CF4A2C0433A7FA0F0010CABB /* SMRDBSelectOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		33EC7586DD05D975C8B4658F0D2418B4 /* SMRDBColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = E1831A946A48BEC7FFB094776000142E /* SMRDBColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35C0489C078B266767E2A258BDF78879 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024CC043AB017081A958E580FAD82531 /* CoreFoundation.framework */; };
 		37F097E2269EF1BD238AD7449D796445 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B489E6E6FDD8500CD1D6ACD5D0F6853 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		3831F6D81C8A0BDA893CD2FA6EA3B6C2 /* SMRLifecycle-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B19765C6FA4A93229303C5B51F6336E7 /* SMRLifecycle-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A78CFB2F96544ABAAEC1A882337C164 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */; };
 		3BF19F92533261C4DBE56DF9F3640905 /* SMRFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F8A3070AE09E7F6E6FF2168ECAA27 /* SMRFMDBManager.m */; };
 		3DA3EB28DBB14725A588B7B8E6D507FA /* SMRDBDeleteOption.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A80804AF28EC921B020E27B36EE7F5 /* SMRDBDeleteOption.m */; };
 		3E1FB8753C7C6F39430F988A0A5C8B16 /* SMRDBSqlOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1F7A2294EC2EE36A03377CCF10A534 /* SMRDBSqlOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E43906B70EB01C06F3AE17008B853B9 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E4A73027F17FBD519575EB9EDB2CF6 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4122896F5CAEF674F46A46F906E32160 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */; };
 		426B3A7B70C11AFF0DA49DB296728E3A /* NSObject+SMRDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 63165A44852D10758750051874045038 /* NSObject+SMRDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		435A91C63E3CF0AA8FFE60695BB9CFEB /* SMRLogSys.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB44296CED1FE97E4A40DC961384E0F /* SMRLogSys.m */; };
 		474684468EA8C41E941A9E8E33C5DEF5 /* SMRModelAPIParamsDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A0C25F7AE8F1BD63DED9666E0BF547 /* SMRModelAPIParamsDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,33 +47,35 @@
 		4848E5B56DB146A3686C35D4370F3CB0 /* PureLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CBD96318EBB111B0C3737A50911B80 /* PureLayout-dummy.m */; };
 		4A1FA66C8E58896163FC9BD6D517AF24 /* NSLayoutConstraint+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = B8BD37D7D008D03CCAF9036187EFA4C9 /* NSLayoutConstraint+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C7FF4DFA62F0492325A3E3596DF3563 /* SMRLogSystem-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EE461628E8C059C3EC6314F9A23CE1 /* SMRLogSystem-dummy.m */; };
-		4F8ED2FE2EC83E5660EBB39E84E49821 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0914E622AADC3A9B11329AEAB58A1806 /* CoreFoundation.framework */; };
+		4E839504DC41924F52124B7D2F79A5F5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024CC043AB017081A958E580FAD82531 /* CoreFoundation.framework */; };
 		50962A10A47C98E59C85E7795D8F5218 /* SMRDBColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEA79DD1484606CB3926E72928F44AB /* SMRDBColumn.m */; };
 		528AAA2A706F6F6C38BA9E91BDE0A16B /* SMRLogScreen-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E5FD40E52D2D4100DD116470F7E9C989 /* SMRLogScreen-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56063CE6F65484BF734DC21CA0F53CC2 /* PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = BBE28A58564D7F1C4A3A4FA8D50BE4A9 /* PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		578DE34C8DEAFB905583F4A86D872F5D /* SMRDB-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 823097186CF87C949D1DE1973CB107FC /* SMRDB-dummy.m */; };
 		579FC784F8F6293CD6C5D442E189453C /* SMRDB-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 65AECF54820B50DD48D5022725B7F1DF /* SMRDB-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B909C996154C8A6656926F51DC22ED7 /* ALView+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C4AA60F4AD9F9680E3A3A7CF204DCC /* ALView+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5C83CDB06531ECA10639AA4F7952F1A0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0914E622AADC3A9B11329AEAB58A1806 /* CoreFoundation.framework */; };
-		5F8A534515B094261D7BF06D77001D72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */; };
+		5CBDBFE51BC2325ED2C6CEC9D6FB3092 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024CC043AB017081A958E580FAD82531 /* CoreFoundation.framework */; };
 		6096D7166CFD7188D5FD58B67CB70BA8 /* SMRDBOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 611728E74E8FCE50C144769BC36F2BF8 /* SMRDBOption.m */; };
-		62F6467C96691C4A4DACFC611EFA9136 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */; };
-		6FDB2F19FF9CF44ABCE94B84237C91F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */; };
+		69EE9E1AB2096F989444FA248552EA69 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024CC043AB017081A958E580FAD82531 /* CoreFoundation.framework */; };
+		721C9AAC190A2A84A811D0389EE3BDB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */; };
+		72563ADE99DC9E753B27D48B16AA3654 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */; };
 		76B55D178D6706B1D107727A5D10332B /* SMRSections.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D55A140E72D04709B28FAAB54E1F99 /* SMRSections.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		77267E302B4B8A6BB99F355136499842 /* SMRDBGroupOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C33E1F0214E8C6A0D13EE0EEAB2BBA /* SMRDBGroupOption.m */; };
 		792FF03AFD3464E81DA3260BD91DADC5 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CBD9A59E25EC4DBA65B4223989DD2C /* NSArray+PureLayout.m */; };
 		7981DEC980FC4BC1A2C79251F1B8069C /* SMRDBOption.h in Headers */ = {isa = PBXBuildFile; fileRef = CAA96F33F16F0780050657A911C73000 /* SMRDBOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CE8AC2D56914DD83853E130279044A4 /* SMRTableAssistant-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 597953D8DBA55713D1809B87F82CC70D /* SMRTableAssistant-dummy.m */; };
 		7FC5CFDEC5382F69FBED34A6269CF4DF /* SMRLifecycle-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB166C4584077AD12A24D29D42BF419 /* SMRLifecycle-dummy.m */; };
+		80A925782485200190DA586CF899F9CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */; };
 		817E0E61BE9961D0FDD4A170E250D17C /* YYModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86A1A5CA4836276D66D5230FB2901A4 /* YYModel.framework */; };
 		84D32489DB56F059D9F057BCAEA7778C /* PureLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DEFE13E627A79A9BDF4F5BEB451043B /* PureLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D5B402A519BC761535A6F203F53623 /* SMRDBAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 653C668317F08F0BF600B0D4209BFF2E /* SMRDBAdapter.m */; };
+		866908B07B9CB8E4EF24AFE5245DA90E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */; };
 		8773BC928FF2E927E5D304BD6E155BE7 /* SMRDBGroupOption.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A476DEA566A1D40D88E4DBF15EE3C4 /* SMRDBGroupOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		87ECA447DB887426665260651B7F147E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF42E85BE42C230AF18A8DBAF7015B4 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		884DE08815C2802698FAC10F41E823AF /* menu_bg_trangle@3x.png in Sources */ = {isa = PBXBuildFile; fileRef = 29F64010851BB3933C59CAE8608E1B75 /* menu_bg_trangle@3x.png */; };
 		8C69C39B0E259F3E9A9A64BBEDB886E1 /* SMRRankerLogDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AE8499D672395168145038C37F5A930A /* SMRRankerLogDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F65A8235AE634B161A3C5172879E943 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */; };
 		8F7CF5B47C5307215C7CFEEF7035CFEF /* SMRTableAssistant.h in Headers */ = {isa = PBXBuildFile; fileRef = 88A3B85B04396DABC2E9E2A076094115 /* SMRTableAssistant.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92238297377853440B5103FCD13DE994 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */; };
 		92262D6C8CC64D0C7748E639A5874679 /* SMRDBUpdateOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 83658BD64A2A9D0FB3BF3B457101C49B /* SMRDBUpdateOption.m */; };
 		94839E476F1779DCF22A6767365EA33F /* SMRLogScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = C6E7D561EF4A345F5AA1BA66E26C5ADF /* SMRLogScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9661C82DA1FD37C58655CF4EFD3D014A /* SMRRanker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C136F144E577EF5CFF2299A24BE2A654 /* SMRRanker-dummy.m */; };
@@ -80,15 +83,16 @@
 		97D28D1A4DE1078DA0515F6AE2B04FBE /* SMRDBInsertOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEA9DCAB8335D027DB4670D53054A7E /* SMRDBInsertOption.m */; };
 		98D894E9815599CD097FABC404C3F2AA /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A7C562C83C3B531D7155616CFB853 /* ALView+PureLayout.m */; };
 		9992830D1CA79FF2450D671E2406A603 /* SMRModel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A70531FA6919E7825A7F2DBB4A42DF1C /* SMRModel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AC1212B43938A7B8E53F25C0BFF4332 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */; };
 		9B8D84996694C541CD3434386E0A081A /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = C3174075125EA098967B197C7C94C46B /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C11A290C9C5866A185A54F1EC04E2BB /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B8BC27B19226CDDD5062BC1F0E3A97 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		9CCC1AA437F8DBB4B31A81308F781F39 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0914E622AADC3A9B11329AEAB58A1806 /* CoreFoundation.framework */; };
 		9E2C2B1385D66DAF9926655B81D15AFB /* PureLayoutDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = D528C37937667D6AA8E8C52C917397FE /* PureLayoutDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1B5D80A8998311B8C9043E6942925E6 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A87EEB4536B225C2BCF35D780EF1C0 /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		A33E0378AD40B355EFE6DF953E440DA8 /* SMRLifecycle.m in Sources */ = {isa = PBXBuildFile; fileRef = C305ABE2F0C1C08BEC8032BAB16B0474 /* SMRLifecycle.m */; };
 		A3E995DED55BB6A61D4D88C26268DF73 /* SMRRankerAction.h in Headers */ = {isa = PBXBuildFile; fileRef = E5AB3551ED0E5E17EF7250B1C9A237FF /* SMRRankerAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A548833BE5FAD40830428F36E77D0F52 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F4CE37BD12B6649BA1DBF35AA475E4 /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7DABF14749E96DEA412C135572F5AAF /* NSArray+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CCD0E240C928D287EBD91002336BFA2 /* NSArray+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA27CFE5A91FA1D7F61B5C655484FE2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */; };
 		AB265087BDF4ECA324A80F783373D2CB /* YYModel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D71ED10D7CBF9821663F825C083612 /* YYModel-dummy.m */; };
 		AD170DF380ABA046E4283C58845549D2 /* SMRRanker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF5489335B4B965CFDD804F89F5E978 /* SMRRanker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFBB2B5D37649ADC2071A3A0F1047892 /* SMRLogScreen-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29870D86AB9EDFB0129E6ADE23B9498F /* SMRLogScreen-dummy.m */; };
@@ -96,16 +100,13 @@
 		B817B26F06123C3BB7892224E5A6ED5A /* SMRDBSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8145E446C45EC94946D3FD3C6E264DE3 /* SMRDBSetter.m */; };
 		B876D033D299A4E4021F86C79513AE99 /* SMRDBUpdateOption.h in Headers */ = {isa = PBXBuildFile; fileRef = E9A3C1882C528BEBC3E679BF327ED71D /* SMRDBUpdateOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8C01DB1EF7AABBB2D4D1A78A8729083 /* UITableView+SMRSections.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0253477F384C24EA3A2FCF120CCEEC /* UITableView+SMRSections.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B902A443586CC35058BA869B1870D6D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */; };
 		B9B00602CEEA12767803DFB242A649E2 /* SMRRankerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E78FE1F0BEB0E67806B41C358548070 /* SMRRankerManager.m */; };
-		BD65B341CC6F560ABD5F03D540BE1FD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */; };
 		BF51DA6F5AE7F3BC913E67FDC27131B0 /* SMRRankerConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = BAC243515B4D6318959ECCE8E7DC78CC /* SMRRankerConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3C0CE0293171A5EACC0E6E7C2BF3004 /* SMRDBTableOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 008FC4AAFD7AE7E894F319C5EF521849 /* SMRDBTableOption.m */; };
 		C4CAEB8D35815F3537FE92A45D9C818D /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E663484187756786A5CD47C39A36DB05 /* NSLayoutConstraint+PureLayout.m */; };
 		C605A44DF96E7FCACF7D6E37B62F795D /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C13458A02490EB7CCC4627C723A686D /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		C614EAC3A3A3EF5B49681C9DF39E1F57 /* SMRDBMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = A616B457FAF8D73F3B8FE88558B8BFF1 /* SMRDBMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C791F404F55735EE802C3B8F34620CDA /* SMRLogSideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD912A5549A1C252FDBF67A30638CC51 /* SMRLogSideMenuView.m */; };
-		CACE70A9CF61128174B7DF3969E1C8A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */; };
 		CCB74062CE0F4B8E5B7483599BC398DA /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 37CDE77E767EDD8C460AF5739264EE26 /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CCD90C882BE20C85B12BD6D2676A26A9 /* SMRDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 1243317138AB5FC12E9BE4E19448A871 /* SMRDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD577399B6EFEC787F0B8CCDB4E20A7F /* YYModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86A1A5CA4836276D66D5230FB2901A4 /* YYModel.framework */; };
@@ -117,7 +118,6 @@
 		D65E31F3485057AF2D64450B0894F977 /* SMRYYModelParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B0A925F576D144CBFC3D8FC0AA02F5 /* SMRYYModelParser.m */; };
 		D6D8C9BE83A54A352E87D465E0916747 /* SMRModel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 586E776D41F19AC650E51C487667B11C /* SMRModel-dummy.m */; };
 		D713FEEBBF8F1E213A2188120DDF5873 /* SMRRankerLifecycleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C280676BB3F0AB3878F73BBF01722401 /* SMRRankerLifecycleManager.m */; };
-		D8C668CEAA0C5E6025DDCAF5F261C7BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */; };
 		D9184DA3DECB0705453C64E5EC71BA33 /* UITableView+SMRSections.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3C074EF91FAAC140C2651F60203F1E /* UITableView+SMRSections.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		D984B0BB1D1646A4B788DD121803EECF /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52814FDE02E6E2A111E7B6B868EAFADD /* NSObject+YYModel.m */; };
 		DA11BBC99AA28A1C1EA2F6FDC4CEDF9F /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD906FCFC39207A21957E264B8A1CB0 /* FMDB.framework */; };
@@ -125,6 +125,7 @@
 		E0BF6FADC61D90D431AC31D31C26A032 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 519511EBF87F49A4A2CB7F7FFE2E790D /* YYClassInfo.m */; };
 		E1B357301FA2EADF86B9B8B3AD0083CC /* SMRDBDeleteOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E498D226D5F5D6E75F4CE3EA65811CA /* SMRDBDeleteOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E559D15B0006E904D55A5FE8978D787C /* SMRDBTableOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 56F815F03289DE1A7698D236B7E3100F /* SMRDBTableOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E80BD618798D331822CD9AE697A84E03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */; };
 		E8C38F90D90A778A1A04F86687CD4B73 /* Pods-AppCoder-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B21C06EC3CAAC074FC6355EF1E394CFD /* Pods-AppCoder-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E992A3832ADA9B666D3C8AB7D7DB185E /* UITableView+Separator.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC487F48EE14456F47E5960CAE6A66 /* UITableView+Separator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		EA57C387D0A4B9565A0E1B800B6AA70E /* menu_bg_trangle@2x.png in Sources */ = {isa = PBXBuildFile; fileRef = 615446F0A76F9E73284EED33B8EF53E3 /* menu_bg_trangle@2x.png */; };
@@ -137,7 +138,6 @@
 		FAA7ECE2DC0410AA5A23BE05EFA66445 /* SMRDBUtilOption.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB94C3F1946D85AE2F5AF19CC3AD923 /* SMRDBUtilOption.m */; };
 		FAFDEBECD9E7C56D99054797A1385A3C /* SMRSections.h in Headers */ = {isa = PBXBuildFile; fileRef = 9664E073A5265182D8DB420B03E51A2E /* SMRSections.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB19D7E3BD4906DBC5361613FA5A9F82 /* SMRRanker.h in Headers */ = {isa = PBXBuildFile; fileRef = A904F03AF7AFFC9AD28B59F97C72BC7F /* SMRRanker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FE3FECBC7D6BBC6147E4C44C9B89D7C3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0914E622AADC3A9B11329AEAB58A1806 /* CoreFoundation.framework */; };
 		FE6C6FB4CA35FE812AC9402D950CBD49 /* SMRLogSys.h in Headers */ = {isa = PBXBuildFile; fileRef = 56B5F86DCD319882F07DE4325DADB2AB /* SMRLogSys.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -237,10 +237,10 @@
 
 /* Begin PBXFileReference section */
 		008FC4AAFD7AE7E894F319C5EF521849 /* SMRDBTableOption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SMRDBTableOption.m; path = SMRDB/SMRDBLib/SMRDBTableOption.m; sourceTree = "<group>"; };
+		024CC043AB017081A958E580FAD82531 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		03999593651FFC7D97C3110A4600874E /* YYClassInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYClassInfo.h; path = YYModel/YYClassInfo.h; sourceTree = "<group>"; };
 		05EE461628E8C059C3EC6314F9A23CE1 /* SMRLogSystem-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SMRLogSystem-dummy.m"; sourceTree = "<group>"; };
 		06A325434DD642035CBFA4C3A5838F8D /* FMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
-		0914E622AADC3A9B11329AEAB58A1806 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		0A524237FADFA219C2F881F132D02E86 /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FMDB.framework; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B243877DFCEBDFB1FA3911D578A42C5 /* Pods_AppCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AppCoder.framework; path = "Pods-AppCoder.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C13458A02490EB7CCC4627C723A686D /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
@@ -307,6 +307,7 @@
 		65A0C25F7AE8F1BD63DED9666E0BF547 /* SMRModelAPIParamsDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SMRModelAPIParamsDelegate.h; path = SMRModel/SMRModelAPIParamsDelegate.h; sourceTree = "<group>"; };
 		65AECF54820B50DD48D5022725B7F1DF /* SMRDB-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SMRDB-umbrella.h"; sourceTree = "<group>"; };
 		66B6CEA4D9ACC40DB7A473D385DC07CB /* PureLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PureLayout.modulemap; sourceTree = "<group>"; };
+		6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6EF42E85BE42C230AF18A8DBAF7015B4 /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
 		71AAFF211F85BEF69A298CEC54D95200 /* SMRTableAssistant.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SMRTableAssistant.modulemap; sourceTree = "<group>"; };
 		74E003EBE2295218747FBA8FB6A07C92 /* SMRLogScreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SMRLogScreen.framework; path = SMRLogScreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -389,7 +390,6 @@
 		D981623F23DBEA17306AB234BE02964F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA259B9528AF961EA273FA0623C2448B /* FMDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-prefix.pch"; sourceTree = "<group>"; };
 		DA4AC87AE1F71661A7A50D3973AF619A /* SMRDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SMRDB-prefix.pch"; sourceTree = "<group>"; };
-		DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		DCB94C3F1946D85AE2F5AF19CC3AD923 /* SMRDBUtilOption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SMRDBUtilOption.m; path = SMRDB/SMRDBOption/SMRDBUtilOption.m; sourceTree = "<group>"; };
 		DCFBA583FBD64B74C95A67795AADC4D5 /* SMRTableAssistant-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SMRTableAssistant-prefix.pch"; sourceTree = "<group>"; };
 		DFDC38811023F3308383B18FC00545C1 /* SMRRankerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SMRRankerManager.h; path = SMRRanker/SMRRankerManager.h; sourceTree = "<group>"; };
@@ -420,8 +420,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07D92C7402BEFE46FA46B7D881FA932B /* CoreFoundation.framework in Frameworks */,
-				5F8A534515B094261D7BF06D77001D72 /* Foundation.framework in Frameworks */,
+				69EE9E1AB2096F989444FA248552EA69 /* CoreFoundation.framework in Frameworks */,
+				1C37276A51ABE9A6F95ED26427382309 /* Foundation.framework in Frameworks */,
 				CD577399B6EFEC787F0B8CCDB4E20A7F /* YYModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,8 +430,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C83CDB06531ECA10639AA4F7952F1A0 /* CoreFoundation.framework in Frameworks */,
-				92238297377853440B5103FCD13DE994 /* Foundation.framework in Frameworks */,
+				1D18D25957C02F2D4AFBE7A7761E39BA /* CoreFoundation.framework in Frameworks */,
+				8F65A8235AE634B161A3C5172879E943 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +439,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1563C2F752A182AF5308169E6A5BE58A /* Foundation.framework in Frameworks */,
+				AA27CFE5A91FA1D7F61B5C655484FE2D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +447,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B902A443586CC35058BA869B1870D6D9 /* Foundation.framework in Frameworks */,
+				E80BD618798D331822CD9AE697A84E03 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,8 +455,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F8ED2FE2EC83E5660EBB39E84E49821 /* CoreFoundation.framework in Frameworks */,
-				042D824DCE086A1EEE43D176EFFE4C92 /* Foundation.framework in Frameworks */,
+				35C0489C078B266767E2A258BDF78879 /* CoreFoundation.framework in Frameworks */,
+				9AC1212B43938A7B8E53F25C0BFF4332 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,8 +464,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CCC1AA437F8DBB4B31A81308F781F39 /* CoreFoundation.framework in Frameworks */,
-				3A78CFB2F96544ABAAEC1A882337C164 /* Foundation.framework in Frameworks */,
+				5CBDBFE51BC2325ED2C6CEC9D6FB3092 /* CoreFoundation.framework in Frameworks */,
+				721C9AAC190A2A84A811D0389EE3BDB8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +473,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD65B341CC6F560ABD5F03D540BE1FD4 /* Foundation.framework in Frameworks */,
+				4122896F5CAEF674F46A46F906E32160 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +481,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8C668CEAA0C5E6025DDCAF5F261C7BD /* Foundation.framework in Frameworks */,
+				866908B07B9CB8E4EF24AFE5245DA90E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,8 +489,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE3FECBC7D6BBC6147E4C44C9B89D7C3 /* CoreFoundation.framework in Frameworks */,
-				CACE70A9CF61128174B7DF3969E1C8A6 /* Foundation.framework in Frameworks */,
+				4E839504DC41924F52124B7D2F79A5F5 /* CoreFoundation.framework in Frameworks */,
+				1249323FA2073300DDDA3ACE700B73DA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA11BBC99AA28A1C1EA2F6FDC4CEDF9F /* FMDB.framework in Frameworks */,
-				62F6467C96691C4A4DACFC611EFA9136 /* Foundation.framework in Frameworks */,
+				80A925782485200190DA586CF899F9CE /* Foundation.framework in Frameworks */,
 				817E0E61BE9961D0FDD4A170E250D17C /* YYModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,7 +508,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FDB2F19FF9CF44ABCE94B84237C91F5 /* Foundation.framework in Frameworks */,
+				72563ADE99DC9E753B27D48B16AA3654 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +636,15 @@
 			path = "../Target Support Files/FMDB";
 			sourceTree = "<group>";
 		};
+		5E9873226F6A81F80C7B270F197EE7ED /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				024CC043AB017081A958E580FAD82531 /* CoreFoundation.framework */,
+				6AFBD74A4CCFA2C1A40CD3E57B771F6B /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		68790FC312EBDE0C258823CA6A8E190F /* SMRRanker */ = {
 			isa = PBXGroup;
 			children = (
@@ -702,7 +711,7 @@
 			children = (
 				1DD906FCFC39207A21957E264B8A1CB0 /* FMDB.framework */,
 				A86A1A5CA4836276D66D5230FB2901A4 /* YYModel.framework */,
-				EF2DE8EEF1B60D54689AC3024F89C36D /* iOS */,
+				5E9873226F6A81F80C7B270F197EE7ED /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -924,15 +933,6 @@
 			);
 			name = "Pods-AppCoder";
 			path = "Target Support Files/Pods-AppCoder";
-			sourceTree = "<group>";
-		};
-		EF2DE8EEF1B60D54689AC3024F89C36D /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				0914E622AADC3A9B11329AEAB58A1806 /* CoreFoundation.framework */,
-				DC17565E7B0F7C58F3EA9E761F64CD13 /* Foundation.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1546,11 +1546,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRLogScreen/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRLogScreen/SMRLogScreen.modulemap";
 				PRODUCT_MODULE_NAME = SMRLogScreen;
 				PRODUCT_NAME = SMRLogScreen;
@@ -1581,11 +1577,7 @@
 				INFOPLIST_FILE = "Target Support Files/YYModel/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/YYModel/YYModel.modulemap";
 				PRODUCT_MODULE_NAME = YYModel;
 				PRODUCT_NAME = YYModel;
@@ -1615,11 +1607,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRRanker/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRRanker/SMRRanker.modulemap";
 				PRODUCT_MODULE_NAME = SMRRanker;
 				PRODUCT_NAME = SMRRanker;
@@ -1649,11 +1637,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRDB/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRDB/SMRDB.modulemap";
 				PRODUCT_MODULE_NAME = SMRDB;
 				PRODUCT_NAME = SMRDB;
@@ -1746,11 +1730,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRLogSystem/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRLogSystem/SMRLogSystem.modulemap";
 				PRODUCT_MODULE_NAME = SMRLogSystem;
 				PRODUCT_NAME = SMRLogSystem;
@@ -1780,11 +1760,7 @@
 				INFOPLIST_FILE = "Target Support Files/YYModel/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/YYModel/YYModel.modulemap";
 				PRODUCT_MODULE_NAME = YYModel;
 				PRODUCT_NAME = YYModel;
@@ -1815,11 +1791,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRTableAssistant/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRTableAssistant/SMRTableAssistant.modulemap";
 				PRODUCT_MODULE_NAME = SMRTableAssistant;
 				PRODUCT_NAME = SMRTableAssistant;
@@ -1849,11 +1821,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRLifecycle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRLifecycle/SMRLifecycle.modulemap";
 				PRODUCT_MODULE_NAME = SMRLifecycle;
 				PRODUCT_NAME = SMRLifecycle;
@@ -1883,11 +1851,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRLogSystem/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRLogSystem/SMRLogSystem.modulemap";
 				PRODUCT_MODULE_NAME = SMRLogSystem;
 				PRODUCT_NAME = SMRLogSystem;
@@ -1918,11 +1882,7 @@
 				INFOPLIST_FILE = "Target Support Files/FMDB/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/FMDB/FMDB.modulemap";
 				PRODUCT_MODULE_NAME = FMDB;
 				PRODUCT_NAME = FMDB;
@@ -1952,11 +1912,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRModel/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRModel/SMRModel.modulemap";
 				PRODUCT_MODULE_NAME = SMRModel;
 				PRODUCT_NAME = SMRModel;
@@ -1987,11 +1943,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRModel/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRModel/SMRModel.modulemap";
 				PRODUCT_MODULE_NAME = SMRModel;
 				PRODUCT_NAME = SMRModel;
@@ -2021,11 +1973,7 @@
 				INFOPLIST_FILE = "Target Support Files/PureLayout/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/PureLayout/PureLayout.modulemap";
 				PRODUCT_MODULE_NAME = PureLayout;
 				PRODUCT_NAME = PureLayout;
@@ -2055,11 +2003,7 @@
 				INFOPLIST_FILE = "Target Support Files/FMDB/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/FMDB/FMDB.modulemap";
 				PRODUCT_MODULE_NAME = FMDB;
 				PRODUCT_NAME = FMDB;
@@ -2090,11 +2034,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRTableAssistant/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRTableAssistant/SMRTableAssistant.modulemap";
 				PRODUCT_MODULE_NAME = SMRTableAssistant;
 				PRODUCT_NAME = SMRTableAssistant;
@@ -2125,11 +2065,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRRanker/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRRanker/SMRRanker.modulemap";
 				PRODUCT_MODULE_NAME = SMRRanker;
 				PRODUCT_NAME = SMRRanker;
@@ -2160,11 +2096,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRLogScreen/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRLogScreen/SMRLogScreen.modulemap";
 				PRODUCT_MODULE_NAME = SMRLogScreen;
 				PRODUCT_NAME = SMRLogScreen;
@@ -2194,11 +2126,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRLifecycle/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRLifecycle/SMRLifecycle.modulemap";
 				PRODUCT_MODULE_NAME = SMRLifecycle;
 				PRODUCT_NAME = SMRLifecycle;
@@ -2229,11 +2157,7 @@
 				INFOPLIST_FILE = "Target Support Files/PureLayout/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/PureLayout/PureLayout.modulemap";
 				PRODUCT_MODULE_NAME = PureLayout;
 				PRODUCT_NAME = PureLayout;
@@ -2264,11 +2188,7 @@
 				INFOPLIST_FILE = "Target Support Files/SMRDB/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SMRDB/SMRDB.modulemap";
 				PRODUCT_MODULE_NAME = SMRDB;
 				PRODUCT_NAME = SMRDB;
@@ -2357,11 +2277,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-AppCoder/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-AppCoder/Pods-AppCoder.modulemap";
 				OTHER_LDFLAGS = "";
@@ -2394,11 +2310,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-AppCoder/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-AppCoder/Pods-AppCoder.modulemap";
 				OTHER_LDFLAGS = "";
