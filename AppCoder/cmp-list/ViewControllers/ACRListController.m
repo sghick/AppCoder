@@ -32,7 +32,8 @@ UITableViewDataSource,
 UITableViewDelegate,
 UITableViewSectionsDelegate,
 ACRSideMenuDelegate,
-ACRInputControllerDelegate>
+ACRInputControllerDelegate,
+ACRListCellDelegate>
 
 @property (strong, nonatomic) NSArray<ACRAppInfo *> *infoList;
 @property (strong, nonatomic) UITableView *tableView;
@@ -85,9 +86,9 @@ ACRInputControllerDelegate>
     switch (row.rowKey) {
         case kRowTypeList: {
             ACRListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfListCell];
+            cell.delegate = self;
             ACRAppInfo *info = self.infoList[row.rowSamesIndex];
-            cell.textLabel.text = info.title;
-            cell.detailTextLabel.text = info.des;
+            [cell setContentWithAppInfo:info];
             return cell;
         }
             break;
@@ -133,6 +134,13 @@ ACRInputControllerDelegate>
     return sections;
 }
 
+#pragma mark - ACRListCellDelegate
+
+- (void)listCell:(ACRListCell *)cell didEditBtnTouched:(ACRAppInfo *)info {
+    ACRTempleteMeta *meta = [ACRAppDataBase selectMetaWithIdentifier:info.meta_identifier];
+    [self pushToInputEditControllerWithMeta:meta appInfo:info];
+}
+
 #pragma mark - ACRSideMenuDelegate
 
 - (CGFloat)sideMenuView:(ACRSideMenu *)menu heightOfItem:(UIView *)item atIndex:(NSInteger)index {
@@ -142,7 +150,7 @@ ACRInputControllerDelegate>
 - (void)sideMenuView:(ACRSideMenu *)menu didTouchedItem:(UIView *)item atIndex:(NSInteger)index {
     [menu hide];
     ACRTempleteMeta *meta = self.sideMenuSource[index];
-    [self pushToInputAddControllerWithMeat:meta];
+    [self pushToInputAddControllerWithMeta:meta];
 }
 
 #pragma mark - Actions
@@ -189,7 +197,7 @@ ACRInputControllerDelegate>
 
 #pragma mark - JumpLogical
 
-- (void)pushToInputAddControllerWithMeat:(ACRTempleteMeta *)meta {
+- (void)pushToInputAddControllerWithMeta:(ACRTempleteMeta *)meta {
     ACRInputController *inputVC = [[ACRInputController alloc] init];
     [inputVC setContentForAddWithMeta:meta];
     inputVC.delegate = self;
@@ -197,7 +205,7 @@ ACRInputControllerDelegate>
     [self.navigationController pushViewController:inputVC animated:YES];
 }
 
-- (void)pushToInputEditControllerWithMeat:(ACRTempleteMeta *)meta appInfo:(ACRAppInfo *)appInfo {
+- (void)pushToInputEditControllerWithMeta:(ACRTempleteMeta *)meta appInfo:(ACRAppInfo *)appInfo {
     ACRInputController *inputVC = [[ACRInputController alloc] init];
     [inputVC setContentForEditWithMeta:meta info:appInfo];
     inputVC.delegate = self;
