@@ -18,15 +18,18 @@
 #import "ACRTempleteController.h"
 
 static NSString * const identifierOfRootCell = @"identifierOfRootCell";
+static NSString * const identifierOfWildCell = @"identifierOfWildCell";
 static NSString * const identifierOfListCell = @"identifierOfListCell";
 
 typedef NS_ENUM(NSInteger, kSectionType) {
     kSectionTypeRoot,
+    kSectionTypeWild,
     kSectionTypeList,
 };
 
 typedef NS_ENUM(NSInteger, kRowType) {
     kRowTypeRoot,
+    kRowTypeWild,
     kRowTypeList,
 };
 
@@ -42,6 +45,7 @@ ACRTempleteControllerDelegate>
 @property (strong, nonatomic) ACRSideMenu *sideMenu;
 
 @property (strong, nonatomic) NSArray<ACRTempleteMeta *> *metaRoot;
+@property (strong, nonatomic) NSArray<ACRTempleteMeta *> *metaWild;
 @property (strong, nonatomic) NSArray<ACRTempleteMeta *> *metaList;
 
 @end
@@ -74,7 +78,8 @@ ACRTempleteControllerDelegate>
 
 - (void)queryDataFromDB {
     self.metaRoot = [ACRAppDataBase selectRootMetas];
-    self.metaList = [ACRAppDataBase selectNotRootMetas];
+    self.metaWild = [ACRAppDataBase selectNotRootWildMetas];
+    self.metaList = [ACRAppDataBase selectNotRootNormalMetas];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -90,13 +95,21 @@ ACRTempleteControllerDelegate>
                 return cell;
             }
             break;
-            case kRowTypeList: {
-                ACRListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfListCell];
-                ACRTempleteMeta *meta = self.metaList[row.rowSamesIndex];
-                cell.textLabel.text = meta.title;
-                cell.detailTextLabel.text = meta.des;
-                return cell;
-            }
+        case kRowTypeWild: {
+            ACRListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfWildCell];
+            ACRTempleteMeta *meta = self.metaWild[row.rowSamesIndex];
+            cell.textLabel.text = meta.title;
+            cell.detailTextLabel.text = meta.des;
+            return cell;
+        }
+            break;
+        case kRowTypeList: {
+            ACRListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfListCell];
+            ACRTempleteMeta *meta = self.metaList[row.rowSamesIndex];
+            cell.textLabel.text = meta.title;
+            cell.detailTextLabel.text = meta.des;
+            return cell;
+        }
             break;
             
         default:
@@ -109,15 +122,20 @@ ACRTempleteControllerDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SMRRow *row = [tableView rowWithIndexPath:indexPath];
     switch (row.rowKey) {
-            case kRowTypeRoot: {
-                ACRTempleteMeta *meta = self.metaRoot[row.rowSamesIndex];
-                [self didSelctedMeta:meta];
-            }
+        case kRowTypeRoot: {
+            ACRTempleteMeta *meta = self.metaRoot[row.rowSamesIndex];
+            [self didSelctedMeta:meta];
+        }
             break;
-            case kRowTypeList: {
-                ACRTempleteMeta *meta = self.metaList[row.rowSamesIndex];
-                [self didSelctedMeta:meta];
-            }
+        case kRowTypeWild: {
+            ACRTempleteMeta *meta = self.metaWild[row.rowSamesIndex];
+            [self didSelctedMeta:meta];
+        }
+            break;
+        case kRowTypeList: {
+            ACRTempleteMeta *meta = self.metaList[row.rowSamesIndex];
+            [self didSelctedMeta:meta];
+        }
             break;
             
         default:
@@ -138,13 +156,17 @@ ACRTempleteControllerDelegate>
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     SMRSection *sec = [tableView sectionWithIndexPathSection:section];
     switch (sec.sectionKey) {
-            case kSectionTypeRoot:{
-                return @"根模板";
-            }
+        case kSectionTypeRoot:{
+            return @"根模板";
+        }
             break;
-            case kSectionTypeList:{
-                return @"普通模板";
-            }
+        case kSectionTypeWild:{
+            return @"未用模板";
+        }
+            break;
+        case kSectionTypeList:{
+            return @"普通模板";
+        }
             break;
         default:
             break;
@@ -158,6 +180,7 @@ ACRTempleteControllerDelegate>
     SMRSections *sections = [[SMRSections alloc] init];
     
     [sections addSectionKey:kSectionTypeRoot rowKey:kRowTypeRoot rowSamesCount:self.metaRoot.count];
+    [sections addSectionKey:kSectionTypeWild rowKey:kRowTypeWild rowSamesCount:self.metaWild.count];
     [sections addSectionKey:kSectionTypeList rowKey:kRowTypeList rowSamesCount:self.metaList.count];
     
     return sections;
@@ -260,6 +283,7 @@ ACRTempleteControllerDelegate>
         _tableView.sectionsDelegate = self;
         
         [_tableView registerClass:[ACRListCell class] forCellReuseIdentifier:identifierOfRootCell];
+        [_tableView registerClass:[ACRListCell class] forCellReuseIdentifier:identifierOfWildCell];
         [_tableView registerClass:[ACRListCell class] forCellReuseIdentifier:identifierOfListCell];
     }
     return _tableView;

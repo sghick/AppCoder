@@ -21,8 +21,12 @@
     NSString *where = @"WHERE is_root=1";
     return [ACRTempleteMeta selectWhere:where];
 }
-+ (NSArray<ACRTempleteMeta *> *)selectNotRootMetas {
-    NSString *where = @"WHERE is_root<>1";
++ (NSArray<ACRTempleteMeta *> *)selectNotRootWildMetas {
+    NSString *where = @"WHERE is_root<>1 AND super_identifier is null";
+    return [ACRTempleteMeta selectWhere:where];
+}
++ (NSArray<ACRTempleteMeta *> *)selectNotRootNormalMetas {
+    NSString *where = @"WHERE is_root<>1 AND super_identifier is not null";
     return [ACRTempleteMeta selectWhere:where];
 }
 + (NSArray<ACRTempleteMeta *> *)selectMetasWithSuperIdentifier:(NSString *)superIdentifier {
