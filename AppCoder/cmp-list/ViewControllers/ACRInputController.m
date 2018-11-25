@@ -60,7 +60,14 @@ UITableViewSectionsDelegate>
 - (void)setContentForEditWithMeta:(ACRTempleteMeta *)meta info:(ACRAppInfo *)info {
     _meta = meta;
     _info = info;
-    _inputs = [[NSArray alloc] initWithArray:info.inputs copyItems:YES];
+    _inputs = [[NSArray alloc] initWithArray:meta.inputs copyItems:YES];
+    NSMutableDictionary<NSString *, ACRMetaProperty *> *infoInputDict = [NSMutableDictionary dictionary];
+    for (ACRMetaProperty *per in info.inputs) {
+        [infoInputDict setObject:per forKey:per.title?:@""];
+    }
+    for (ACRMetaProperty *per in _inputs) {
+        per.value = infoInputDict[per.title].value;
+    }
     [self.tableView smr_reloadData];
     
     self.navigationItem.title = info.title;

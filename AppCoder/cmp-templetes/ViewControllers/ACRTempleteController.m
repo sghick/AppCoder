@@ -10,7 +10,7 @@
 #import "SMRTableAssistant.h"
 #import "ACRMetaInfoCell.h"
 #import "ACRMetaPropertyCell.h"
-#import "ACRListCell.h"
+#import "ACRMetaListCell.h"
 #import "ACRAddBtn.h"
 #import "ACRSideMenu.h"
 
@@ -106,7 +106,7 @@ ACRSubmetaSelectControllerDelegate>
     SMRRow *row = [tableView rowWithIndexPath:indexPath];
     switch (row.rowKey) {
         case kRowTypeSuperMeta: {
-            ACRListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfSupermetaCell];
+            ACRMetaListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfSupermetaCell];
             ACRTempleteMeta *meta = [ACRAppDataBase selectMetaWithIdentifier:self.meta.super_identifier];
             cell.textLabel.text = meta.title;
             cell.detailTextLabel.text = meta.des;
@@ -128,7 +128,7 @@ ACRSubmetaSelectControllerDelegate>
         }
             break;
         case kRowTypeSubMetas: {
-            ACRListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfSubmetaCell];
+            ACRMetaListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfSubmetaCell];
             ACRTempleteMeta *meta = self.subMetaList[row.rowSamesIndex];
             cell.textLabel.text = meta.title;
             cell.detailTextLabel.text = meta.des;
@@ -359,10 +359,10 @@ ACRSubmetaSelectControllerDelegate>
         _tableView.dataSource = self;
         _tableView.sectionsDelegate = self;
         
-        [_tableView registerClass:[ACRListCell class] forCellReuseIdentifier:identifierOfSupermetaCell];
+        [_tableView registerClass:[ACRMetaListCell class] forCellReuseIdentifier:identifierOfSupermetaCell];
         [_tableView registerClass:[ACRMetaInfoCell class] forCellReuseIdentifier:identifierOfMetaInfoCell];
         [_tableView registerClass:[ACRMetaPropertyCell class] forCellReuseIdentifier:identifierOfProtertyCell];
-        [_tableView registerClass:[ACRListCell class] forCellReuseIdentifier:identifierOfSubmetaCell];
+        [_tableView registerClass:[ACRMetaListCell class] forCellReuseIdentifier:identifierOfSubmetaCell];
     }
     return _tableView;
 }

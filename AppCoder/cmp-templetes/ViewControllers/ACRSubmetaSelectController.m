@@ -8,7 +8,7 @@
 
 #import "ACRSubmetaSelectController.h"
 #import "SMRTableAssistant.h"
-#import "ACRListCell.h"
+#import "ACRMetaListCell.h"
 #import "ACRAddBtn.h"
 #import "ACRSideMenu.h"
 
@@ -88,7 +88,7 @@ ACRTempleteControllerDelegate>
     SMRRow *row = [tableView rowWithIndexPath:indexPath];
     switch (row.rowKey) {
             case kRowTypeRoot: {
-                ACRListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfRootCell];
+                ACRMetaListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfRootCell];
                 ACRTempleteMeta *meta = self.metaRoot[row.rowSamesIndex];
                 cell.textLabel.text = meta.title;
                 cell.detailTextLabel.text = meta.des;
@@ -96,7 +96,7 @@ ACRTempleteControllerDelegate>
             }
             break;
         case kRowTypeWild: {
-            ACRListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfWildCell];
+            ACRMetaListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfWildCell];
             ACRTempleteMeta *meta = self.metaWild[row.rowSamesIndex];
             cell.textLabel.text = meta.title;
             cell.detailTextLabel.text = meta.des;
@@ -104,7 +104,7 @@ ACRTempleteControllerDelegate>
         }
             break;
         case kRowTypeList: {
-            ACRListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfListCell];
+            ACRMetaListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierOfListCell];
             ACRTempleteMeta *meta = self.metaList[row.rowSamesIndex];
             cell.textLabel.text = meta.title;
             cell.detailTextLabel.text = meta.des;
@@ -282,9 +282,9 @@ ACRTempleteControllerDelegate>
         _tableView.delegate = self;
         _tableView.sectionsDelegate = self;
         
-        [_tableView registerClass:[ACRListCell class] forCellReuseIdentifier:identifierOfRootCell];
-        [_tableView registerClass:[ACRListCell class] forCellReuseIdentifier:identifierOfWildCell];
-        [_tableView registerClass:[ACRListCell class] forCellReuseIdentifier:identifierOfListCell];
+        [_tableView registerClass:[ACRMetaListCell class] forCellReuseIdentifier:identifierOfRootCell];
+        [_tableView registerClass:[ACRMetaListCell class] forCellReuseIdentifier:identifierOfWildCell];
+        [_tableView registerClass:[ACRMetaListCell class] forCellReuseIdentifier:identifierOfListCell];
     }
     return _tableView;
 }
