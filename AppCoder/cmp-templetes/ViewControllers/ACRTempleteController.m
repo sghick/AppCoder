@@ -181,6 +181,10 @@ ACRSubmetaSelectControllerDelegate>
     return sec.rowSamesCountOfAll;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 50;
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     SMRSection *sec = [tableView sectionWithIndexPathSection:section];
     switch (sec.sectionKey) {
@@ -243,7 +247,9 @@ ACRSubmetaSelectControllerDelegate>
     
     // 滚动焦点到刚编辑的模板位置
     NSInteger index = [self.subMetaList indexOfObject:meta];
-    NSIndexPath *indexPath = [self.tableView.sections indexPathWithSectionKey:kSectionTypeSubMetas rowKey:kRowTypeSubMetas];
+    NSIndexPath *indexPath = [self.tableView.sections indexPathWithSectionKey:kSectionTypeSubMetas
+                                                                       rowKey:kRowTypeSubMetas
+                                                                rowSamesIndex:index];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
@@ -292,7 +298,7 @@ ACRSubmetaSelectControllerDelegate>
 #pragma mark - ACRSideMenuDelegate
 
 - (CGFloat)sideMenuView:(ACRSideMenu *)menu heightOfItem:(UIView *)item atIndex:(NSInteger)index {
-    return 30;
+    return 40;
 }
 
 - (void)sideMenuView:(ACRSideMenu *)menu didTouchedItem:(UIView *)item atIndex:(NSInteger)index {
@@ -304,6 +310,13 @@ ACRSubmetaSelectControllerDelegate>
             NSArray *nInpts = [NSArray arrayWithArray:self.inputs];
             self.inputs = [nInpts arrayByAddingObject:property];
             [self.tableView smr_reloadData];
+            
+            // 滚动焦点到刚编辑的模板位置
+            NSInteger index = [self.inputs indexOfObject:property];
+            NSIndexPath *indexPath = [self.tableView.sections indexPathWithSectionKey:kSectionTypeProterties
+                                                                               rowKey:kRowTypeProterties
+                                                                        rowSamesIndex:index];
+            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
         }
             break;
         case 1: {
@@ -423,7 +436,7 @@ ACRSubmetaSelectControllerDelegate>
                                                                    0,
                                                                    SCREEN_WIDTH,
                                                                    SCREEN_HEIGHT - 50.0)
-                                                  style:UITableViewStyleGrouped];
+                                                  style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.sectionsDelegate = self;
@@ -432,6 +445,8 @@ ACRSubmetaSelectControllerDelegate>
         [_tableView registerClass:[ACRMetaInfoCell class] forCellReuseIdentifier:identifierOfMetaInfoCell];
         [_tableView registerClass:[ACRMetaPropertyCell class] forCellReuseIdentifier:identifierOfProtertyCell];
         [_tableView registerClass:[ACRMetaListCell class] forCellReuseIdentifier:identifierOfSubmetaCell];
+        
+        [_tableView smr_setExtraCellLineHidden];
     }
     return _tableView;
 }

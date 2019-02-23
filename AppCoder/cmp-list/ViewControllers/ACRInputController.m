@@ -167,12 +167,14 @@ UITableViewSectionsDelegate>
                                                                    0,
                                                                    SCREEN_WIDTH,
                                                                    SCREEN_HEIGHT - 50.0)
-                                                  style:UITableViewStyleGrouped];
+                                                  style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.sectionsDelegate = self;
         
         [_tableView registerClass:[ACRInputCell class] forCellReuseIdentifier:identifierOfInputCell];
+        
+        [_tableView smr_setExtraCellLineHidden];
     }
     return _tableView;
 }

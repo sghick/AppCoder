@@ -7,7 +7,7 @@ target "AppCoder" do
     use_frameworks!
 
     # cmp-framework
-    pod 'SMRBaseCore', :git => 'git@github.com:sghick/framework-SMRBaseCore.git', :commit => '5b157d9'
+    pod 'SMRBaseCore', :git => 'git@github.com:sghick/framework-SMRBaseCore.git', :commit => '55610e8'
 
 end
 

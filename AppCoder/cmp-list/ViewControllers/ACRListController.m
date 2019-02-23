@@ -144,7 +144,7 @@ ACRListCellDelegate>
 #pragma mark - ACRSideMenuDelegate
 
 - (CGFloat)sideMenuView:(ACRSideMenu *)menu heightOfItem:(UIView *)item atIndex:(NSInteger)index {
-    return 30;
+    return 40;
 }
 
 - (void)sideMenuView:(ACRSideMenu *)menu didTouchedItem:(UIView *)item atIndex:(NSInteger)index {
@@ -193,6 +193,13 @@ ACRListCellDelegate>
     
     [self queryDataFromDB];
     [self.tableView smr_reloadData];
+    
+    // 滚动焦点到刚编辑的模板位置
+    NSInteger index = [self.infoList indexOfObject:info];
+    NSIndexPath *indexPath = [self.tableView.sections indexPathWithSectionKey:kSectionTypeList
+                                                                       rowKey:kRowTypeList
+                                                                rowSamesIndex:index];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 - (void)inputController:(ACRInputController *)controller didDeleteBtnTouchedWithMeta:(ACRAppInfo *)info {

@@ -42,7 +42,7 @@ PODS:
   - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - "SMRBaseCore (from `git@github.com:sghick/framework-SMRBaseCore.git`, commit `5b157d9`)"
+  - "SMRBaseCore (from `git@github.com:sghick/framework-SMRBaseCore.git`, commit `55610e8`)"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -60,12 +60,12 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   SMRBaseCore:
-    :commit: 5b157d9
+    :commit: '55610e8'
     :git: "git@github.com:sghick/framework-SMRBaseCore.git"
 
 CHECKOUT OPTIONS:
   SMRBaseCore:
-    :commit: 5b157d9
+    :commit: '55610e8'
     :git: "git@github.com:sghick/framework-SMRBaseCore.git"
 
 SPEC CHECKSUMS:
@@ -82,6 +82,6 @@ SPEC CHECKSUMS:
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 901c9798f2c91384e7b33b04dbba887773954953
+PODFILE CHECKSUM: 8ac522a2a92aff3788419a979a3c9001dfccb4c2
 
 COCOAPODS: 1.5.3
