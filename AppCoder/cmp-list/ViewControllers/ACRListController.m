@@ -195,6 +195,23 @@ ACRListCellDelegate>
     [self.tableView smr_reloadData];
 }
 
+- (void)inputController:(ACRInputController *)controller didDeleteBtnTouchedWithMeta:(ACRAppInfo *)info {
+    NSString *content = [NSString stringWithFormat:@"是否要删除代码:%@", info.title];
+    SMRAlertView *alert = [SMRAlertView alertViewWithContent:content
+                                                buttonTitles:@[@"点错了", @"删除"]
+                                               deepColorType:SMRAlertViewButtonDeepColorTypeCancel];
+    [alert show];
+    [alert setSureButtonTouchedBlock:^(id  _Nonnull maskView) {
+        [maskView hide];
+        [self.navigationController popViewControllerAnimated:YES];
+        
+        [ACRAppDataBase deleteAppInfoWithIdentifier:info.identifier];
+        
+        [self queryDataFromDB];
+        [self.tableView smr_reloadData];
+    }];
+}
+
 #pragma mark - JumpLogical
 
 - (void)pushToInputAddControllerWithMeta:(ACRTempleteMeta *)meta {

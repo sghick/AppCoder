@@ -19,6 +19,8 @@
 
 #import "ACRSubmetaSelectController.h"
 
+static NSString * const kErrorDomainForTemplete = @"com.sumrise.appcoder.templete.meta.domain.error";
+
 static NSString * const identifierOfSupermetaCell = @"identifierOfSupermetaCell";
 static NSString * const identifierOfMetaInfoCell = @"identifierOfMetaInfoCell";
 static NSString * const identifierOfProtertyCell = @"identifierOfProtertyCell";
@@ -77,6 +79,13 @@ ACRSubmetaSelectControllerDelegate>
                                    [ACRAddBtn generalSize].height);
 }
 
+- (UIBarButtonItem *)rightBtn {
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStyleDone target:self action:@selector(removeBtnAction:)];
+    return btn;
+}
+
+#pragma mark - Datas
+
 #pragma mark - Publics
 
 - (void)setContentForAdd {
@@ -92,12 +101,13 @@ ACRSubmetaSelectControllerDelegate>
     _subMetaList = [ACRAppDataBase selectMetasWithSuperIdentifier:meta.identifier];
     
     for (ACRMetaInfo *info in self.metaInfoList) {
-        info.value = [_meta valueForKey:info.property_name];
+        info.value = [NSString stringWithFormat:@"%@", [_meta valueForKey:info.property_name]];
     }
     
     [self.tableView smr_reloadData];
     
     self.navigationItem.title = meta.title;
+    self.navigationItem.rightBarButtonItem = [self rightBtn];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -205,6 +215,10 @@ ACRSubmetaSelectControllerDelegate>
     return @"";
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
+}
+
 #pragma mark - UITableViewSectionsDelegate
 
 - (SMRSections *)sectionsInTableView:(UITableView *)tableView {
@@ -263,6 +277,23 @@ ACRSubmetaSelectControllerDelegate>
     [self.tableView smr_reloadData];
 }
 
+- (void)tempController:(ACRTempleteController *)controller didDeleteBtnTouchedWithMeta:(ACRTempleteMeta *)meta {
+    NSString *content = [NSString stringWithFormat:@"是否要删除模板:%@", meta.title];
+    SMRAlertView *alert = [SMRAlertView alertViewWithContent:content
+                                                buttonTitles:@[@"点错了", @"删除"]
+                                               deepColorType:SMRAlertViewButtonDeepColorTypeCancel];
+    [alert show];
+    [alert setSureButtonTouchedBlock:^(id  _Nonnull maskView) {
+        [maskView hide];
+        [self.navigationController popViewControllerAnimated:YES];
+        
+        [ACRAppDataBase deleteMetaWithIdentifier:meta.identifier];
+        
+        self.subMetaList = [ACRAppDataBase selectMetasWithSuperIdentifier:self.meta.identifier];
+        [self.tableView smr_reloadData];
+    }];
+}
+
 #pragma mark - ACRSideMenuDelegate
 
 - (CGFloat)sideMenuView:(ACRSideMenu *)menu heightOfItem:(UIView *)item atIndex:(NSInteger)index {
@@ -314,13 +345,28 @@ ACRSubmetaSelectControllerDelegate>
         _meta.identifier = [NSUUID UUID].UUIDString;
     }
     
+    NSArray<NSError *> *errors = [self validateInputsForMetaInfos:self.metaInfoList];
+    if (errors && errors.count) {
+        SMRAlertView *alert = [SMRAlertView alertViewWithContent:errors.firstObject.smr_detail
+                                                    buttonTitles:@[@"确定"]
+                                                   deepColorType:SMRAlertViewButtonDeepColorTypeSure];
+        [alert show];
+        return;
+    }
+    
     for (ACRMetaInfo *info in self.metaInfoList) {
         [self.meta setValue:info.value?:@"" forKey:info.property_name];
     }
     
-    self.meta.inputs = self.inputs;
+    self.meta.inputs = [self trimEmptyInputs:self.inputs];
     if ([self.delegate respondsToSelector:@selector(tempController:didSaveBtnTouchedWithMeta:)]) {
         [self.delegate tempController:self didSaveBtnTouchedWithMeta:self.meta];
+    }
+}
+
+- (void)removeBtnAction:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(tempController:didDeleteBtnTouchedWithMeta:)]) {
+        [self.delegate tempController:self didDeleteBtnTouchedWithMeta:self.meta];
     }
 }
 
@@ -344,6 +390,34 @@ ACRSubmetaSelectControllerDelegate>
     ACRSubmetaSelectController *nextVC = [[ACRSubmetaSelectController alloc] init];
     nextVC.delegate = self;
     [self.navigationController pushViewController:nextVC animated:YES];
+}
+
+#pragma mark - Utils
+
+- (NSArray<ACRMetaProperty *> *)trimEmptyInputs:(NSArray<ACRMetaProperty *> *)inputs {
+    NSMutableArray<ACRMetaProperty *> *arr = [inputs mutableCopy];
+    for (int i = 0; i < arr.count; i++) {
+        ACRMetaProperty *ipt = arr[i];
+        if (!ipt.title.length) {
+            [arr removeObject:ipt];
+        }
+    }
+    return [arr copy];
+}
+
+- (NSArray<NSError *> *)validateInputsForMetaInfos:(NSArray<ACRMetaInfo *> *)metaInfos {
+    NSMutableArray<NSError *> *errors = [NSMutableArray array];
+    for (ACRMetaInfo *meta in metaInfos) {
+        if (meta.required && (!meta.value.length)) {
+            NSError *error = [NSError smr_errorWithDomain:kErrorDomainForTemplete
+                                                     code:100
+                                                   detail:[NSString stringWithFormat:@"%@不能为空", meta.property_name]
+                                                  message:nil
+                                                 userInfo:nil];
+            [errors addObject:error];
+        }
+    }
+    return [errors copy];
 }
 
 #pragma mark - Getters
@@ -398,11 +472,13 @@ ACRSubmetaSelectControllerDelegate>
     is_root.title = @"根模版";
     is_root.type = @"BOOL";
     is_root.value = [NSString stringWithFormat:@"%@", @(self.default_is_root)];
+    is_root.required = YES;
     // 模版名称
     ACRMetaInfo *title = [[ACRMetaInfo alloc] init];
     title.property_name = @"title";
     title.title = @"模版名称";
     title.type = @"NSString";
+    title.required = YES;
     // 描述
     ACRMetaInfo *des = [[ACRMetaInfo alloc] init];
     des.property_name = @"des";

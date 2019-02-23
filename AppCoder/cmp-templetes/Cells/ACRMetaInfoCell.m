@@ -66,6 +66,7 @@ UITextFieldDelegate>
         _valueText = [[UITextField alloc] init];
         _valueText.borderStyle = UITextBorderStyleRoundedRect;
         _valueText.delegate = self;
+        _valueText.clearButtonMode = UITextFieldViewModeWhileEditing;
     }
     return _valueText;
 }

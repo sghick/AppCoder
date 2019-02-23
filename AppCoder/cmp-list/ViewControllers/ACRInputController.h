@@ -13,6 +13,7 @@
 @protocol ACRInputControllerDelegate <NSObject>
 
 - (void)inputController:(ACRInputController *)controller didSaveBtnTouchedWithInfo:(ACRAppInfo *)info;
+- (void)inputController:(ACRInputController *)controller didDeleteBtnTouchedWithMeta:(ACRAppInfo *)info;
 
 @end
 

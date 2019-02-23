@@ -47,6 +47,11 @@ UITableViewSectionsDelegate>
     [self.view addSubview:self.tableView];
 }
 
+- (UIBarButtonItem *)rightBtn {
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStyleDone target:self action:@selector(removeBtnAction:)];
+    return btn;
+}
+
 #pragma mark - Publics
 
 - (void)setContentForAddWithMeta:(ACRTempleteMeta *)meta {
@@ -71,6 +76,7 @@ UITableViewSectionsDelegate>
     [self.tableView smr_reloadData];
     
     self.navigationItem.title = info.title;
+    self.navigationItem.rightBarButtonItem = [self rightBtn];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -164,6 +170,12 @@ UITableViewSectionsDelegate>
     _info.inputs = self.inputs;
     if ([self.delegate respondsToSelector:@selector(inputController:didSaveBtnTouchedWithInfo:)]) {
         [self.delegate inputController:self didSaveBtnTouchedWithInfo:self.info];
+    }
+}
+
+- (void)removeBtnAction:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(inputController:didDeleteBtnTouchedWithMeta:)]) {
+        [self.delegate inputController:self didDeleteBtnTouchedWithMeta:self.info];
     }
 }
 

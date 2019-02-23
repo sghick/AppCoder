@@ -13,6 +13,7 @@
 @protocol ACRTempleteControllerDelegate <NSObject>
 
 - (void)tempController:(ACRTempleteController *)controller didSaveBtnTouchedWithMeta:(ACRTempleteMeta *)meta;
+- (void)tempController:(ACRTempleteController *)controller didDeleteBtnTouchedWithMeta:(ACRTempleteMeta *)meta;
 
 @end
 

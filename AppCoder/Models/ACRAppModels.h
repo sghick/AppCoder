@@ -18,6 +18,7 @@
 @property (copy  , nonatomic) NSString *title; ///< 标题
 @property (copy  , nonatomic) NSString *type; // 类型
 @property (copy  , nonatomic) NSString *value; // 内容
+@property (assign, nonatomic) BOOL required; // 必填项,value不能为空
 
 @end
 
