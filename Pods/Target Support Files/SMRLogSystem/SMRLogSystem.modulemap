@@ -1,6 +1,0 @@
-framework module SMRLogSystem {
-  umbrella header "SMRLogSystem-umbrella.h"
-
-  export *
-  module * { export * }
-}

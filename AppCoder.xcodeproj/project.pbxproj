@@ -95,6 +95,7 @@
 		FE75768B21A0023100C47DFC /* ACRSideMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACRSideMenu.m; sourceTree = "<group>"; };
 		FE75768E21A002DC00C47DFC /* menu_bg_trangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_bg_trangle@2x.png"; sourceTree = "<group>"; };
 		FE75768F21A002DC00C47DFC /* menu_bg_trangle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_bg_trangle@3x.png"; sourceTree = "<group>"; };
+		FE77761F2221376C00F6416F /* AppCoderPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCoderPrefixHeader.pch; sourceTree = "<group>"; };
 		FE9EF7D52189453D00425CC5 /* AppCoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppCoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE9EF7D82189453D00425CC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE9EF7D92189453E00425CC5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -303,6 +304,7 @@
 				FE9EF7E32189454C00425CC5 /* LaunchScreen.storyboard */,
 				FE9EF7E62189454C00425CC5 /* Info.plist */,
 				FE9EF7E72189454C00425CC5 /* main.m */,
+				FE77761F2221376C00F6416F /* AppCoderPrefixHeader.pch */,
 			);
 			path = AppCoder;
 			sourceTree = "<group>";
@@ -437,28 +439,32 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AppCoder/Pods-AppCoder-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaSecurity/CocoaSecurity.framework",
+				"${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/SMRDB/SMRDB.framework",
-				"${BUILT_PRODUCTS_DIR}/SMRLifecycle/SMRLifecycle.framework",
-				"${BUILT_PRODUCTS_DIR}/SMRLogScreen/SMRLogScreen.framework",
-				"${BUILT_PRODUCTS_DIR}/SMRLogSystem/SMRLogSystem.framework",
-				"${BUILT_PRODUCTS_DIR}/SMRModel/SMRModel.framework",
-				"${BUILT_PRODUCTS_DIR}/SMRRanker/SMRRanker.framework",
-				"${BUILT_PRODUCTS_DIR}/SMRTableAssistant/SMRTableAssistant.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SMRBaseCore/SMRBaseCore.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaSecurity.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLEX.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SMRDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SMRLifecycle.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SMRLogScreen.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SMRLogSystem.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SMRModel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SMRRanker.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SMRTableAssistant.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SMRBaseCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,7 +679,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4U92X5J5QF;
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AppCoder/AppCoderPrefixHeader.pch";
 				INFOPLIST_FILE = AppCoder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -693,7 +702,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4U92X5J5QF;
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AppCoder/AppCoderPrefixHeader.pch";
 				INFOPLIST_FILE = AppCoder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

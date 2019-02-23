@@ -1,6 +1,0 @@
-framework module SMRTableAssistant {
-  umbrella header "SMRTableAssistant-umbrella.h"
-
-  export *
-  module * { export * }
-}

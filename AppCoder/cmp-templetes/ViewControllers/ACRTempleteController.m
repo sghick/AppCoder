@@ -205,10 +205,6 @@ ACRSubmetaSelectControllerDelegate>
     return @"";
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self.view endEditing:YES];
-}
-
 #pragma mark - UITableViewSectionsDelegate
 
 - (SMRSections *)sectionsInTableView:(UITableView *)tableView {

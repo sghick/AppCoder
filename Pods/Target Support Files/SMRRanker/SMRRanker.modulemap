@@ -1,6 +1,0 @@
-framework module SMRRanker {
-  umbrella header "SMRRanker-umbrella.h"
-
-  export *
-  module * { export * }
-}
