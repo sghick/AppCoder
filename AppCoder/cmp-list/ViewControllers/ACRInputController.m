@@ -47,7 +47,12 @@ UITableViewSectionsDelegate>
     [self.view addSafeAreaViewWithColor:self.saveBtn.backgroundColor];
 }
 
-- (UIBarButtonItem *)rightBtn {
+- (UIBarButtonItem *)copyBtn {
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"复制" style:UIBarButtonItemStyleDone target:self action:@selector(copyBtnAction:)];
+    return btn;
+}
+
+- (UIBarButtonItem *)deleteBtn {
     UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStyleDone target:self action:@selector(removeBtnAction:)];
     return btn;
 }
@@ -76,7 +81,7 @@ UITableViewSectionsDelegate>
     [self.tableView smr_reloadData];
     
     self.navigationItem.title = info.title;
-    self.navigationItem.rightBarButtonItem = [self rightBtn];
+    self.navigationItem.rightBarButtonItems = @[[self copyBtn], [self deleteBtn]];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -151,6 +156,10 @@ UITableViewSectionsDelegate>
     if ([self.delegate respondsToSelector:@selector(inputController:didSaveBtnTouchedWithInfo:)]) {
         [self.delegate inputController:self didSaveBtnTouchedWithInfo:self.info];
     }
+}
+
+- (void)copyBtnAction:(id)sender {
+    
 }
 
 - (void)removeBtnAction:(id)sender {

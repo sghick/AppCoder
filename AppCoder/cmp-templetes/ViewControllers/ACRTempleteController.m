@@ -79,7 +79,12 @@ ACRSubmetaSelectControllerDelegate>
                                    [ACRAddBtn generalSize].height);
 }
 
-- (UIBarButtonItem *)rightBtn {
+- (UIBarButtonItem *)copyBtn {
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"复制" style:UIBarButtonItemStyleDone target:self action:@selector(copyBtnAction:)];
+    return btn;
+}
+
+- (UIBarButtonItem *)delteBtn {
     UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStyleDone target:self action:@selector(removeBtnAction:)];
     return btn;
 }
@@ -89,6 +94,11 @@ ACRSubmetaSelectControllerDelegate>
 #pragma mark - Publics
 
 - (void)setContentForAdd {
+    
+    if (!self.meta) {
+        _meta = [[ACRTempleteMeta alloc] init];
+        _meta.identifier = [NSUUID UUID].UUIDString;
+    }
     
     [self.tableView smr_reloadData];
     
@@ -107,7 +117,21 @@ ACRSubmetaSelectControllerDelegate>
     [self.tableView smr_reloadData];
     
     self.navigationItem.title = meta.title;
-    self.navigationItem.rightBarButtonItem = [self rightBtn];
+    self.navigationItem.rightBarButtonItems = @[[self delteBtn], [self copyBtn]];
+}
+
+- (void)setContentForCopyWithMeta:(ACRTempleteMeta *)meta {
+    _meta = meta;
+    _inputs = [[NSArray alloc] initWithArray:meta.inputs copyItems:YES];
+    _subMetaList = [ACRAppDataBase selectMetasWithSuperIdentifier:meta.identifier];
+    
+    for (ACRMetaInfo *info in self.metaInfoList) {
+        info.value = [NSString stringWithFormat:@"%@", [_meta valueForKey:info.property_name]];
+    }
+    
+    [self.tableView smr_reloadData];
+    
+    self.navigationItem.title = meta.title;
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -279,7 +303,7 @@ ACRSubmetaSelectControllerDelegate>
 }
 
 - (void)tempController:(ACRTempleteController *)controller didDeleteBtnTouchedWithMeta:(ACRTempleteMeta *)meta {
-    NSString *content = [NSString stringWithFormat:@"是否要删除模板:%@", meta.title];
+    NSString *content = [NSString stringWithFormat:@"是否要删除模板:\n%@", meta.title];
     SMRAlertView *alert = [SMRAlertView alertViewWithContent:content
                                                 buttonTitles:@[@"点错了", @"删除"]
                                                deepColorType:SMRAlertViewButtonDeepColorTypeCancel];
@@ -348,28 +372,24 @@ ACRSubmetaSelectControllerDelegate>
 - (void)saveAction:(UIButton *)sender {
     [self.view endEditing:YES];
     
-    if (!self.meta) {
-        _meta = [[ACRTempleteMeta alloc] init];
-        _meta.identifier = [NSUUID UUID].UUIDString;
-    }
-    
-    NSArray<NSError *> *errors = [self validateInputsForMetaInfos:self.metaInfoList];
-    if (errors && errors.count) {
-        SMRAlertView *alert = [SMRAlertView alertViewWithContent:errors.firstObject.smr_detail
-                                                    buttonTitles:@[@"确定"]
-                                                   deepColorType:SMRAlertViewButtonDeepColorTypeSure];
-        [alert show];
+    if (![self tryToSaveTempletes]) {
         return;
     }
     
-    for (ACRMetaInfo *info in self.metaInfoList) {
-        [self.meta setValue:info.value?:@"" forKey:info.property_name];
-    }
-    
-    self.meta.inputs = [self trimEmptyInputs:self.inputs];
     if ([self.delegate respondsToSelector:@selector(tempController:didSaveBtnTouchedWithMeta:)]) {
         [self.delegate tempController:self didSaveBtnTouchedWithMeta:self.meta];
     }
+}
+
+- (void)copyBtnAction:(id)sender {
+    SMRAlertView *alert = [SMRAlertView alertViewWithContent:@"是否复制到新的模板?\n温馨提示:复制前\n当前模板会自动保存并退出."
+                                                buttonTitles:@[@"点错了", @"复制"]
+                                               deepColorType:SMRAlertViewButtonDeepColorTypeCancel];
+    [alert show];
+    [alert setSureButtonTouchedBlock:^(id  _Nonnull maskView) {
+        [maskView hide];
+        [self saveAndCopyToNewsTempletes];
+    }];
 }
 
 - (void)removeBtnAction:(id)sender {
@@ -419,13 +439,43 @@ ACRSubmetaSelectControllerDelegate>
         if (meta.required && (!meta.value.length)) {
             NSError *error = [NSError smr_errorWithDomain:kErrorDomainForTemplete
                                                      code:100
-                                                   detail:[NSString stringWithFormat:@"%@不能为空", meta.property_name]
+                                                   detail:[NSString stringWithFormat:@"%@不能为空", meta.title]
                                                   message:nil
                                                  userInfo:nil];
             [errors addObject:error];
         }
     }
     return [errors copy];
+}
+
+- (BOOL)tryToSaveTempletes {
+    [self.view endEditing:YES];
+    
+    NSArray<NSError *> *errors = [self validateInputsForMetaInfos:self.metaInfoList];
+    if (errors && errors.count) {
+        SMRAlertView *alert = [SMRAlertView alertViewWithContent:errors.firstObject.smr_detail
+                                                    buttonTitles:@[@"确定"]
+                                                   deepColorType:SMRAlertViewButtonDeepColorTypeSure];
+        [alert show];
+        return NO;
+    }
+    
+    for (ACRMetaInfo *info in self.metaInfoList) {
+        [self.meta setValue:info.value?:@"" forKey:info.property_name];
+    }
+    
+    self.meta.inputs = [self trimEmptyInputs:self.inputs];
+    return YES;
+}
+
+- (void)saveAndCopyToNewsTempletes {
+    if (![self tryToSaveTempletes]) {
+        return;
+    }
+    // 创建一个直接更换一下id,同时将title置为空
+    self.meta.identifier = [NSUUID UUID].UUIDString;
+    self.meta.title = @"";
+    [self setContentForCopyWithMeta:self.meta];
 }
 
 #pragma mark - Getters

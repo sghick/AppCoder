@@ -26,5 +26,6 @@
 
 - (void)setContentForAdd;
 - (void)setContentForEditWithMeta:(ACRTempleteMeta *)meta;
+- (void)setContentForCopyWithMeta:(ACRTempleteMeta *)meta;
 
 @end
