@@ -25,14 +25,12 @@ static NSString * const identifierOfSupermetaCell = @"identifierOfSupermetaCell"
 static NSString * const identifierOfMetaInfoCell = @"identifierOfMetaInfoCell";
 static NSString * const identifierOfProtertyCell = @"identifierOfProtertyCell";
 static NSString * const identifierOfSubmetaCell = @"identifierOfSubmetaCell";
-static NSString * const identifierOfSaveCell = @"identifierOfSaveCell";
 
 typedef NS_ENUM(NSInteger, kSectionType) {
     kSectionTypeSuperMeta,
     kSectionTypeMetaInfo,
     kSectionTypeProterties,
     kSectionTypeSubMetas,
-    kSectionTypeSave,
 };
 
 typedef NS_ENUM(NSInteger, kRowType) {
@@ -40,7 +38,6 @@ typedef NS_ENUM(NSInteger, kRowType) {
     kRowTypeMetaInfo,
     kRowTypeProterties,
     kRowTypeSubMetas,
-    kRowTypeSave,
 };
 
 @interface ACRTempleteController ()<
@@ -54,6 +51,7 @@ ACRSubmetaSelectControllerDelegate>
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) ACRAddBtn *addBtn;
 @property (strong, nonatomic) ACRSideMenu *sideMenu;
+@property (strong, nonatomic) UIButton *saveBtn;
 
 @property (strong, nonatomic) NSArray<ACRMetaInfo *> *metaInfoList;
 @property (strong, nonatomic) NSArray<ACRMetaProperty *> *inputs;
@@ -72,6 +70,8 @@ ACRSubmetaSelectControllerDelegate>
 - (void)createSubviews {
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.addBtn];
+    [self.view addSubview:self.saveBtn];
+    [self.view addSafeAreaViewWithColor:self.saveBtn.backgroundColor];
     
     self.addBtn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - [ACRAddBtn generalSize].width - 10,
                                    [UIScreen mainScreen].bounds.size.height - [ACRAddBtn generalSize].height - 160,
@@ -145,15 +145,6 @@ ACRSubmetaSelectControllerDelegate>
             return cell;
         }
             break;
-        case kRowTypeSave: {
-            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierOfSaveCell];
-            cell.textLabel.text = @"保存";
-            cell.textLabel.textAlignment = NSTextAlignmentCenter;
-            cell.textLabel.textColor = [UIColor blackColor];
-            cell.contentView.backgroundColor = [UIColor yellowColor];
-            return cell;
-        }
-            break;
             
         default:
             break;
@@ -165,13 +156,13 @@ ACRSubmetaSelectControllerDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SMRRow *row = [tableView rowWithIndexPath:indexPath];
     switch (row.rowKey) {
+        case kRowTypeProterties: {
+#warning TODO:在这里设置属性的其它属性
+        }
+            break;
         case kRowTypeSubMetas: {
             ACRTempleteMeta *meta = self.subMetaList[row.rowSamesIndex];
             [self pushToEditSubMetasControllerWithMeta:meta];
-        }
-            break;
-        case kRowTypeSave: {
-            [self saveAction];
         }
             break;
             
@@ -228,7 +219,6 @@ ACRSubmetaSelectControllerDelegate>
     [sections addSectionKey:kSectionTypeMetaInfo rowKey:kRowTypeMetaInfo rowSamesCount:self.metaInfoList.count];
     [sections addSectionKey:kSectionTypeProterties rowKey:kRowTypeProterties rowSamesCount:self.inputs.count];
     [sections addSectionKey:kSectionTypeSubMetas rowKey:kRowTypeSubMetas rowSamesCount:self.subMetaList.count];
-    [sections addSectionKey:kSectionTypeSave rowKey:kRowTypeSave];
     
     return sections;
 }
@@ -250,6 +240,11 @@ ACRSubmetaSelectControllerDelegate>
     
     _subMetaList = [ACRAppDataBase selectMetasWithSuperIdentifier:self.meta.identifier];
     [self.tableView smr_reloadData];
+    
+    // 滚动焦点到刚编辑的模板位置
+    NSInteger index = [self.subMetaList indexOfObject:meta];
+    NSIndexPath *indexPath = [self.tableView.sections indexPathWithSectionKey:kSectionTypeSubMetas rowKey:kRowTypeSubMetas];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 
@@ -337,7 +332,7 @@ ACRSubmetaSelectControllerDelegate>
     [self.sideMenu show];
 }
 
-- (void)saveAction {
+- (void)saveAction:(UIButton *)sender {
     [self.view endEditing:YES];
     
     if (!self.meta) {
@@ -424,7 +419,11 @@ ACRSubmetaSelectControllerDelegate>
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
+                                                                   0,
+                                                                   SCREEN_WIDTH,
+                                                                   SCREEN_HEIGHT - 50.0)
+                                                  style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.sectionsDelegate = self;
@@ -463,6 +462,16 @@ ACRSubmetaSelectControllerDelegate>
     return _sideMenu;
 }
 
+- (UIButton *)saveBtn {
+    if (!_saveBtn) {
+        _saveBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        [_saveBtn setTitle:@"保存" forState:UIControlStateNormal];
+        [_saveBtn addTarget:self action:@selector(saveAction:) forControlEvents:UIControlEventTouchUpInside];
+        _saveBtn.backgroundColor = [UIColor yellowColor];
+        _saveBtn.frame = CGRectMake(0, self.tableView.bottom, SCREEN_WIDTH, 50.0);
+    }
+    return _saveBtn;
+}
 #pragma mark - Default
 
 - (NSArray<ACRMetaInfo *> *)constMetaInfo {

@@ -13,16 +13,13 @@
 #import "ACRAppModels.h"
 
 static NSString * const identifierOfInputCell = @"identifierOfInputCell";
-static NSString * const identifierOfSaveCell = @"identifierOfSaveCell";
 
 typedef NS_ENUM(NSInteger, kSectionType) {
     kSectionTypeList,
-    kSectionTypeSave,
 };
 
 typedef NS_ENUM(NSInteger, kRowType) {
     kRowTypeList,
-    kRowTypeSave,
 };
 
 @interface ACRInputController ()<
@@ -32,6 +29,7 @@ UITableViewSectionsDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSArray<ACRMetaProperty *> *inputs;
+@property (strong, nonatomic) UIButton *saveBtn;
 
 @end
 
@@ -45,6 +43,8 @@ UITableViewSectionsDelegate>
 
 - (void)createSubviews {
     [self.view addSubview:self.tableView];
+    [self.view addSubview:self.saveBtn];
+    [self.view addSafeAreaViewWithColor:self.saveBtn.backgroundColor];
 }
 
 - (UIBarButtonItem *)rightBtn {
@@ -91,15 +91,6 @@ UITableViewSectionsDelegate>
             return cell;
         }
             break;
-        case kRowTypeSave: {
-            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierOfInputCell];
-            cell.textLabel.text = @"保存";
-            cell.textLabel.textAlignment = NSTextAlignmentCenter;
-            cell.textLabel.textColor = [UIColor blackColor];
-            cell.contentView.backgroundColor = [UIColor yellowColor];
-            return cell;
-        }
-            break;
             
         default:
             break;
@@ -109,16 +100,6 @@ UITableViewSectionsDelegate>
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SMRRow *row = [tableView rowWithIndexPath:indexPath];
-    switch (row.rowKey) {
-        case kRowTypeSave: {
-            [self saveAction];
-        }
-            break;
-            
-        default:
-            break;
-    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -141,14 +122,13 @@ UITableViewSectionsDelegate>
     SMRSections *sections = [[SMRSections alloc] init];
     
     [sections addSectionKey:kSectionTypeList rowKey:kRowTypeList rowSamesCount:self.inputs.count];
-    [sections addSectionKey:kSectionTypeSave rowKey:kRowTypeSave];
     
     return sections;
 }
 
 #pragma mark - Actions
 
-- (void)saveAction {
+- (void)saveAction:(UIButton *)sender {
     [self.view endEditing:YES];
     
     // 寻找title的property,使用第1个作为title
@@ -183,7 +163,11 @@ UITableViewSectionsDelegate>
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
+                                                                   0,
+                                                                   SCREEN_WIDTH,
+                                                                   SCREEN_HEIGHT - 50.0)
+                                                  style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.sectionsDelegate = self;
@@ -191,6 +175,17 @@ UITableViewSectionsDelegate>
         [_tableView registerClass:[ACRInputCell class] forCellReuseIdentifier:identifierOfInputCell];
     }
     return _tableView;
+}
+
+- (UIButton *)saveBtn {
+    if (!_saveBtn) {
+        _saveBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        [_saveBtn setTitle:@"保存" forState:UIControlStateNormal];
+        [_saveBtn addTarget:self action:@selector(saveAction:) forControlEvents:UIControlEventTouchUpInside];
+        _saveBtn.backgroundColor = [UIColor yellowColor];
+        _saveBtn.frame = CGRectMake(0, self.tableView.bottom, SCREEN_WIDTH, 50.0);
+    }
+    return _saveBtn;
 }
 
 @end
