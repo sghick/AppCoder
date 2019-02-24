@@ -80,7 +80,7 @@ UITableViewSectionsDelegate>
     }
     [self.tableView smr_reloadData];
     
-    self.navigationItem.title = info.title;
+    self.navigationItem.title = info.infoTitle;
     self.navigationItem.rightBarButtonItems = @[[self copyBtn], [self deleteBtn]];
 }
 
@@ -136,19 +136,9 @@ UITableViewSectionsDelegate>
 - (void)saveAction:(UIButton *)sender {
     [self.view endEditing:YES];
     
-    // 寻找title的property,使用第1个作为title
-    ACRMetaProperty *titleP = self.inputs.firstObject;
-    // 寻找des的property,使用第2个作为des
-    ACRMetaProperty *desP = nil;
-    if (self.inputs.count >= 2) {
-        desP = self.inputs[1];
-    }
-    
     if (!_info) {
         _info = [[ACRAppInfo alloc] init];
         _info.identifier = [NSUUID UUID].UUIDString;
-        _info.title = titleP.value;
-        _info.des = desP.value;
     }
     _info.is_root = self.meta.is_root;
     _info.meta_identifier = self.meta.identifier;

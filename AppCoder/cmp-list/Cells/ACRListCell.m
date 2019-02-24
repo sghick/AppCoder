@@ -47,9 +47,8 @@
 
 - (void)setContentWithAppInfo:(ACRAppInfo *)appInfo {
     _appInfo = appInfo;
-    
-    self.textLabel.text = appInfo.title;
-    self.detailTextLabel.text = appInfo.des;
+    self.textLabel.text = appInfo.infoTitle;
+    self.detailTextLabel.text = appInfo.infoDescription;
 }
 
 #pragma mark - Actions

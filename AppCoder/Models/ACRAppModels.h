@@ -55,11 +55,12 @@
 @property (copy  , nonatomic) NSString *super_identifier; ///< 唯一标识
 
 @property (assign, nonatomic) BOOL is_root; ///< 根信息
-@property (copy  , nonatomic) NSString *title; ///< 标题
-@property (copy  , nonatomic) NSString *des; ///< 描述
 
 @property (copy  , nonatomic) NSArray<ACRMetaProperty *> *inputs; ///< 输入元素
 @property (strong, nonatomic) NSString *meta_identifier;
+
+- (NSString *)infoTitle;
+- (NSString *)infoDescription;
 
 @end
 

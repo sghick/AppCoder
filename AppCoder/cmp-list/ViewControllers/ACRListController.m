@@ -48,7 +48,7 @@ ACRListCellDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (self.super_appInfo) {
-        self.navigationItem.title = self.super_appInfo.title;
+        self.navigationItem.title = self.super_appInfo.infoTitle;
     } else {
         self.navigationItem.title = @"项目列表";
     }
@@ -186,7 +186,8 @@ ACRListCellDelegate>
     
     // 更新数据库
     if ([self.infoList containsObject:info]) {
-        [ACRAppDataBase updateAppInfoWithIdentifier:info];
+        [ACRAppDataBase deleteAppInfoWithIdentifier:info.identifier];
+        [ACRAppDataBase insertOrReplaceAppInfos:@[info]];
     } else {
         [ACRAppDataBase insertOrReplaceAppInfos:@[info]];
     }
@@ -203,7 +204,7 @@ ACRListCellDelegate>
 }
 
 - (void)inputController:(ACRInputController *)controller didDeleteBtnTouchedWithMeta:(ACRAppInfo *)info {
-    NSString *content = [NSString stringWithFormat:@"是否要删除代码:%@", info.title];
+    NSString *content = [NSString stringWithFormat:@"是否要删除代码:%@", info.infoTitle];
     SMRAlertView *alert = [SMRAlertView alertViewWithContent:content
                                                 buttonTitles:@[@"点错了", @"删除"]
                                                deepColorType:SMRAlertViewButtonDeepColorTypeCancel];
