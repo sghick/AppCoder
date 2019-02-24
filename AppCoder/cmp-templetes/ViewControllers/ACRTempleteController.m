@@ -473,9 +473,10 @@ ACRSubmetaSelectControllerDelegate>
         return;
     }
     // 创建一个直接更换一下id,同时将title置为空
-    self.meta.identifier = [NSUUID UUID].UUIDString;
-    self.meta.title = @"";
-    [self setContentForCopyWithMeta:self.meta];
+    ACRTempleteMeta *meta = [self.meta copy];
+    meta.identifier = [NSUUID UUID].UUIDString;
+    [self setContentForCopyWithMeta:meta];
+    self.navigationItem.title = @"(新复制:未保存)";
 }
 
 #pragma mark - Getters
